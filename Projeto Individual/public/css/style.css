@@ -1,0 +1,40 @@
+body {
+    background-color: #000000;
+    color: #FFFF;
+}
+
+@font-face {
+    font-family: 'perpetua';
+    src: url('../assets/fonts/perpetua.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'trajan-pro';
+    src: url('../assets/fonts/trajan-pro.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'trajan-normal';
+    src: url('../assets/fonts/trajan-normal.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+    font-family: 'trajan-normal';
+    font-size: 3em;
+    font-weight: normal;
+}
+
+p {
+    font-family: 'perpetua';
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
