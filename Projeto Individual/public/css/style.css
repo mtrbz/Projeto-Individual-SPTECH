@@ -45,6 +45,10 @@ p {
     display: flex;
 }
 
+.gif img {
+    width: 100px;
+}
+
 .menu {
     display: flex;
     list-style: none;
@@ -70,11 +74,6 @@ p {
   text-shadow: 
     -2px -2px 6px #FFFF,
     2px 2px 6px #FFFF;
-  
-}
-
-.selecionado {
-    width: 30px;
 }
 
 .logo{
@@ -84,4 +83,20 @@ p {
 
 .fundo {
     width: 100%;
+}
+
+.container {
+    background-image: url('../assets/img/knight-and-quirrel.jpg');
+    width: 100%;
+    height: 640px;
+    background-repeat: no-repeat;
+    border-bottom: solid 1px #FFFF;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.container .logo {
+    width: 700px;
+    margin-bottom: 150px;
 }
