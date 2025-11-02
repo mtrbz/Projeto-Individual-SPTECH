@@ -99,21 +99,31 @@ nav {
 }
 
 .img-inicio {
-    background-image: url('../assets/img/knight-and-quirrel.jpg');
-    width: 100%;
-    height: 640px;
-    background-repeat: no-repeat;
-    border-bottom: solid 1px #FFFF;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    position: absolute;
-    overflow: hidden;
+  position: relative; 
+  width: 100%;
+  height: 640px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid 1px #FFFF;
+}
+
+.img-inicio::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/img/knight-and-quirrel.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .img-inicio .logo {
-    width: 700px;
-    margin-bottom: 150px;
+    width: 900px;
+    margin-bottom: 160px;
+    position: relative;
 }
 
 .conteudo {
@@ -130,12 +140,13 @@ nav {
 .container {
     display: flex;
     justify-content: space-around;
-    margin: 0 150px 200px 150px;
+    margin: 0 150px 100px 150px;
+    max-width: 1600px;
 }
 
 .img-box {
-    width: 700px;
-    height: 400px;
+    max-width: 650px;
+    max-height: 350px;
 }
 
 .box {
@@ -221,21 +232,40 @@ footer {
 .personagens .img-inicio-personagens::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   background-image: url('../assets/img/knight-background.png');
   background-size: cover;
   background-position: center;
-  opacity: 80%;
+  opacity: 60%;
 }
 
+.personagens .conteudo {
+    margin-top: 50px;
+}
 .personagens .img-inicio-personagens h1 {
   position: relative; /* garante que o texto fique acima da imagem */
-  font-size: 10em;
-  font-family: 'perpetua';
-  z-index: 1;
+  font-size: 7em;
+  font-family: 'trajan-pro';
+}
+
+.personagens .container {
+    display: flex;
+    background-color: #AFAFAF30;
+    width: 80%;
+    margin-top: 50px;
+    padding: 2em;
+    border-radius: 12px;
+}
+
+.personagens .box {
+    display: flex;
+    width: 200px;
+    height: 200px;
+}
+
+.personagens .box img {
+   width: 100px;
 }
 
 /* Fim personagens */
