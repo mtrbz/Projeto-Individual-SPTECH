@@ -217,6 +217,71 @@ footer {
 
 /* Fim footer */
 
+/* Historia */
+
+.historia-inicio {
+    position: relative; 
+    width: 100%;
+    height: 640px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px #FFFF;
+}
+
+.historia-intro {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 30%;
+    margin-left: 20em;
+}
+
+.historia-intro p {
+    font-size: 1.2em;
+}
+
+.historia-intro img {
+    display: flex;
+    align-self: center;
+    width: 100%;
+    height: 200px;
+}
+
+.historia-img {
+    display: flex;
+    align-self: flex-end;
+    height: 640px;
+}
+
+.historia {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.historia .container {
+    width: 50%;
+}
+
+.historia .container img {
+    width: 900px;
+}
+
+.historia .container .dialogo {
+    width: 350px;
+}
+
+.historia .container p {
+    font-size: 1.2em;
+    padding: 50px 0 50px 0;
+}
+
+/* Fim historia */
+
 /* Personagens */
 
 .personagens .img-inicio-personagens {
