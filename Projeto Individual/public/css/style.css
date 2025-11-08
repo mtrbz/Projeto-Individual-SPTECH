@@ -63,6 +63,15 @@ nav {
     align-items: center;
 }
 
+.aba-selecionada {
+    display: flex;
+    align-items: center;
+}
+
+.aba-selecionada img{
+    width: 80px;
+}
+
 .header li {
     margin: 0;
 }
@@ -384,7 +393,7 @@ footer {
 }
 
 .tela-personagem .container .personagem img {
-    width: 700px;
+    width: 1200px;
     transform: scaleX(-1);
     margin-left: 20em;
 }
