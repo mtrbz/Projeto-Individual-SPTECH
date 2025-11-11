@@ -2,6 +2,7 @@ body {
     background-color: #000000;
     color: #FFFF;
     margin: 0;
+    overflow-x: hidden;
 }
 
 @font-face {
@@ -310,6 +311,7 @@ footer {
 .personagens .conteudo {
     margin-top: 50px;
 }
+
 .personagens .img-inicio-personagens h1 {
   position: absolute;
   font-size: 8em;
