@@ -1,0 +1,171 @@
+/* Início Sly */
+
+.tela-personagem {
+    display: flex;
+    flex-direction: column;
+}
+
+.tela-personagem .logo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.tela-personagem .logo img {
+    width: 400px;
+    margin-top: 50px;
+}
+
+.tela-personagem .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url('../assets/img/sly-background.png');
+    background-size: cover;
+    min-width: 1600px;
+    border-bottom: solid 1px #FFFF;
+    top: 200px;
+}
+
+.tela-personagem .fundo {
+    width: 100%;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0 50px 0;
+}
+
+.tela-personagem .container .personagem img {
+    width: 900px;
+    transform: scaleX(-1);
+}
+
+.tela-personagem .nome {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    margin-left: 100px;
+}
+
+.tela-personagem .frase {
+    display: flex;
+    width: 300px;
+    text-align: center;
+    align-self: flex-end;
+    margin: 30px 100px 30px 0;
+}
+
+.tela-personagem .nome h1 {
+    font-family: 'trajan-pro';
+    font-size: 7em;
+    margin: 0;
+}
+
+.tela-personagem .nome p, 
+.tela-personagem .frase p {
+    font-family: 'trajan-pro';
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.tela-personagem .titulo {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 50px 0 50px 0;
+}
+
+.tela-personagem .titulo h1 {
+    font-family: 'trajan-pro';
+    font-size: 2.5em;
+}
+
+.tela-personagem .texto {
+    display: flex;
+    text-align: center;
+    width: 60%;
+}
+
+.tela-personagem .texto p {
+    font-family: 'perpetua';
+    font-size: 1.5em;
+}
+
+.tela-personagem .mercadorias {
+    background-color: #444444;
+    width: 70%;
+    margin-bottom: 100px;
+    border-radius: 10px 10px 0 0;
+}
+
+.tela-personagem .mercadorias .itens {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: solid 2px #FFFF;
+    padding: 16px;
+}
+
+.tela-personagem .mercadorias .itens p {
+    text-align: center;
+}
+
+.tela-personagem .mercadorias .img-item {
+    width: 100px;
+}
+
+.tela-personagem .mercadorias .geo {
+    width: 20px;
+    margin-right: 5px;
+}
+
+.tela-personagem .item {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100px;
+}
+
+.tela-personagem .mercadorias .descricao {
+    display: flex;
+    width: 20%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.tela-personagem .localizacao {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    padding: 30px;
+    margin: 30px;
+}
+
+.tela-personagem .loc-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.tela-personagem .loc-img .img-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.tela-personagem .localizacao img {
+    width: 400px;
+}
+
+/* Fim Sly */

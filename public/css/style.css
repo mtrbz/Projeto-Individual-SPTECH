@@ -1,0 +1,573 @@
+body {
+    background-color: #000000;
+    color: #FFFF;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+@font-face {
+    font-family: 'perpetua';
+    src: url('../assets/fonts/perpetua.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'trajan-pro';
+    src: url('../assets/fonts/trajan-pro.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'trajan-normal';
+    src: url('../assets/fonts/trajan-normal.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1 {
+    font-family: 'trajan-normal';
+    font-size: 3em;
+    font-weight: normal;
+}
+
+p {
+    font-family: 'perpetua';
+}
+
+.header {
+    display: flex;
+    margin-top: 10px;
+    border-bottom: solid 1px;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+}
+
+.gif img {
+    width: 100px;
+    margin-left: 30px;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.aba-selecionada {
+    display: flex;
+    align-items: center;
+}
+
+.aba-selecionada img{
+    width: 80px;
+}
+
+.header li {
+    margin: 0;
+}
+
+.header a,
+.personagens a {
+    text-decoration: none;
+    color: #FFFF;
+}
+
+.header a:hover, .botao-login:hover,
+.personagens a:hover {
+  text-shadow: 
+    -2px -2px 6px #FFFF,
+    2px 2px 6px #FFFF;
+    transition: 0.2s;
+}
+
+.header .botao-login {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-right: 30px;
+}
+
+/* Index */
+
+.logo {
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.fundo {
+    width: 100%;
+}
+
+.img-inicio {
+  position: relative; 
+  width: 100%;
+  height: 640px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid 1px #FFFF;
+}
+
+.img-inicio::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/img/knight-and-quirrel.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.img-inicio .logo {
+    width: 900px;
+    margin-bottom: 160px;
+    position: relative;
+}
+
+.conteudo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.conteudo #titulo {
+    margin: 1.5em 0 2em 0;
+}
+
+.conteudo .container {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 150px 100px 150px;
+    max-width: 1600px;
+}
+
+.img-box {
+    max-width: 650px;
+    max-height: 350px;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.box h1 {
+    font-size: 2.5em;
+    margin: 0 0 20px 0;
+}
+
+.box p {
+    font-size: 1.1em;
+}
+
+/* Fim index */
+
+/* Footer */
+
+footer {
+    background-color: #3A3A3A;
+}
+
+.facecard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+}
+
+.facecard img {
+    width: 200px;
+}
+
+.facecard h1 {
+    font-size: 2em;
+}
+
+.facecard p {
+    font-size: 1.2em;
+    width: 450px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.redes-sociais {
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+}
+
+.redes-sociais img {
+    width: 60px;
+}
+
+#copyright {
+    display: flex;
+    margin: 0;
+    padding: 60px 0 20px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Fim footer */
+
+/* Historia */
+
+.historia-inicio {
+    position: relative; 
+    width: 100%;
+    height: 640px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px #FFFF;
+}
+
+.historia-intro {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 30%;
+    margin-left: 20em;
+}
+
+.historia-intro p {
+    font-size: 1.2em;
+}
+
+.historia-intro img {
+    display: flex;
+    align-self: center;
+    width: 100%;
+    height: 200px;
+}
+
+.historia-img {
+    display: flex;
+    align-self: flex-end;
+    height: 640px;
+}
+
+.historia {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.historia .container {
+    width: 50%;
+}
+
+.historia .container img {
+    width: 900px;
+}
+
+.historia .container .dialogo {
+    width: 350px;
+}
+
+.historia .container p {
+    font-size: 1.2em;
+    padding: 50px 0 50px 0;
+}
+
+/* Fim historia */
+
+/* Personagens */
+
+.personagens .img-inicio-personagens {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid 1px #FFFF;
+}
+
+.personagens .img-inicio-personagens img {
+    width: 100%;
+    height: 640px;
+    object-fit: cover;
+    opacity: 50%;
+}
+
+.personagens .conteudo {
+    margin-top: 50px;
+}
+
+.personagens .img-inicio-personagens h1 {
+  position: absolute;
+  font-size: 8em;
+  font-family: 'perpetua';
+}
+
+.personagens .container {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #AFAFAF30;
+    width: 80%;
+    margin-top: 50px;
+    padding: 2em;
+    border-radius: 12px;
+}
+
+.personagens .box {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.personagens .img-box {
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+}
+
+.personagens .img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.personagens .box h3 {
+    font-family: 'trajan-pro';
+    font-weight: normal;
+    font-size: 0.9rem;
+}
+
+/* Fim personagens */
+
+/* Cadastro */
+
+.cadastro {
+    display: flex;
+    width: 100%;
+    height: 900px;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../assets/img/background.png');
+    background-size: cover;
+}
+
+.cadastro .container {
+    display: flex;
+    align-items: center;
+    background-color: #ffff;
+    border-radius: 20px;
+    color: #000000;
+    width: 70%;
+    height: 80%;
+}
+
+.cadastro .img-cadastro {
+    display: flex;
+    height: 100%;
+    width: 50%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #6c6c6c;
+    border-radius: 20px 0 0 20px;
+}
+
+.cadastro .img-cadastro h1 {
+    color: #ffffff;
+    font-size: 2.5em;
+    font-weight: bold;
+    font-family: 'trajan-pro';
+}
+
+.cadastro .img-cadastro p {
+    color: #ffff;
+    font-size: 1.1em;
+    font-family: 'perpetua';
+}
+
+.cadastro .img-cadastro .itens {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cadastro .img-cadastro button {
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: #FFFF;
+    color: #6c6c6c;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cadastro .img-cadastro button:hover {
+    width: 160px;
+    height: 50px;
+    background-color: #bcbcbc;
+    transition: 0.3s;
+    color: #ffff;
+    cursor: pointer;
+}
+
+.cadastro .img-cadastro img {
+    height: 300px;
+}
+
+.cadastro .formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    height: 90%;
+    justify-content: space-between;
+}
+
+.cadastro .formulario h1 {
+    color: #6c6c6c;
+    font-size: 2.5em;
+    font-weight: bold;
+    font-family: 'trajan-pro';
+}
+
+.cadastro .formulario p {
+    color: #000000;
+    font-size: 1em;
+    font-weight: bold;
+    font-family: 'trajan-normal';
+}
+
+.cadastro input {
+    width: 260px;
+    height: 40px;
+    border-radius: 6px;
+    border: none;
+    background-color: #d6d6d6;
+    padding-left: 10px;
+}
+
+.cadastro .formulario button {
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: #6c6c6c;
+    color: #FFFF;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cadastro .formulario button:hover {
+    width: 160px;
+    height: 50px;
+    background-color: #444444;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/* Fim do cadastro */
+
+/* Login */
+
+.login {
+    display: flex;
+    width: 100%;
+    height: 900px;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../assets/img/lifeblood.png');
+    background-size: cover;
+}
+
+.login .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 20px;
+    color: #000000;
+    width: 35%;
+    height: 80%;
+}
+
+.login .formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    height: 90%;
+    justify-content: space-around;
+}
+
+.login .formulario h1 {
+    color: #6c6c6c;
+    font-size: 3.5em;
+    font-weight: bold;
+    font-family: 'trajan-pro';
+}
+
+.login .formulario p {
+    color: #000000;
+    font-size: 1.1em;
+    font-weight: bold;
+    font-family: 'perpetua';
+}
+
+.login input {
+    width: 260px;
+    height: 40px;
+    border-radius: 6px;
+    border: none;
+    background-color: #d6d6d6;
+    padding-left: 10px;
+}
+
+.login .formulario button {
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: #6c6c6c;
+    color: #FFFF;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login .formulario button:hover {
+    width: 160px;
+    height: 50px;
+    background-color: #444444;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.login a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.login a:hover {
+    transition: 0.3s;
+    text-decoration: none;
+    color: #9e9e9e;
+}
+
+/* Fim do login */
