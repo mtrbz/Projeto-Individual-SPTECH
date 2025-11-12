@@ -352,3 +352,131 @@ footer {
 }
 
 /* Fim personagens */
+
+/* Cadastro */
+
+.cadastro {
+    display: flex;
+    width: 100%;
+    height: 900px;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../assets/img/lifeblood.png');
+    background-size: cover;
+}
+
+.cadastro .container {
+    display: flex;
+    align-items: center;
+    background-color: #dae6ff;
+    border-radius: 20px;
+    color: #000000;
+    width: 70%;
+    height: 80%;
+}
+
+.cadastro .img-cadastro {
+    display: flex;
+    height: 100%;
+    width: 50%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #1c3e9b;
+    border-radius: 20px 0 0 20px;
+}
+
+.cadastro .img-cadastro h1 {
+    color: #dae6ff;
+    font-size: 2.5em;
+    font-weight: bold;
+    font-family: 'trajan-pro';
+}
+
+.cadastro .img-cadastro p {
+    color: #dae6ff;
+    font-size: 1.1em;
+    font-family: 'perpetua';
+}
+
+.cadastro .img-cadastro .itens {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cadastro .img-cadastro button {
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: #dae6ff;
+    color: #1c3e9b;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cadastro .img-cadastro button:hover {
+    width: 160px;
+    height: 50px;
+    background-color: #95b7ff;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.cadastro .img-cadastro img {
+    height: 300px;
+}
+
+.cadastro .formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    height: 90%;
+    justify-content: space-between;
+}
+
+.cadastro .formulario h1 {
+    color: #1c3e9b;
+    font-size: 2.5em;
+    font-weight: bold;
+    font-family: 'trajan-pro';
+}
+
+.cadastro .formulario p {
+    color: #1c3e9b;
+    font-size: 1.1em;
+    font-weight: bold;
+    font-family: 'perpetua';
+}
+
+.cadastro input {
+    width: 260px;
+    height: 40px;
+    border-radius: 6px;
+    border: none;
+    background-color: #ffffff;
+    padding-left: 10px;
+}
+
+.cadastro .formulario button {
+    width: 120px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: #1a477f;
+    color: #FFFF;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cadastro .formulario button:hover {
+    width: 160px;
+    height: 50px;
+    background-color: #015dcd;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/* Fim do cadastro */
