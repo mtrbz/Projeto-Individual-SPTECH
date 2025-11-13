@@ -325,6 +325,7 @@ footer {
     flex-wrap: wrap;
     background-color: #AFAFAF30;
     width: 80%;
+    gap: 150px;
     margin-top: 50px;
     padding: 2em;
     border-radius: 12px;
