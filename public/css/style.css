@@ -572,3 +572,61 @@ footer {
 }
 
 /* Fim do login */
+
+/* Hollowdle */
+
+.dle {
+    display: flex;
+    height: 1200px;
+    background-size: cover;
+    background-image: url('../assets/img/characters-background.jpg');
+}
+
+.dle .container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.dle .quiz {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    background-color: #343434c8;
+    width: 40%;
+    height: 50%;
+    border-radius: 20px;
+}
+
+.dle .quiz h2 {
+    font-size: 2em;
+    font-family: 'trajan-pro';
+}
+
+.dle .quiz input {
+    width: 260px;
+    height: 40px;
+    border-radius: 12px;
+    border: none;
+    text-align: center;
+}
+
+.dle .quiz button {
+    width: 80px;
+    height: 40px;
+    border-radius: 15px;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    background-color: #ffffff;
+}
+
+.dle .quiz button:hover {
+    transition: 0.3s;
+    background-color: #c9c9c9;
+}
+
+/* Fim hollowdle */

@@ -25,6 +25,7 @@
     background-image: url('../assets/img/sly-background.png');
     background-size: cover;
     min-width: 1600px;
+    height: 850px;
     border-bottom: solid 1px #FFFF;
     top: 200px;
 }
@@ -39,8 +40,12 @@
 }
 
 .tela-personagem .container .personagem img {
-    width: 900px;
+    width: 1200px;
+    display: flex;
     transform: scaleX(-1);
+    position: absolute;
+    justify-self: center;
+    align-self: center;
 }
 
 .tela-personagem .nome {
@@ -55,7 +60,8 @@
     width: 300px;
     text-align: center;
     align-self: flex-end;
-    margin: 30px 100px 30px 0;
+    margin: 30px 60px 30px 0;
+    text-shadow: 2px 2px 6px #ffff;
 }
 
 .tela-personagem .nome h1 {

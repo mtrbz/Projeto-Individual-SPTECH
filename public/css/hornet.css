@@ -20,7 +20,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-image: url('../assets/img/grimm-background.png');
+    background-image: url('../assets/img/hornet-background.png');
     background-size: cover;
     min-width: 1600px;
     height: 850px;
@@ -41,7 +41,7 @@
     display: flex;
     align-self: center;
     justify-self: center;
-    width: 300px;
+    width: 800px;
     margin-bottom: 10%;
 }
 
@@ -54,7 +54,7 @@
 
 .tela-personagem .frase {
     display: flex;
-    width: 360px;
+    width: 500px;
     text-align: center;
     align-self: flex-end;
     margin: 0 100px 50px 0;

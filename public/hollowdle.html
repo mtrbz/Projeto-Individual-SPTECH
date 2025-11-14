@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../public/assets/img/knight.ico" type="image/x-icon" />
+    <title>Hollow Knight</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- Chamando pastas externas -->
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <div class="header">
+        <nav>
+            <div class="gif">
+                <img src="./assets/img/hollow-walking.gif" alt="" />
+            </div>
+
+            <ul class="menu">
+                <div class="aba-selecionada">
+                    <img src="./assets/img/left-arrow.png" alt="">
+                    <li><a href="">HOME</a></li><img src="./assets/img/right-arrow.png" alt="">
+                </div>
+                <hr />
+                <li><a href="./historia.html">HISTÓRIA</a></li>
+                <hr />
+                <li><a href="personagens.html">PERSONAGENS</a></li>
+                <hr />
+                <li><a href="">MAPA</a></li>
+                <hr />
+                <li><a href="">BOSSES</a></li>
+                <hr />
+                <li><a href="">HOLLOWDLE</a></li>
+            </ul>
+
+            <div class="botao-login">
+                <a href="login.html">
+                    <p>LOGIN</p>
+                </a>
+            </div>
+
+        </nav>
+    </div>
+
+    <!-- Fim header -->
+
+    <div class="dle">
+
+        <div class="container">
+
+            <div class="dle-logo"><img src="./assets/img/logo.png" alt=""></div>
+
+            <div class="quiz">
+
+                <h2>Adivinhe o personagem!</h2>
+
+                <div>
+                    <input oninput="validar()" type="text" id="input_personagem" placeholder="Escreva o nome do personagem">
+                    <button onclick="tentar()">Tentar</button>
+
+                    <div>
+                        <p id="mensagem"></p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="facecard">
+            <img src="./assets/img/face.png" alt="" />
+            <h1>Matheus Rodrigues Barros</h1>
+            <p>
+                Responsável pelo desenvolvimento frontend e backend do site como projeto
+                individual na disciplina de PI na SPTECH.
+            </p>
+        </div>
+
+        <div class="redes-sociais">
+            <img src="./assets/img/linkedin.png" alt="">
+            <img src="./assets/img/github.webp" alt="">
+            <img src="./assets/img/github.webp" alt="">
+        </div>
+
+        <p id="copyright">Hollow Knight is © Copyright 2025 Team Cherry</p>
+    </footer>
+</body>
+
+</html>
+<script>
+    var nomes = ['hornet', 'cavaleiro', 'grimm'];
+
+    var personagens = 
+    [
+        {
+            'nome': 'hornet',
+            'tipo': ['Boss', 'NPC'],
+            'especie': ['Aranha', 'Receptáculo'],
+            'localizacao': ['Caminho Verde', 'Borda do Reino'],
+            'forma_dos_sonhos': 'Não',
+            'infectado': 'Não',
+            'papel': 'Aliado',
+            'cor_principal': 'Vermelho',
+            'arma' : 'Agulha'
+        },
+
+        {
+            'nome': 'cavaleiro',
+            'tipo': 'Protagonista',
+            'especie': 'Receptáculo',
+            'localizacao': 'Todas',
+            'forma_dos_sonhos': 'Não',
+            'infectado': 'Não',
+            'papel': 'Jogável',
+            'cor_principal': 'Preto',
+            'arma': 'Ferrão'
+        },
+
+        {
+            'nome': 'grimm',
+            'tipo': ['Boss', 'NPC'],
+            'especie': 'Mariposa',
+            'localizacao': 'Dirtmouth',
+            'forma_dos_sonhos': 'Sim',
+            'infectado': 'Não',
+            'papel': 'Boss',
+            'cor_principal': 'Vermelho',
+            'arma': 'Não possuí'
+        }
+    ];
+
+    function validar() {
+        var tentativa = input_personagem.value.toLowerCase();
+        var msg = '';
+
+        for (var i = 0; i < nomes.length; i++) {
+
+            if (nomes[i][0] == tentativa[0]) 
+
+                 if (nomes[i].includes(tentativa)) {
+                    msg += `${nomes[i]}<br>`;
+                }
+        }
+        
+        mensagem.innerHTML = msg;
+
+    }
+
+    var resultado = {};
+
+    function tentar() {
+        var tentativa = input_personagem.value.toLowerCase();
+        var personagem = personagens[0];
+        var comparar = '';
+
+        for (var i = 0; i < personagens.length; i++) {
+
+            if (personagens[i].nome.toLowerCase() == tentativa) {
+                comparar = personagens[i];
+            }
+
+        }
+
+        if (comparar.tipo == personagem.tipo) {
+            resultado.tipo = 'acertou'
+        } else {
+            resultado.tipo = 'errou'
+        }
+
+        if (comparar.especie == personagem.especie) {
+            resultado.especie = 'acertou'
+        } else {
+            resultado.especie = 'errou'
+        }
+
+        if (comparar.localizacao == personagem.localizacao) {
+            resultado.localizacao = 'acertou'
+        } else {
+            resultado.localizacao = 'errou'
+        }
+
+        if (comparar.forma_dos_sonhos == personagem.forma_dos_sonhos) {
+            resultado.forma_dos_sonhos = 'acertou'
+        } else {
+            resultado.forma_dos_sonhos = 'errou'
+        }
+
+        if (comparar.infectado == personagem.infectado) {
+            resultado.infectado = 'acertou'
+        } else {
+            resultado.infectado = 'errou'
+        }
+
+        if (comparar.papel == personagem.papel) {
+            resultado.papel = 'acertou'
+        } else {
+            resultado.papel = 'errou'
+        }
+
+        if (comparar.cor_principal == personagem.cor_principal) {
+            resultado.cor_principal = 'acertou'
+        } else {
+            resultado.cor_principal = 'errou'
+        }
+
+        if (comparar.arma == personagem.arma) {
+            resultado.arma = 'acertou'
+        } else {
+            resultado.arma = 'errou'
+        }
+
+        console.log(resultado);
+        
+    }
+
+</script>
