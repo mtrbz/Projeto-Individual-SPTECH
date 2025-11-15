@@ -61,14 +61,35 @@
 
                 <h2>Adivinhe o personagem!</h2>
 
-                <div>
-                    <input oninput="validar()" type="text" id="input_personagem" placeholder="Escreva o nome do personagem">
-                    <button onclick="tentar()">Tentar</button>
+                <input oninput="validar()" type="text" id="input_personagem" placeholder="Escreva o nome do personagem">
+                <p id="mensagem"></p>
+                <button onclick="tentar()">Tentar</button>
 
-                    <div>
-                        <p id="mensagem"></p>
-                    </div>
+                <div class="respostas">
+                    <div>Tipo</div>
+                    <div>Espécie</div>
+                    <div>Localização</div>
+                    <div>Tem forma dos sonhos?</div>
+                    <div>É infectado?</div>
+                    <div>Papel</div>
+                    <div>Cor principal</div>
+                    <div>Arma</div>
                 </div>
+
+                <div id="linha" class="respostas">
+
+                    <div class="card" id="tipo"></div>
+                    <div class="card" id="especie"></div>
+                    <div class="card" id="localizacao"></div>
+                    <div class="card" id="forma_dos_sonhos"></div>
+                    <div class="card" id="infectado"></div>
+                    <div class="card" id="papel"></div>
+                    <div class="card" id="cor_principal"></div>
+                    <div class="card" id="arma"></div>
+
+                </div>
+
+                <div class="historico" id="historico"></div>
 
             </div>
 
@@ -98,60 +119,129 @@
 
 </html>
 <script>
-    var nomes = ['hornet', 'cavaleiro', 'grimm'];
+    var personagens =
+        [
+            {
+                'nome': 'Hornet',
+                'tipo': ['Boss', 'NPC'],
+                'especie': ['Aranha', 'Receptáculo'],
+                'localizacao': ['Caminho Verde', 'Borda do Reino'],
+                'forma_dos_sonhos': 'Não',
+                'infectado': 'Não',
+                'papel': 'Aliado',
+                'cor_principal': 'Vermelho',
+                'arma': 'Agulha'
+            },
 
-    var personagens = 
-    [
-        {
-            'nome': 'hornet',
-            'tipo': ['Boss', 'NPC'],
-            'especie': ['Aranha', 'Receptáculo'],
-            'localizacao': ['Caminho Verde', 'Borda do Reino'],
-            'forma_dos_sonhos': 'Não',
-            'infectado': 'Não',
-            'papel': 'Aliado',
-            'cor_principal': 'Vermelho',
-            'arma' : 'Agulha'
-        },
+            {
+                'nome': 'Cavaleiro',
+                'tipo': 'Protagonista',
+                'especie': 'Receptáculo',
+                'localizacao': 'Todas',
+                'forma_dos_sonhos': 'Não',
+                'infectado': 'Não',
+                'papel': 'Jogável',
+                'cor_principal': 'Preto',
+                'arma': 'Ferrão'
+            },
 
-        {
-            'nome': 'cavaleiro',
-            'tipo': 'Protagonista',
-            'especie': 'Receptáculo',
-            'localizacao': 'Todas',
-            'forma_dos_sonhos': 'Não',
-            'infectado': 'Não',
-            'papel': 'Jogável',
-            'cor_principal': 'Preto',
-            'arma': 'Ferrão'
-        },
+            {
+                'nome': 'Grimm',
+                'tipo': ['Boss', 'NPC'],
+                'especie': 'Mariposa',
+                'localizacao': 'Dirtmouth',
+                'forma_dos_sonhos': 'Sim',
+                'infectado': 'Não',
+                'papel': 'Boss',
+                'cor_principal': 'Vermelho',
+                'arma': 'Não possuí'
+            },
 
-        {
-            'nome': 'grimm',
-            'tipo': ['Boss', 'NPC'],
-            'especie': 'Mariposa',
-            'localizacao': 'Dirtmouth',
-            'forma_dos_sonhos': 'Sim',
-            'infectado': 'Não',
-            'papel': 'Boss',
-            'cor_principal': 'Vermelho',
-            'arma': 'Não possuí'
-        }
-    ];
+            {
+                'nome': 'Radiancia',
+                'tipo': 'Boss',
+                'especie': 'Entidade',
+                'localizacao': 'Templo do Ovo Negro',
+                'forma_dos_sonhos': 'Sim',
+                'infectado': 'Não',
+                'papel': 'Antagonista',
+                'cor_principal': 'Branco',
+                'arma': 'Não possuí'
+            },
+            {
+                'nome': 'Zote',
+                'tipo': ['NPC', 'Boss'],
+                'especie': 'Besouro',
+                'localizacao': ['Cidade das Lágrimas', 'Boca Suja', 'Coliseu dos Tolos'],
+                'forma_dos_sonhos': 'Sim',
+                'infectado': 'Não',
+                'papel': 'Cômico',
+                'cor_principal': 'Cinza',
+                'arma': 'Pregado'
+            },
+
+            {
+                'nome': 'Tiso',
+                'tipo': 'NPC',
+                'especie': 'Besouro',
+                'localizacao': ['Encruzilhada Esquecida', 'Cidade das Lágrimas'],
+                'forma_dos_sonhos': 'Não',
+                'infectado': 'Não',
+                'papel': 'Explorador',
+                'cor_principal': 'Cinza',
+                'arma': 'Escudo'
+            },
+
+            {
+                'nome': 'Rei Palido',
+                'tipo': 'NPC',
+                'especie': 'Wyrm',
+                'localizacao': 'Abismo',
+                'forma_dos_sonhos': 'Sim',
+                'infectado': 'Não',
+                'papel': 'Rei',
+                'cor_principal': 'Branco',
+                'arma': 'Não possuí'
+            },
+
+            {
+                'nome': 'Bretta',
+                'tipo': 'NPC',
+                'especie': 'Besouro',
+                'localizacao': ['Boca Suja', 'Cidade das Lágrimas'],
+                'forma_dos_sonhos': 'Não',
+                'infectado': 'Não',
+                'papel': 'Aliado',
+                'cor_principal': 'Verde',
+                'arma': 'Não possuí'
+            },
+
+            {
+                'nome': 'Monomon',
+                'tipo': 'NPC',
+                'especie': 'Mariposa',
+                'localizacao': 'Torre do Amor',
+                'forma_dos_sonhos': 'Sim',
+                'infectado': 'Não',
+                'papel': 'Sonhador',
+                'cor_principal': 'Verde',
+                'arma': 'Não possuí'
+            }
+        ];
 
     function validar() {
         var tentativa = input_personagem.value.toLowerCase();
         var msg = '';
 
-        for (var i = 0; i < nomes.length; i++) {
+        for (var i = 0; i < personagens.length; i++) {
 
-            if (nomes[i][0] == tentativa[0]) 
+            if (personagens[i].nome[0] == tentativa[0])
 
-                 if (nomes[i].includes(tentativa)) {
-                    msg += `${nomes[i]}<br>`;
+                if (personagens[i].nome.includes(tentativa)) {
+                    msg += `${personagens[i].nome}<br>`;
                 }
         }
-        
+
         mensagem.innerHTML = msg;
 
     }
@@ -161,66 +251,92 @@
     function tentar() {
         var tentativa = input_personagem.value.toLowerCase();
         var personagem = personagens[0];
-        var comparar = '';
 
         for (var i = 0; i < personagens.length; i++) {
 
             if (personagens[i].nome.toLowerCase() == tentativa) {
-                comparar = personagens[i];
+                var comparar = personagens[i];
             }
-
         }
-
+        
         if (comparar.tipo == personagem.tipo) {
-            resultado.tipo = 'acertou'
+            tipo.innerHTML = comparar.tipo;
+            tipo.style = "background-color: green;"
         } else {
-            resultado.tipo = 'errou'
+            tipo.innerHTML = comparar.tipo;
+            tipo.style = "background-color: red;"
         }
 
         if (comparar.especie == personagem.especie) {
-            resultado.especie = 'acertou'
+            especie.innerHTML = comparar.especie;
+            especie.style = "background-color: green;"
         } else {
-            resultado.especie = 'errou'
+            especie.innerHTML = comparar.especie;
+            especie.style = "background-color: red;"
         }
 
         if (comparar.localizacao == personagem.localizacao) {
-            resultado.localizacao = 'acertou'
+            localizacao.innerHTML = comparar.localizacao;
+            localizacao.style = "background-color: green;"
         } else {
-            resultado.localizacao = 'errou'
+            localizacao.innerHTML = comparar.localizacao;
+            localizacao.style = "background-color: red;"
         }
 
         if (comparar.forma_dos_sonhos == personagem.forma_dos_sonhos) {
-            resultado.forma_dos_sonhos = 'acertou'
+            forma_dos_sonhos.innerHTML = comparar.forma_dos_sonhos;
+            forma_dos_sonhos.style = "background-color: green;"
         } else {
-            resultado.forma_dos_sonhos = 'errou'
+            forma_dos_sonhos.innerHTML = comparar.forma_dos_sonhos;
+            forma_dos_sonhos.style = "background-color: red;"
         }
 
         if (comparar.infectado == personagem.infectado) {
-            resultado.infectado = 'acertou'
+            infectado.innerHTML = comparar.infectado;
+            infectado.style = "background-color: green;"
         } else {
-            resultado.infectado = 'errou'
+            infectado.innerHTML = comparar.infectado;
+            infectado.style = "background-color: red;"
         }
 
         if (comparar.papel == personagem.papel) {
-            resultado.papel = 'acertou'
+            papel.innerHTML = comparar.papel;
+            papel.style = "background-color: green;"
         } else {
-            resultado.papel = 'errou'
+            papel.innerHTML = comparar.papel;
+            papel.style = "background-color: red;"
         }
 
         if (comparar.cor_principal == personagem.cor_principal) {
-            resultado.cor_principal = 'acertou'
+            cor_principal.innerHTML = comparar.cor_principal;
+            cor_principal.style = "background-color: green;"
         } else {
-            resultado.cor_principal = 'errou'
+            cor_principal.innerHTML = comparar.cor_principal;
+            cor_principal.style = "background-color: red;"
         }
 
         if (comparar.arma == personagem.arma) {
-            resultado.arma = 'acertou'
+            arma.innerHTML = comparar.arma;
+            arma.style = "background-color: green;"
         } else {
-            resultado.arma = 'errou'
+            arma.innerHTML = comparar.arma;
+            arma.style = "background-color: red;"
         }
 
-        console.log(resultado);
-        
+        var linhaHistorico = `
+        <div class="respostas">
+            <div class="card" style="${tipo.style.cssText}">${tipo.innerHTML}</div>
+            <div class="card" style="${especie.style.cssText}">${especie.innerHTML}</div>
+            <div class="card" style="${localizacao.style.cssText}">${localizacao.innerHTML}</div>
+            <div class="card" style="${forma_dos_sonhos.style.cssText}">${forma_dos_sonhos.innerHTML}</div>
+            <div class="card" style="${infectado.style.cssText}">${infectado.innerHTML}</div>
+            <div class="card" style="${papel.style.cssText}">${papel.innerHTML}</div>
+            <div class="card" style="${cor_principal.style.cssText}">${cor_principal.innerHTML}</div>
+            <div class="card" style="${arma.style.cssText}">${arma.innerHTML}</div>
+        </div>
+        `;
+
+       historico.innerHTML = linhaHistorico + historico.innerHTML;
     }
 
 </script>

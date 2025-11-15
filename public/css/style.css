@@ -592,11 +592,11 @@ footer {
 
 .dle .quiz {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
     background-color: #343434c8;
-    width: 40%;
+    width: 50%;
     height: 50%;
     border-radius: 20px;
 }
@@ -627,6 +627,29 @@ footer {
 .dle .quiz button:hover {
     transition: 0.3s;
     background-color: #c9c9c9;
+}
+
+.dle .respostas {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.dle .respostas .card {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+}
+
+.dle .historico {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
 }
 
 /* Fim hollowdle */
