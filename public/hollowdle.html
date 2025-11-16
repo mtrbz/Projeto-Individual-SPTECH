@@ -60,8 +60,12 @@
 
             <div id="botao_quiz" class="botao-quiz">
 
+                
                 <h1>Deseja jogar o HollowDLE?</h1>
-                <button onclick="jogar()">Jogar</button>
+                <div class="botoes">
+                    <button onclick="jogar()">Jogar</button>
+                   <a href="estatisticas.html"><button>Estatísticas</button></a>
+                </div>
 
             </div>
 
@@ -72,6 +76,7 @@
                 <input oninput="validar()" type="text" id="input_personagem" placeholder="Escreva o nome do personagem">
                 <p id="mensagem"></p>
                 <button class="poppins-regular" onclick="tentar()">Tentar</button>
+                <button onclick="desistir()">Desistir</button>
 
                 <div class="respostas">
                     <div class="card">Tipo</div>
@@ -129,9 +134,9 @@
         [
             {
                 "nome": "Cavaleiro",
-                "tipo": ["Protagonista"],
+                "tipo": "Protagonista",
                 "especie": "Receptáculo",
-                "localizacao": ["Hallownest"],
+                "localizacao": "Hallownest",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Preto",
                 "arma_estilo": "Ferrão"
@@ -146,19 +151,28 @@
                 "arma_estilo": "Agulha"
             },
             {
-                "nome": "Hollow Knight",
-                "tipo": ["Boss"],
+                "nome": "Cavaleiro Vazio",
+                "tipo": "Boss",
                 "especie": "Receptáculo",
-                "localizacao": ["Templo do Ovo Negro"],
+                "localizacao": "Templo do Ovo Negro",
                 "forma_dos_sonhos": "Não",
-                "cor_principal": "Branco",
+                "cor_principal": ["Preto", "Branco"],
+                "arma_estilo": "Ferrão"
+            },
+             {
+                "nome": "Receptaculo Puro",
+                "tipo": "Boss",
+                "especie": "Receptáculo",
+                "localizacao": "Lar dos deuses",
+                "forma_dos_sonhos": "Sim",
+                "cor_principal": ["Preto", "Branco"],
                 "arma_estilo": "Ferrão"
             },
             {
                 "nome": "Radiancia",
-                "tipo": ["Boss"],
+                "tipo": "Boss",
                 "especie": "Entidade",
-                "localizacao": ["Templo do Ovo Negro"],
+                "localizacao": "Templo do Ovo Negro",
                 "forma_dos_sonhos": "Sim",
                 "cor_principal": "Branco",
                 "arma_estilo": "Magia"
@@ -168,145 +182,108 @@
                 "tipo": "NPC",
                 "especie": "Wyrm",
                 "localizacao": "Palácio Branco",
-                "forma_dos_sonhos": "Sim",
+                "forma_dos_sonhos": "Não",
                 "cor_principal": "Branco",
                 "arma_estilo": "Magia"
             },
             {
                 "nome": "Dama Branca",
-                "tipo": ["NPC"],
-                "especie": "Rainha-Inseto",
-                "localizacao": ["Jardins da Rainha"],
+                "tipo": "NPC",
+                "especie": "Indefinido",
+                "localizacao": "Jardins da Rainha",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Branco",
                 "arma_estilo": "Magia"
             },
             {
-                "nome": "Receptáculo Quebrado",
-                "tipo": ["Boss"],
+                "nome": "Receptaculo Quebrado",
+                "tipo": "Boss",
                 "especie": "Receptáculo",
-                "localizacao": ["Cânion Nebuloso"],
+                "localizacao": "Bacia Antiga",
                 "forma_dos_sonhos": "Sim",
-                "cor_principal": "Bege",
-                "arma_estilo": "Ferrão"
+                "cor_principal": "Laranja",
+                "arma_estilo": ["Ferrão", "Magia"]
             },
-            {
-                "nome": "Cavaleiro dos Sonhos",
-                "tipo": ["Boss"],
-                "especie": "Receptáculo",
-                "localizacao": ["Domínio dos Mestres"],
-                "forma_dos_sonhos": "Sim",
-                "cor_principal": "Preto",
-                "arma_estilo": "Ferrão"
-            },
-
             {
                 "nome": "Uumuu",
-                "tipo": ["Boss"],
+                "tipo": "Boss",
                 "especie": "Geléia Elétrica",
-                "localizacao": ["Cânion Nebuloso"],
+                "localizacao": "Cânion da Névoa",
                 "forma_dos_sonhos": "Não",
-                "cor_principal": "Roxo",
+                "cor_principal": "Branco",
                 "arma_estilo": "Magia"
             },
             {
                 "nome": "Defensor do Esterco",
-                "tipo": ["Boss"],
+                "tipo": "Boss",
                 "especie": "Besouro",
-                "localizacao": ["Esgotos Reais"],
+                "localizacao": "Hidrovia Real",
                 "forma_dos_sonhos": "Sim",
-                "cor_principal": "Marrom",
-                "arma_estilo": "Esterco"
+                "cor_principal": "vermelho",
+                "arma_estilo": "Golpes físicos"
             },
             {
-                "nome": "Senhor Traidor",
-                "tipo": ["Boss"],
+                "nome": "Lorde Traidor",
+                "tipo": "Boss",
                 "especie": "Louva-a-deus",
-                "localizacao": ["Jardins da Rainha"],
+                "localizacao": "Jardins da Rainha",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Verde",
-                "arma_estilo": "Garras"
-            },
-            {
-                "nome": "Cavaleiros Vigilantes",
-                "tipo": ["Boss"],
-                "especie": "Armadura Animada",
-                "localizacao": ["Cidade das Lágrimas"],
-                "forma_dos_sonhos": "Não",
-                "cor_principal": "Cinza",
-                "arma_estilo": "Espadas"
+                "arma_estilo": "Golpes físicos"
             },
             {
                 "nome": "Mestre das Almas",
-                "tipo": ["Boss"],
-                "especie": "Mariposa",
-                "localizacao": ["Cânion Nebuloso"],
-                "forma_dos_sonhos": "Sim",
-                "cor_principal": "Azul",
-                "arma_estilo": "Magia"
-            },
-            {
-                "nome": "Monarca das Almas",
-                "tipo": ["Boss"],
-                "especie": "Mariposa",
-                "localizacao": ["Cânion Nebuloso"],
+                "tipo": "Boss",
+                "especie": "Indefinido",
+                "localizacao": "Cidade das Lágrimas",
                 "forma_dos_sonhos": "Sim",
                 "cor_principal": "Azul",
                 "arma_estilo": "Magia"
             },
             {
                 "nome": "Nosk",
-                "tipo": ["Boss"],
-                "especie": "Aberração",
-                "localizacao": ["Ninho Profundo"],
+                "tipo": "Boss",
+                "especie": "Indefinido",
+                "localizacao": "Ninho Profundo",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Preto",
-                "arma_estilo": "Golpes Físicos"
+                "arma_estilo": "Golpes físicos"
             },
             {
-                "nome": "Guerreiro Louva-a-deus",
-                "tipo": ["Boss"],
+                "nome": "Lordes Louva-a-deus",
+                "tipo": "Boss",
                 "especie": "Louva-a-deus",
-                "localizacao": ["Vila dos Louva-a-deus"],
+                "localizacao": "Vila dos Louva-a-deus",
                 "forma_dos_sonhos": "Não",
-                "cor_principal": "Laranja",
-                "arma_estilo": "Lanças"
+                "cor_principal": "Azul",
+                "arma_estilo": "Agulha"
             },
             {
-                "nome": "Irmãs da Batalha",
-                "tipo": ["Boss"],
-                "especie": "Louva-a-deus",
-                "localizacao": ["Vila dos Louva-a-deus"],
-                "forma_dos_sonhos": "Não",
-                "cor_principal": "Laranja",
-                "arma_estilo": "Lanças"
-            },
-            {
-                "nome": "Gruz Mãe",
-                "tipo": ["Boss"],
+                "nome": "Mãe mosca",
+                "tipo": "Boss",
                 "especie": "Mosca",
-                "localizacao": ["Encruzilhadas Esquecidas"],
+                "localizacao": "Encruzilhada Esquecida",
                 "forma_dos_sonhos": "Não",
-                "cor_principal": "Roxo",
-                "arma_estilo": "Investidas"
+                "cor_principal": "Cinza",
+                "arma_estilo": "Golpes físicos"
             },
             {
-                "nome": "Massiva Carga de Musgo",
-                "tipo": ["Boss"],
-                "especie": "Criatura de Musgo",
-                "localizacao": ["Caminho Verde"],
+                "nome": "Batedor Musgoso Imenso",
+                "tipo": "Boss",
+                "especie": "Criatura",
+                "localizacao": "Caminho Verde",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Verde",
-                "arma_estilo": "Investidas"
+                "arma_estilo": "Golpes físicos"
             },
             {
-                "nome": "Mawlek Brooding",
-                "tipo": ["Boss"],
-                "especie": "Aberração",
-                "localizacao": ["Encruzilhadas Esquecidas"],
+                "nome": "Mawlek",
+                "tipo": "Boss",
+                "especie": "Criatura",
+                "localizacao": "Encruzilhada Esquecida",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Laranja",
-                "arma_estilo": "Garras"
+                "arma_estilo": "Golpes físicos"
             },
             {
                 "nome": "Cornifer",
@@ -328,20 +305,20 @@
             },
             {
                 "nome": "Myla",
-                "tipo": ["NPC"],
+                "tipo": "NPC",
                 "especie": "Besouro",
-                "localizacao": ["Caminho Verde", "Encruzilhada Esquecida"],
+                "localizacao": "Encruzilhada Esquecida",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Azul",
-                "arma_estilo": "Picareta"
+                "arma_estilo": "Não possuí"
             },
             {
                 "nome": "Zote",
                 "tipo": ["NPC", "Boss"],
                 "especie": "Besouro",
-                "localizacao": ["Cidade das Lágrimas", "Coliseu dos Tolos"],
+                "localizacao": "Várias regiões de Hallownest",
                 "forma_dos_sonhos": "Sim",
-                "cor_principal": "Cinza",
+                "cor_principal": "Branco",
                 "arma_estilo": "Ferrão"
             },
             {
@@ -381,12 +358,12 @@
                 "arma_estilo": "Clava"
             },
             {
-                "nome": "Ancião",
-                "tipo": ["NPC"],
+                "nome": "Inseto Anciao",
+                "tipo": "NPC",
                 "especie": "Besouro",
-                "localizacao": ["Dirtmouth"],
+                "localizacao": "Dirtmouth",
                 "forma_dos_sonhos": "Não",
-                "cor_principal": "Cinza",
+                "cor_principal": "Branco",
                 "arma_estilo": "Não possuí"
             },
                         {
@@ -402,28 +379,19 @@
                 "nome": "Grimm",
                 "tipo": ["NPC", "Boss"],
                 "especie": "Mariposa",
-                "localizacao": ["Dirtmouth"],
-                "forma_dos_sonhos": "Sim",
-                "cor_principal": "Vermelho",
-                "arma_estilo": "Magia"
-            },
-            {
-                "nome": "Grimm Rei do Pesadelo",
-                "tipo": ["Boss"],
-                "especie": "Mariposa",
-                "localizacao": ["Dirtmouth"],
+                "localizacao": "Dirtmouth",
                 "forma_dos_sonhos": "Sim",
                 "cor_principal": "Vermelho",
                 "arma_estilo": "Magia"
             },
             {
                 "nome": "Brumm",
-                "tipo": ["NPC"],
-                "especie": "Mariposa",
-                "localizacao": ["Dirtmouth", "Ermos Fúngicos"],
+                "tipo": "NPC",
+                "especie": "Indefinido",
+                "localizacao": ["Dirtmouth", "Ninho Profundo"],
                 "forma_dos_sonhos": "Não",
-                "cor_principal": "Preto",
-                "arma_estilo": "Tocha"
+                "cor_principal": "Vermelho",
+                "arma_estilo": "Não possuí"
             },
             {
                 "nome": "Quirrel",
@@ -436,83 +404,56 @@
             },
             {
                 "nome": "Marmu",
-                "tipo": ["Boss"],
+                "tipo": "Boss",
                 "especie": "Espírito",
-                "localizacao": ["Jardins da Rainha"],
+                "localizacao": "Jardins da Rainha",
                 "forma_dos_sonhos": "Sim",
                 "cor_principal": "Verde",
-                "arma_estilo": "Investidas"
+                "arma_estilo": "Golpes físicos"
             },
             {
                 "nome": "Galien",
-                "tipo": ["Boss"],
+                "tipo": "Boss",
                 "especie": "Espírito",
-                "localizacao": ["Ninho Profundo"],
+                "localizacao": "Ninho Profundo",
                 "forma_dos_sonhos": "Sim",
-                "cor_principal": "Azul",
-                "arma_estilo": "Armas Giratórias"
+                "cor_principal": "Cinza",
+                "arma_estilo": "Magia"
             },
             {
                 "nome": "Markoth",
-                "tipo": ["Boss"],
-                "especie": "Besouro",
-                "localizacao": ["Ermos do Reino"],
+                "tipo": "Boss",
+                "especie": ["Mariposa", "Espírito"],
+                "localizacao": "Borda do Reino",
                 "forma_dos_sonhos": "Sim",
-                "cor_principal": "Cinza",
-                "arma_estilo": "Escudo e Agulhas"
+                "cor_principal": "Vermelho",
+                "arma_estilo": "Magia"
             },
             {
-                "nome": "Elder Hu",
-                "tipo": ["Boss"],
-                "especie": "Besouro",
-                "localizacao": ["Ermos Fúngicos"],
+                "nome": "Anciao Hu",
+                "tipo": "Boss",
+                "especie": "Espírito",
+                "localizacao": "Ermos Fúngicos",
                 "forma_dos_sonhos": "Sim",
                 "cor_principal": "Amarelo",
                 "arma_estilo": "Magia"
             },
             {
                 "nome": "Xero",
-                "tipo": ["Boss"],
-                "especie": "Besouro",
-                "localizacao": ["Cidade das Lágrimas"],
+                "tipo": "Boss",
+                "especie": "Espírito",
+                "localizacao": "Cidade das Lágrimas",
                 "forma_dos_sonhos": "Sim",
-                "cor_principal": "Laranja",
-                "arma_estilo": "Espadas Flutuantes"
+                "cor_principal": "Vermelho",
+                "arma_estilo": "Magia"
             },
             {
                 "nome": "Gorb",
-                "tipo": ["Boss"],
+                "tipo": "Boss",
                 "especie": "Espírito",
-                "localizacao": ["Penhascos Uivantes"],
+                "localizacao": "Penhascos Uivantes",
                 "forma_dos_sonhos": "Sim",
-                "cor_principal": "Roxo",
-                "arma_estilo": "Lanças"
-            },
-            {
-                "nome": "O Grimmkin",
-                "tipo": ["NPC"],
-                "especie": "Criatura",
-                "localizacao": ["Diversas regiões de Hallownest"],
-                "forma_dos_sonhos": "Sim",
-                "cor_principal": "Vermelho",
-                "arma_estilo": "Magia"
-            },
-            {
-                "nome": "Grimmkin Maior",
-                "tipo": ["NPC"],
-                "especie": "Criatura",
-                "localizacao": ["Diversas regiões de Hallownest"],
-                "forma_dos_sonhos": "Sim",
-                "cor_principal": "Vermelho",
-                "arma_estilo": "Magia"
-            },
-            {
-                "nome": "Grimmkin Pesadelo",
-                "tipo": ["NPC"],
-                "especie": "Criatura",
-                "localizacao": ["Diversas regiões de Hallownest"],
-                "forma_dos_sonhos": "Sim",
-                "cor_principal": "Vermelho",
+                "cor_principal": "Branco",
                 "arma_estilo": "Magia"
             },
             {
@@ -525,20 +466,11 @@
                 "arma_estilo": "Escudo"
             },
             {
-                "nome": "Godseeker",
-                "tipo": ["NPC"],
+                "nome": "Buscadora",
+                "tipo": "NPC",
                 "especie": "Criatura",
-                "localizacao": ["Domínio dos Mestres"],
-                "forma_dos_sonhos": "Não",
-                "cor_principal": "Dourado",
-                "arma_estilo": "Não possuí"
-            },
-            {
-                "nome": "Ordem Godseeker",
-                "tipo": ["NPC"],
-                "especie": "Criatura",
-                "localizacao": ["Domínio dos Mestres"],
-                "forma_dos_sonhos": "Não",
+                "localizacao": ["Hidrovia Real", "Lar dos deuses"],
+                "forma_dos_sonhos": "Sim",
                 "cor_principal": "Dourado",
                 "arma_estilo": "Não possuí"
             },
@@ -688,8 +620,6 @@
             },
         ];
 
-    var personagem = personagens[Math.floor(Math.random() * personagens.length)];
-
     function validar() {
         var tentativa = input_personagem.value.toLowerCase();
         var msg = '';
@@ -712,6 +642,7 @@
     }
 
     var resultado = {};
+    var personagem = '';
 
     function tentar() {
         var tentativa = input_personagem.value.toLowerCase();
@@ -731,7 +662,8 @@
 
         if (comparar.tipo == personagem.tipo) {
             tipo.innerHTML = comparar.tipo;
-            tipo.style = "background-color: green; transition: 1s;"
+            tipo.style = "background-color: green;"
+            tipo.style = "transition: 5s;"
         } else {
             tipo.innerHTML = comparar.tipo;
             tipo.style = "background-color: red; transition: 1s;"
@@ -794,7 +726,7 @@
             ganhou = false;
             historico.innerHTML = ``;
             personagem = personagens[Math.floor(Math.random() * personagens.length)];
-            alert(`Parabéns! Você adivinhou o personagem em ${tentativas} tentativas!`);
+            alert(`Parabéns! Você adivinhou o personagem ${personagem} em ${tentativas} tentativas!`);
             tentativas = 0;
             botao_quiz.style.display = 'flex';
             quiz.style.display = 'none';     
@@ -802,8 +734,14 @@
     }
 
     function jogar() {
+        personagem = personagens[Math.floor(Math.random() * personagens.length)];
         quiz.style.display = 'block';
         botao_quiz.style.display = 'none';
+    }
+
+    function desistir() {
+        quiz.style.display = 'none';
+        botao_quiz.style.display = 'block';
     }
 
 </script>
