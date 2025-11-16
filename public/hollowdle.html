@@ -24,10 +24,7 @@
             </div>
 
             <ul class="menu">
-                <div class="aba-selecionada">
-                    <img src="./assets/img/left-arrow.png" alt="">
-                    <li><a href="">HOME</a></li><img src="./assets/img/right-arrow.png" alt="">
-                </div>
+                <li><a href="./index.html">HOME</a></li>
                 <hr />
                 <li><a href="./historia.html">HISTÓRIA</a></li>
                 <hr />
@@ -37,7 +34,11 @@
                 <hr />
                 <li><a href="">BOSSES</a></li>
                 <hr />
-                <li><a href="">HOLLOWDLE</a></li>
+                <div class="aba-selecionada">
+                    <img src="./assets/img/left-arrow.png" alt="">
+                    <li><a href="">HOLLOWDLE</a></li>
+                    <img src="./assets/img/right-arrow.png" alt="">
+                </div>
             </ul>
 
             <div class="botao-login">
@@ -53,25 +54,32 @@
 
     <div class="dle">
 
+        <div class="dle-logo"><img src="./assets/img/logo.png" alt=""></div>
+
         <div class="container">
 
-            <div class="dle-logo"><img src="./assets/img/logo.png" alt=""></div>
+            <div id="botao_quiz" class="botao-quiz">
 
-            <div class="quiz">
+                <h1>Deseja jogar o HollowDLE?</h1>
+                <button onclick="jogar()">Jogar</button>
+
+            </div>
+
+            <div id="quiz" class="quiz" style="display: none;">
 
                 <h2>Adivinhe o personagem!</h2>
 
                 <input oninput="validar()" type="text" id="input_personagem" placeholder="Escreva o nome do personagem">
                 <p id="mensagem"></p>
-                <button onclick="tentar()">Tentar</button>
+                <button class="poppins-regular" onclick="tentar()">Tentar</button>
 
                 <div class="respostas">
-                    <div>Tipo</div>
-                    <div>Espécie</div>
-                    <div>Localização</div>
-                    <div>Tem forma dos sonhos?</div>
-                    <div>Cor principal</div>
-                    <div>Arma</div>
+                    <div class="card">Tipo</div>
+                    <div class="card">Espécie</div>
+                    <div class="card">Localização</div>
+                    <div class="card">Tem forma dos sonhos?</div>
+                    <div class="card">Cor principal</div>
+                    <div class="card">Arma</div>
                 </div>
 
                 <div id="linha" class="respostas">
@@ -131,7 +139,7 @@
             {
                 "nome": "Hornet",
                 "tipo": ["NPC", "Boss"],
-                "especie": "Mistura Aranha-Receptáculo",
+                "especie": ["Aranha", "Receptáculo"],
                 "localizacao": ["Caminho Verde", "Borda do Reino"],
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Vermelho",
@@ -172,15 +180,6 @@
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Branco",
                 "arma_estilo": "Magia"
-            },
-            {
-                "nome": "Hornet Sentinela",
-                "tipo": ["Boss"],
-                "especie": "Mistura Aranha-Receptáculo",
-                "localizacao": ["Domínio dos Mestres"],
-                "forma_dos_sonhos": "Não",
-                "cor_principal": "Vermelho",
-                "arma_estilo": "Agulha"
             },
             {
                 "nome": "Receptáculo Quebrado",
@@ -310,42 +309,21 @@
                 "arma_estilo": "Garras"
             },
             {
-                "nome": "Golem Cristalino",
-                "tipo": ["Boss"],
-                "especie": "Cristal",
-                "localizacao": ["Pico de Cristal"],
-                "forma_dos_sonhos": "Não",
-                "cor_principal": "Rosa",
-                "arma_estilo": "Raios de Cristal"
-            },
-            {
-                "nome": "Tremores",
-                "nome": "Golem de Cristal Enfurecido",
-                "tipo": ["Boss"],
-                "especie": "Cristal",
-                "localizacao": ["Pico de Cristal"],
-                "forma_dos_sonhos": "Não",
-                "cor_principal": "Rosa",
-                "arma_estilo": "Explosões"
-            },
-
-            {
                 "nome": "Cornifer",
-                "tipo": ["NPC", "Vendedor"],
-                "especie": "Besouro",
-                "localizacao": ["Diversas regiões de Hallownest"],
+                "tipo": "Comerciante",
+                "especie": "Indefinido",
+                "localizacao": "Várias regiões de Hallownest",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Azul",
                 "arma_estilo": "Não possuí"
             },
-
             {
                 "nome": "Iselda",
-                "tipo": ["NPC", "Vendedor"],
+                "tipo": "Comerciante",
                 "especie": "Besouro",
-                "localizacao": ["Dirtmouth"],
+                "localizacao": "Dirtmouth",
                 "forma_dos_sonhos": "Não",
-                "cor_principal": "Azul",
+                "cor_principal": ["Azul", "Branco"],
                 "arma_estilo": "Não possuí"
             },
             {
@@ -364,29 +342,29 @@
                 "localizacao": ["Cidade das Lágrimas", "Coliseu dos Tolos"],
                 "forma_dos_sonhos": "Sim",
                 "cor_principal": "Cinza",
-                "arma_estilo": "Espada"
+                "arma_estilo": "Ferrão"
             },
             {
                 "nome": "Bretta",
-                "tipo": ["NPC"],
+                "tipo": "NPC",
                 "especie": "Besouro",
                 "localizacao": ["Caminho Verde", "Dirtmouth"],
                 "forma_dos_sonhos": "Não",
-                "cor_principal": "Vermelho",
+                "cor_principal": "Verde",
                 "arma_estilo": "Não possuí"
             },
             {
                 "nome": "Salubra",
-                "tipo": ["NPC", "Vendedor"],
+                "tipo": "Comerciante",
                 "especie": "Lesma",
-                "localizacao": ["Encruzilhada Esquecida"],
+                "localizacao": "Encruzilhada Esquecida",
                 "forma_dos_sonhos": "Não",
-                "cor_principal": "Roxo",
+                "cor_principal": "Verde",
                 "arma_estilo": "Não possuí"
             },
             {
                 "nome": "Come pernas",
-                "tipo": ["NPC", "Vendedor"],
+                "tipo": ["NPC", "Comerciante"],
                 "especie": "Criatura",
                 "localizacao": ["Ermos Fúngicos"],
                 "forma_dos_sonhos": "Não",
@@ -396,10 +374,10 @@
             {
                 "nome": "Cloth",
                 "tipo": "NPC",
-                "especie": "Besouro",
+                "especie": "Cigarra",
                 "localizacao": "Várias regiões de Hallownest",
                 "forma_dos_sonhos": "Não",
-                "cor_principal": "Amarelo",
+                "cor_principal": "Bege",
                 "arma_estilo": "Clava"
             },
             {
@@ -413,18 +391,9 @@
             },
                         {
                 "nome": "Sly",
-                "tipo": ["NPC", "Vendedor"],
+                "tipo": ["Comerciante", "Boss"],
                 "especie": "Besouro",
-                "localizacao": ["Dirtmouth"],
-                "forma_dos_sonhos": "Não",
-                "cor_principal": "Azul",
-                "arma_estilo": "Espada"
-            },
-            {
-                "nome": "Sly Mestre",
-                "tipo": ["Boss"],
-                "especie": "Besouro",
-                "localizacao": ["Domínio dos Mestres"],
+                "localizacao": "Dirtmouth",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Azul",
                 "arma_estilo": "Espada"
@@ -458,12 +427,12 @@
             },
             {
                 "nome": "Quirrel",
-                "tipo": ["NPC"],
+                "tipo": "NPC",
                 "especie": "Besouro",
-                "localizacao": ["Cânion Nebuloso", "Cidade das Lágrimas", "Pico de Cristal"],
+                "localizacao": "Várias regiões de Hallownest",
                 "forma_dos_sonhos": "Não",
-                "cor_principal": "Azul",
-                "arma_estilo": "Nail"
+                "cor_principal": "Cinza",
+                "arma_estilo": "Ferrão"
             },
             {
                 "nome": "Marmu",
@@ -548,12 +517,12 @@
             },
             {
                 "nome": "Tiso",
-                "tipo": ["NPC"],
+                "tipo": "NPC",
                 "especie": "Besouro",
                 "localizacao": ["Ermos Fúngicos", "Coliseu dos Tolos"],
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Azul",
-                "arma_estilo": "Armadura"
+                "arma_estilo": "Escudo"
             },
             {
                 "nome": "Godseeker",
@@ -574,23 +543,149 @@
                 "arma_estilo": "Não possuí"
             },
             {
-                "nome": "Pai Grub",
-                "tipo": ["NPC"],
+                "nome": "Pai Larva",
+                "tipo": "NPC",
                 "especie": "Larva",
-                "localizacao": ["Ninho das Larvas"],
+                "localizacao": "Encruzilhada Esquecida",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Verde",
                 "arma_estilo": "Não possuí"
             },
             {
-                "nome": "Larvas",
-                "tipo": ["NPC"],
-                "especie": "Larva",
-                "localizacao": ["Diversas regiões de Hallownest"],
+                "nome": "Jiji",
+                "tipo": "Comerciante",
+                "especie": "Criatura",
+                "localizacao": "Dirtmouth",
                 "forma_dos_sonhos": "Não",
-                "cor_principal": "Verde",
+                "cor_principal": "Azul",
                 "arma_estilo": "Não possuí"
-            }
+            },
+            {
+                "nome": "Pequeno tolo",
+                "tipo": "Comerciante",
+                "especie": "Tolo",
+                "localizacao": "Coliseu dos tolos",
+                "forma_dos_sonhos": "Não",
+                "cor_principal": "Cinza",
+                "arma_estilo": "Não possuí"
+            },
+            {
+                "nome": "Millibelle",
+                "tipo": "Comerciante",
+                "especie": "Indefinido",
+                "localizacao": ["Cânio da Névoa", "Casa do Prazer"],
+                "forma_dos_sonhos": "Não",
+                "cor_principal": "Cinza",
+                "arma_estilo": "Não possuí"
+            },
+            {
+                "nome": "Forjador de Ferroes",
+                "tipo": "Comerciante",
+                "especie": "Besouro",
+                "localizacao": "Cidade das Lágrimas",
+                "forma_dos_sonhos": "Não",
+                "cor_principal": "Azul",
+                "arma_estilo": "Não possuí"
+            },
+            {
+                "nome": "Lemm",
+                "tipo": "Comerciante",
+                "especie": "Indefinido",
+                "localizacao": "Cidade das Lágrimas",
+                "forma_dos_sonhos": "Não",
+                "cor_principal": ["Branco", "Vermelho"],
+                "arma_estilo": "Não possuí"
+            },
+             {
+                "nome": "Ultimo Besouro",
+                "tipo": "NPC",
+                "especie": "Besouro",
+                "localizacao": "Várias regiões de Hallownest",
+                "forma_dos_sonhos": "Não",
+                "cor_principal": "Azul",
+                "arma_estilo": "Não possuí"
+            },
+            {
+                "nome": "Mato",
+                "tipo": ["NPC", "Boss"],
+                "especie": "Indefinido",
+                "localizacao": "Penhascos Uivantes",
+                "forma_dos_sonhos": "Não",
+                "cor_principal": "Vermelho",
+                "arma_estilo": "Espada"
+            },
+            {
+                "nome": "Oro",
+                "tipo": ["NPC", "Boss"],
+                "especie": "Indefinido",
+                "localizacao": "Borda do Reino",
+                "forma_dos_sonhos": "Não",
+                "cor_principal": "Vermelho",
+                "arma_estilo": "Espada"
+            },
+            {
+                "nome": "Sheo",
+                "tipo": ["NPC", "Boss"],
+                "especie": "Indefinido",
+                "localizacao": "Caminho Verde",
+                "forma_dos_sonhos": "Não",
+                "cor_principal": ["Vermelho", "Amarelo"],
+                "arma_estilo": "Espada"
+            },
+            {
+                "nome": "Senhor Cogumelo",
+                "tipo": ["NPC"],
+                "especie": "Cogumelo",
+                "localizacao": "Várias regiões de Hallownest",
+                "forma_dos_sonhos": "Não",
+                "cor_principal": ["Azul", "Branco"],
+                "arma_estilo": "Não possuí"
+            },
+            {
+                "nome": "Monomon",
+                "tipo": "NPC",
+                "especie": "Sonhadora",
+                "localizacao": "Cânion da Névoa",
+                "forma_dos_sonhos": "Sim",
+                "cor_principal": ["Azul", "Verde"],
+                "arma_estilo": "Não possuí"
+            },
+            {
+                "nome": "Lurien",
+                "tipo": "NPC",
+                "especie": "Sonhadora",
+                "localizacao": "Cidade das Lágrimas",
+                "forma_dos_sonhos": "Sim",
+                "cor_principal": "Azul",
+                "arma_estilo": "Não possuí"
+            },
+            {
+                "nome": "Herrah",
+                "tipo": "NPC",
+                "especie": ["Sonhadora", "Aranha"],
+                "localizacao": "Ninho Profundo",
+                "forma_dos_sonhos": "Sim",
+                "cor_principal": "Azul",
+                "arma_estilo": "Não possuí"
+            },
+            {
+                "nome": "Pranteadora Cinzenta",
+                "tipo": "NPC",
+                "especie": "Indefinido",
+                "localizacao": "Terra do Descanso",
+                "forma_dos_sonhos": "Não",
+                "cor_principal": "Branco",
+                "arma_estilo": "Não possuí"
+            },
+             {
+                "nome": "Vidente",
+                "tipo": "NPC",
+                "especie": "Mariposa",
+                "localizacao": "Terra do Descanso",
+                "forma_dos_sonhos": "Não",
+                "cor_principal": "Roxo",
+                "arma_estilo": "Não possuí"
+            },
         ];
 
     var personagem = personagens[Math.floor(Math.random() * personagens.length)];
@@ -626,7 +721,8 @@
 
             if (personagens[i].nome.toLowerCase() == tentativa) {
                 var comparar = personagens[i];
-            }
+                break;
+            } 
         }
 
         if (comparar == personagem) {
@@ -635,50 +731,50 @@
 
         if (comparar.tipo == personagem.tipo) {
             tipo.innerHTML = comparar.tipo;
-            tipo.style = "background-color: green;"
+            tipo.style = "background-color: green; transition: 1s;"
         } else {
             tipo.innerHTML = comparar.tipo;
-            tipo.style = "background-color: red;"
+            tipo.style = "background-color: red; transition: 1s;"
         }
 
         if (comparar.especie == personagem.especie) {
             especie.innerHTML = comparar.especie;
-            especie.style = "background-color: green;"
+            especie.style = "background-color: green; transition: 2s;"
         } else {
             especie.innerHTML = comparar.especie;
-            especie.style = "background-color: red;"
+            especie.style = "background-color: red; transition: 2s;"
         }
 
         if (comparar.localizacao == personagem.localizacao) {
             localizacao.innerHTML = comparar.localizacao;
-            localizacao.style = "background-color: green;"
+            localizacao.style = "background-color: green; transition: 3s;"
         } else {
             localizacao.innerHTML = comparar.localizacao;
-            localizacao.style = "background-color: red;"
+            localizacao.style = "background-color: red; transition: 3s;"
         }
 
         if (comparar.forma_dos_sonhos == personagem.forma_dos_sonhos) {
             forma_dos_sonhos.innerHTML = comparar.forma_dos_sonhos;
-            forma_dos_sonhos.style = "background-color: green;"
+            forma_dos_sonhos.style = "background-color: green; transition: 4s;"
         } else {
             forma_dos_sonhos.innerHTML = comparar.forma_dos_sonhos;
-            forma_dos_sonhos.style = "background-color: red;"
+            forma_dos_sonhos.style = "background-color: red; transition: 4s;"
         }
 
         if (comparar.cor_principal == personagem.cor_principal) {
             cor_principal.innerHTML = comparar.cor_principal;
-            cor_principal.style = "background-color: green;"
+            cor_principal.style = "background-color: green; transition: 5s;"
         } else {
             cor_principal.innerHTML = comparar.cor_principal;
-            cor_principal.style = "background-color: red;"
+            cor_principal.style = "background-color: red; transition: 5s;"
         }
 
         if (comparar.arma_estilo == personagem.arma_estilo) {
             arma.innerHTML = comparar.arma_estilo;
-            arma.style = "background-color: green;"
+            arma.style = "background-color: green; transition: 6s;"
         } else {
             arma.innerHTML = comparar.arma_estilo;
-            arma.style = "background-color: red;"
+            arma.style = "background-color: red; transition: 6s;"
         }
 
         var linhaHistorico = `
@@ -695,12 +791,19 @@
         historico.innerHTML = linhaHistorico + historico.innerHTML;
 
         if (ganhou) {
-            alert(`Parabéns! Você adivinhou o personagem em ${tentativas} tentativas!`)
-            tentativas = 0;
             ganhou = false;
             historico.innerHTML = ``;
             personagem = personagens[Math.floor(Math.random() * personagens.length)];
+            alert(`Parabéns! Você adivinhou o personagem em ${tentativas} tentativas!`);
+            tentativas = 0;
+            botao_quiz.style.display = 'flex';
+            quiz.style.display = 'none';     
         }
+    }
+
+    function jogar() {
+        quiz.style.display = 'block';
+        botao_quiz.style.display = 'none';
     }
 
 </script>

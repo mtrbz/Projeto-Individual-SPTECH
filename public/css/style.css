@@ -26,6 +26,21 @@ body {
     font-style: normal;
 }
 
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
 h1 {
     font-family: 'trajan-normal';
     font-size: 3em;
@@ -590,15 +605,56 @@ footer {
     align-items: center;
 }
 
-.dle .quiz {
+.dle-logo {
     display: flex;
-    justify-content: space-between;
+    position: absolute;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.dle .botao-quiz {
+    display: flex;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-align: center;
+}
+
+.dle .botao-quiz button {
+    justify-content: center;
+    align-items: center;
+    width: 260px;
+    height: 80px;
+    border-radius: 15px;
+    font-size: 2.6em;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    color: #FFFF;
+    background-color: #525252;
+}
+
+.dle .botao-quiz button:hover {
+    display: flex;
+    transition: 0.4s;
+    background-color: #c9c9c9;
+    width: 280px;
+    height: 90px;
+    font-size: 2.7em;
+}
+
+.dle .quiz {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     background-color: #343434c8;
     width: 60%;
     height: 60%;
     border-radius: 20px;
+    margin-top: 400px;
 }
 
 .dle .quiz h2 {
@@ -635,12 +691,16 @@ footer {
     align-items: center;
     text-align: center;
     width: 100%;
+    margin-bottom: 10px;
 }
 
 .dle .respostas .card {
-    width: 60px;
-    height: 60px;
+    display: flex;
+    width: 80px;
+    height: 80px;
     border-radius: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 .dle .historico {
@@ -651,5 +711,10 @@ footer {
     text-align: center;
     width: 100%;
 }
+
+.oculto {
+    display: none;
+}
+
 
 /* Fim hollowdle */
