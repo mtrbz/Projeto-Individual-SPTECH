@@ -22,7 +22,7 @@
         </a>
 
         <h1 class="poppins-regular">Estatísticas</h1>
-        <h2 class="poppins-regular">Olá, nome!</h2>
+        <h2 class="poppins-regular">Olá, <span id="nome_usuario">!</span></h2>
 
         <div class="container">
 
@@ -52,3 +52,8 @@
     </div>
 </body>
 </html>
+<script>
+
+    nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+</script>

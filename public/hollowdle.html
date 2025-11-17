@@ -528,7 +528,7 @@
                 "cor_principal": ["Branco", "Vermelho"],
                 "arma_estilo": "Não possuí"
             },
-             {
+            {
                 "nome": "Ultimo Besouro",
                 "tipo": "NPC",
                 "especie": "Besouro",
@@ -609,7 +609,7 @@
                 "cor_principal": "Branco",
                 "arma_estilo": "Não possuí"
             },
-             {
+            {
                 "nome": "Vidente",
                 "tipo": "NPC",
                 "especie": "Mariposa",
@@ -656,9 +656,15 @@
             } 
         }
 
+        if (!comparar) {
+            alert("Personagem inválido!");
+            return;
+        }
+
         if (comparar == personagem) {
             ganhou = true;
         }
+        
 
         if (comparar.tipo == personagem.tipo) {
             tipo.innerHTML = comparar.tipo;
@@ -723,14 +729,16 @@
         historico.innerHTML = linhaHistorico + historico.innerHTML;
 
         if (ganhou) {
+            armazenarTentativa();
             ganhou = false;
             historico.innerHTML = ``;
-            personagem = personagens[Math.floor(Math.random() * personagens.length)];
-            alert(`Parabéns! Você adivinhou o personagem ${personagem} em ${tentativas} tentativas!`);
+            alert(`Parabéns! Você adivinhou o personagem ${personagem.nome} em ${tentativas} tentativas!`);
             tentativas = 0;
             botao_quiz.style.display = 'flex';
             quiz.style.display = 'none';     
         }
+
+        input_personagem.focus();
     }
 
     function jogar() {
@@ -743,5 +751,35 @@
         quiz.style.display = 'none';
         botao_quiz.style.display = 'block';
     }
+
+    function armazenarTentativa() {
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var tentativas = window.tentativas;
+
+    // Verificando se há algum campo em branco
+   
+    // Enviando o valor da nova input
+    fetch("/quiz/armazenarTentativas", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        tentativasServer: tentativas
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
+  }
 
 </script>
