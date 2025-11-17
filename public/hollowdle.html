@@ -60,11 +60,11 @@
 
             <div id="botao_quiz" class="botao-quiz">
 
-                
+
                 <h1>Deseja jogar o HollowDLE?</h1>
                 <div class="botoes">
                     <button onclick="jogar()">Jogar</button>
-                   <a href="estatisticas.html"><button>Estatísticas</button></a>
+                    <a href="estatisticas.html"><button>Estatísticas</button></a>
                 </div>
 
             </div>
@@ -78,16 +78,16 @@
                 <button class="poppins-regular" onclick="tentar()">Tentar</button>
                 <button onclick="desistir()">Desistir</button>
 
-                <div class="respostas">
-                    <div class="card">Tipo</div>
-                    <div class="card">Espécie</div>
-                    <div class="card">Localização</div>
-                    <div class="card">Tem forma dos sonhos?</div>
-                    <div class="card">Cor principal</div>
-                    <div class="card">Arma</div>
+                <div class="titulos">
+                    <div class="card-titulo">Tipo</div>
+                    <div class="card-titulo">Espécie</div>
+                    <div class="card-titulo">Localização</div>
+                    <div class="card-titulo">Tem forma dos sonhos?</div>
+                    <div class="card-titulo">Cor principal</div>
+                    <div class="card-titulo">Arma</div>
                 </div>
 
-                <div id="linha" class="respostas">
+                <div id="linha" class="respostas" style="display: none;">
 
                     <div class="card" id="tipo"></div>
                     <div class="card" id="especie"></div>
@@ -128,8 +128,6 @@
 
 </html>
 <script>
-    var tentativas = 0;
-    var ganhou = false;
     var personagens =
         [
             {
@@ -138,14 +136,14 @@
                 "especie": "Receptáculo",
                 "localizacao": "Hallownest",
                 "forma_dos_sonhos": "Não",
-                "cor_principal": "Preto",
+                "cor_principal": "Preto, Branco",
                 "arma_estilo": "Ferrão"
             },
             {
                 "nome": "Hornet",
-                "tipo": ["NPC", "Boss"],
-                "especie": ["Aranha", "Receptáculo"],
-                "localizacao": ["Caminho Verde", "Borda do Reino"],
+                "tipo": "NPC, Boss",
+                "especie": "Aranha, Receptáculo",
+                "localizacao": "Caminho Verde, Borda do Reino",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Vermelho",
                 "arma_estilo": "Agulha"
@@ -156,16 +154,16 @@
                 "especie": "Receptáculo",
                 "localizacao": "Templo do Ovo Negro",
                 "forma_dos_sonhos": "Não",
-                "cor_principal": ["Preto", "Branco"],
+                "cor_principal": "Preto, Branco",
                 "arma_estilo": "Ferrão"
             },
-             {
+            {
                 "nome": "Receptaculo Puro",
                 "tipo": "Boss",
                 "especie": "Receptáculo",
                 "localizacao": "Lar dos deuses",
                 "forma_dos_sonhos": "Sim",
-                "cor_principal": ["Preto", "Branco"],
+                "cor_principal": "Preto, Branco",
                 "arma_estilo": "Ferrão"
             },
             {
@@ -202,7 +200,7 @@
                 "localizacao": "Bacia Antiga",
                 "forma_dos_sonhos": "Sim",
                 "cor_principal": "Laranja",
-                "arma_estilo": ["Ferrão", "Magia"]
+                "arma_estilo": "Ferrão, Magia"
             },
             {
                 "nome": "Uumuu",
@@ -259,7 +257,7 @@
                 "arma_estilo": "Agulha"
             },
             {
-                "nome": "Mãe mosca",
+                "nome": "Mae mosca",
                 "tipo": "Boss",
                 "especie": "Mosca",
                 "localizacao": "Encruzilhada Esquecida",
@@ -300,7 +298,7 @@
                 "especie": "Besouro",
                 "localizacao": "Dirtmouth",
                 "forma_dos_sonhos": "Não",
-                "cor_principal": ["Azul", "Branco"],
+                "cor_principal": "Azul, Branco",
                 "arma_estilo": "Não possuí"
             },
             {
@@ -314,7 +312,7 @@
             },
             {
                 "nome": "Zote",
-                "tipo": ["NPC", "Boss"],
+                "tipo": "NPC, Boss",
                 "especie": "Besouro",
                 "localizacao": "Várias regiões de Hallownest",
                 "forma_dos_sonhos": "Sim",
@@ -325,7 +323,7 @@
                 "nome": "Bretta",
                 "tipo": "NPC",
                 "especie": "Besouro",
-                "localizacao": ["Caminho Verde", "Dirtmouth"],
+                "localizacao": "Caminho Verde, Dirtmouth",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Verde",
                 "arma_estilo": "Não possuí"
@@ -341,9 +339,9 @@
             },
             {
                 "nome": "Come pernas",
-                "tipo": ["NPC", "Comerciante"],
+                "tipo": "NPC, Comerciante",
                 "especie": "Criatura",
-                "localizacao": ["Ermos Fúngicos"],
+                "localizacao": "Ermos Fúngicos",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Bege",
                 "arma_estilo": "Não possuí"
@@ -366,9 +364,9 @@
                 "cor_principal": "Branco",
                 "arma_estilo": "Não possuí"
             },
-                        {
+            {
                 "nome": "Sly",
-                "tipo": ["Comerciante", "Boss"],
+                "tipo": "Comerciante, Boss",
                 "especie": "Besouro",
                 "localizacao": "Dirtmouth",
                 "forma_dos_sonhos": "Não",
@@ -377,7 +375,7 @@
             },
             {
                 "nome": "Grimm",
-                "tipo": ["NPC", "Boss"],
+                "tipo": "NPC, Boss",
                 "especie": "Mariposa",
                 "localizacao": "Dirtmouth",
                 "forma_dos_sonhos": "Sim",
@@ -388,7 +386,7 @@
                 "nome": "Brumm",
                 "tipo": "NPC",
                 "especie": "Indefinido",
-                "localizacao": ["Dirtmouth", "Ninho Profundo"],
+                "localizacao": "Dirtmouth, Ninho Profundo",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Vermelho",
                 "arma_estilo": "Não possuí"
@@ -423,7 +421,7 @@
             {
                 "nome": "Markoth",
                 "tipo": "Boss",
-                "especie": ["Mariposa", "Espírito"],
+                "especie": "Mariposa, Espírito",
                 "localizacao": "Borda do Reino",
                 "forma_dos_sonhos": "Sim",
                 "cor_principal": "Vermelho",
@@ -460,7 +458,7 @@
                 "nome": "Tiso",
                 "tipo": "NPC",
                 "especie": "Besouro",
-                "localizacao": ["Ermos Fúngicos", "Coliseu dos Tolos"],
+                "localizacao": "Ermos Fúngicos, Coliseu dos Tolos",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Azul",
                 "arma_estilo": "Escudo"
@@ -469,7 +467,7 @@
                 "nome": "Buscadora",
                 "tipo": "NPC",
                 "especie": "Criatura",
-                "localizacao": ["Hidrovia Real", "Lar dos deuses"],
+                "localizacao": "Hidrovia Real, Lar dos deuses",
                 "forma_dos_sonhos": "Sim",
                 "cor_principal": "Dourado",
                 "arma_estilo": "Não possuí"
@@ -505,7 +503,7 @@
                 "nome": "Millibelle",
                 "tipo": "Comerciante",
                 "especie": "Indefinido",
-                "localizacao": ["Cânio da Névoa", "Casa do Prazer"],
+                "localizacao": "Cânion da Névoa, Cidade das Lágrimas",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Cinza",
                 "arma_estilo": "Não possuí"
@@ -525,7 +523,7 @@
                 "especie": "Indefinido",
                 "localizacao": "Cidade das Lágrimas",
                 "forma_dos_sonhos": "Não",
-                "cor_principal": ["Branco", "Vermelho"],
+                "cor_principal": "Branco, Vermelho",
                 "arma_estilo": "Não possuí"
             },
             {
@@ -539,7 +537,7 @@
             },
             {
                 "nome": "Mato",
-                "tipo": ["NPC", "Boss"],
+                "tipo": "NPC, Boss",
                 "especie": "Indefinido",
                 "localizacao": "Penhascos Uivantes",
                 "forma_dos_sonhos": "Não",
@@ -548,7 +546,7 @@
             },
             {
                 "nome": "Oro",
-                "tipo": ["NPC", "Boss"],
+                "tipo": "NPC, Boss",
                 "especie": "Indefinido",
                 "localizacao": "Borda do Reino",
                 "forma_dos_sonhos": "Não",
@@ -557,20 +555,20 @@
             },
             {
                 "nome": "Sheo",
-                "tipo": ["NPC", "Boss"],
+                "tipo": "NPC, Boss",
                 "especie": "Indefinido",
                 "localizacao": "Caminho Verde",
                 "forma_dos_sonhos": "Não",
-                "cor_principal": ["Vermelho", "Amarelo"],
+                "cor_principal": "Vermelho, Amarelo",
                 "arma_estilo": "Espada"
             },
             {
                 "nome": "Senhor Cogumelo",
-                "tipo": ["NPC"],
+                "tipo": "NPC",
                 "especie": "Cogumelo",
                 "localizacao": "Várias regiões de Hallownest",
                 "forma_dos_sonhos": "Não",
-                "cor_principal": ["Azul", "Branco"],
+                "cor_principal": "Azul, Branco",
                 "arma_estilo": "Não possuí"
             },
             {
@@ -579,7 +577,7 @@
                 "especie": "Sonhadora",
                 "localizacao": "Cânion da Névoa",
                 "forma_dos_sonhos": "Sim",
-                "cor_principal": ["Azul", "Verde"],
+                "cor_principal": "Azul, Verde",
                 "arma_estilo": "Não possuí"
             },
             {
@@ -594,7 +592,7 @@
             {
                 "nome": "Herrah",
                 "tipo": "NPC",
-                "especie": ["Sonhadora", "Aranha"],
+                "especie": "Sonhadora, Aranha",
                 "localizacao": "Ninho Profundo",
                 "forma_dos_sonhos": "Sim",
                 "cor_principal": "Azul",
@@ -620,6 +618,10 @@
             },
         ];
 
+    var tentativas = 0;
+    var ganhou = false;
+    var linhaHistorico = '';
+
     function validar() {
         var tentativa = input_personagem.value.toLowerCase();
         var msg = '';
@@ -632,13 +634,13 @@
         for (var i = 0; i < personagens.length; i++) {
             var nomeFormatado = personagens[i].nome.toLowerCase();
 
-                if (nomeFormatado.startsWith(tentativa)) {
-                    msg += `${personagens[i].nome}<br>`;
-                }
+            if (nomeFormatado.startsWith(tentativa)) {
+                msg += `${personagens[i].nome}<br>`;
+            }
         }
 
-         mensagem.innerHTML = msg;
-       
+        mensagem.innerHTML = msg;
+
     }
 
     var resultado = {};
@@ -646,14 +648,14 @@
 
     function tentar() {
         var tentativa = input_personagem.value.toLowerCase();
-        tentativas++;
 
         for (var i = 0; i < personagens.length; i++) {
 
             if (personagens[i].nome.toLowerCase() == tentativa) {
                 var comparar = personagens[i];
+                tentativas++;
                 break;
-            } 
+            }
         }
 
         if (!comparar) {
@@ -664,58 +666,75 @@
         if (comparar == personagem) {
             ganhou = true;
         }
-        
 
+        // Validações de comparação entre a tentativa e o personagem secreto
         if (comparar.tipo == personagem.tipo) {
             tipo.innerHTML = comparar.tipo;
-            tipo.style = "background-color: green;"
-            tipo.style = "transition: 5s;"
+            tipo.style = "background-color: #45f395;"
+        } else if (comparar.tipo.includes(personagem.tipo)) {
+            tipo.innerHTML = comparar.tipo;
+            tipo.style = "background-color: #f3db45;"
         } else {
             tipo.innerHTML = comparar.tipo;
-            tipo.style = "background-color: red; transition: 1s;"
+            tipo.style = "background-color: #f36445;"
         }
 
         if (comparar.especie == personagem.especie) {
             especie.innerHTML = comparar.especie;
-            especie.style = "background-color: green; transition: 2s;"
+            especie.style = "background-color: #45f395;"
+        } else if (comparar.especie.includes(personagem.especie)) {
+            especie.innerHTML = comparar.especie;
+            especie.style = "background-color: #f3db45;"
         } else {
             especie.innerHTML = comparar.especie;
-            especie.style = "background-color: red; transition: 2s;"
+            especie.style = "background-color: #f36445;"
         }
 
         if (comparar.localizacao == personagem.localizacao) {
             localizacao.innerHTML = comparar.localizacao;
-            localizacao.style = "background-color: green; transition: 3s;"
+            localizacao.style = "background-color: #45f395;"
+        } else if (comparar.localizacao.includes(personagem.localizacao) || personagem.localizacao.includes(comparar.localizacao)) {
+            localizacao.innerHTML = comparar.localizacao;
+            localizacao.style = "background-color: #f3db45;"
         } else {
             localizacao.innerHTML = comparar.localizacao;
-            localizacao.style = "background-color: red; transition: 3s;"
+            localizacao.style = "background-color: #f36445;"
         }
 
         if (comparar.forma_dos_sonhos == personagem.forma_dos_sonhos) {
             forma_dos_sonhos.innerHTML = comparar.forma_dos_sonhos;
-            forma_dos_sonhos.style = "background-color: green; transition: 4s;"
+            forma_dos_sonhos.style = "background-color: #45f395;"
+        } else if (comparar.forma_dos_sonhos.includes(personagem.forma_dos_sonhos)) {
+            forma_dos_sonhos.innerHTML = comparar.forma_dos_sonhos;
+            forma_dos_sonhos.style = "background-color: #f3db45;"
         } else {
             forma_dos_sonhos.innerHTML = comparar.forma_dos_sonhos;
-            forma_dos_sonhos.style = "background-color: red; transition: 4s;"
+            forma_dos_sonhos.style = "background-color: #f36445;"
         }
 
         if (comparar.cor_principal == personagem.cor_principal) {
             cor_principal.innerHTML = comparar.cor_principal;
-            cor_principal.style = "background-color: green; transition: 5s;"
+            cor_principal.style = "background-color: #45f395;"
+        } else if (comparar.cor_principal.includes(personagem.cor_principal)) {
+            cor_principal.innerHTML = comparar.cor_principal;
+            cor_principal.style = "background-color: #f3db45;"
         } else {
             cor_principal.innerHTML = comparar.cor_principal;
-            cor_principal.style = "background-color: red; transition: 5s;"
+            cor_principal.style = "background-color: #f36445;"
         }
 
         if (comparar.arma_estilo == personagem.arma_estilo) {
             arma.innerHTML = comparar.arma_estilo;
-            arma.style = "background-color: green; transition: 6s;"
+            arma.style = "background-color: #45f395;"
+        } else if (comparar.arma_estilo.includes(personagem.arma_estilo)) {
+            arma.innerHTML = comparar.arma_estilo;
+            arma.style = "background-color: #f3db45;"
         } else {
             arma.innerHTML = comparar.arma_estilo;
-            arma.style = "background-color: red; transition: 6s;"
+            arma.style = "background-color: #f36445;"
         }
 
-        var linhaHistorico = `
+        linhaHistorico = `
         <div class="respostas">
             <div class="card" style="${tipo.style.cssText}">${tipo.innerHTML}</div>
             <div class="card" style="${especie.style.cssText}">${especie.innerHTML}</div>
@@ -735,10 +754,12 @@
             alert(`Parabéns! Você adivinhou o personagem ${personagem.nome} em ${tentativas} tentativas!`);
             tentativas = 0;
             botao_quiz.style.display = 'flex';
-            quiz.style.display = 'none';     
+            quiz.style.display = 'none';
+            linhaHistorico.innerHTML = '';
         }
 
         input_personagem.focus();
+        input_personagem.value = '';
     }
 
     function jogar() {
@@ -750,36 +771,39 @@
     function desistir() {
         quiz.style.display = 'none';
         botao_quiz.style.display = 'block';
+        linhaHistorico.innerHTML = '';
+        historico.innerHTML = '';
+        tentativas = 0;
     }
 
     function armazenarTentativa() {
 
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var tentativas = window.tentativas;
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var tentativas = window.tentativas;
 
-    // Verificando se há algum campo em branco
-   
-    // Enviando o valor da nova input
-    fetch("/quiz/armazenarTentativas", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        tentativasServer: tentativas
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
+        // Verificando se há algum campo em branco
 
-    return false;
-  }
+        // Enviando o valor da nova input
+        fetch("/quiz/armazenarTentativas", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                tentativasServer: tentativas
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+
+        return false;
+    }
 
 </script>

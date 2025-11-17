@@ -658,7 +658,7 @@ footer {
     text-align: center;
     background-color: #343434c8;
     width: 60%;
-    height: 60%;
+    height: 100%;
     border-radius: 20px;
     margin-top: 400px;
 }
@@ -677,7 +677,7 @@ footer {
 }
 
 .dle .quiz button {
-    width: 80px;
+    width: 100px;
     height: 40px;
     border-radius: 15px;
     border: none;
@@ -691,6 +691,23 @@ footer {
     background-color: #c9c9c9;
 }
 
+.dle .titulos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px
+}
+
+.dle .card-titulo {
+    display: flex;
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
 .dle .respostas {
     display: flex;
     justify-content: space-around;
@@ -702,11 +719,13 @@ footer {
 
 .dle .respostas .card {
     display: flex;
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    color: #000000;
+    height: 120px;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
+    border: 3px solid #000000;
 }
 
 .dle .historico {
