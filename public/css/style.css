@@ -785,10 +785,16 @@ footer {
 
 .estatisticas .box {
     display: flex;
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     border-radius: 30px;
     background-color: #ffff;
+    color: #000000;
+    font-size: 2em;
+}
+.estatisticas .box h3 {
+    color: #000000;
+    font-size: 1em;
 }
 
 .estatisticas .grafico {

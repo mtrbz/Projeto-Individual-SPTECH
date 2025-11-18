@@ -169,7 +169,7 @@
             {
                 "nome": "Radiancia",
                 "tipo": "Boss",
-                "especie": "Entidade",
+                "especie": "Mariposa",
                 "localizacao": "Templo do Ovo Negro",
                 "forma_dos_sonhos": "Sim",
                 "cor_principal": "Branco",
@@ -339,7 +339,7 @@
             },
             {
                 "nome": "Come pernas",
-                "tipo": "NPC, Comerciante",
+                "tipo": "Comerciante",
                 "especie": "Criatura",
                 "localizacao": "Ermos Fúngicos",
                 "forma_dos_sonhos": "Não",
@@ -528,7 +528,7 @@
             },
             {
                 "nome": "Ultimo Besouro",
-                "tipo": "NPC",
+                "tipo": "NPC, Comerciante",
                 "especie": "Besouro",
                 "localizacao": "Várias regiões de Hallownest",
                 "forma_dos_sonhos": "Não",
@@ -619,7 +619,8 @@
         ];
 
     var tentativas = 0;
-    var ganhou = false;
+    var venceu = 0;
+    var desistiu = 0;
     var linhaHistorico = '';
 
     function validar() {
@@ -664,7 +665,7 @@
         }
 
         if (comparar == personagem) {
-            ganhou = true;
+            venceu = 1;
         }
 
         // Validações de comparação entre a tentativa e o personagem secreto
@@ -747,15 +748,15 @@
 
         historico.innerHTML = linhaHistorico + historico.innerHTML;
 
-        if (ganhou) {
-            armazenarTentativa();
-            ganhou = false;
+        if (venceu) {
+            armazenarPartida();
+            venceu = 0;
             historico.innerHTML = ``;
             alert(`Parabéns! Você adivinhou o personagem ${personagem.nome} em ${tentativas} tentativas!`);
-            tentativas = 0;
             botao_quiz.style.display = 'flex';
             quiz.style.display = 'none';
             linhaHistorico.innerHTML = '';
+            tentativas = 0;
         }
 
         input_personagem.focus();
@@ -766,9 +767,12 @@
         personagem = personagens[Math.floor(Math.random() * personagens.length)];
         quiz.style.display = 'block';
         botao_quiz.style.display = 'none';
+        desistiu = 0;
     }
 
     function desistir() {
+        desistiu = 1;
+        armazenarPartida();
         quiz.style.display = 'none';
         botao_quiz.style.display = 'block';
         linhaHistorico.innerHTML = '';
@@ -776,34 +780,37 @@
         tentativas = 0;
     }
 
-    function armazenarTentativa() {
+    function armazenarPartida() {
 
-        //Recupere o valor da nova input pelo nome do id
-        // Agora vá para o método fetch logo abaixo
-        var tentativas = window.tentativas;
+    var tentativasVar = tentativas;
+    var venceuVar = venceu;
+    var desistiuVar = desistiu;
+    var idUsuarioVar = sessionStorage.ID_USUARIO;
 
-        // Verificando se há algum campo em branco
+    // Enviando o valor da nova input
+    fetch("/partida/armazenarPartida", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        idUsuarioServer: idUsuarioVar,
+        tentativasServer: tentativasVar,
+        venceuServer: venceuVar,
+        desistiuServer: desistiuVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+      })
 
-        // Enviando o valor da nova input
-        fetch("/quiz/armazenarTentativas", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                tentativasServer: tentativas
-            }),
-        })
-            .then(function (resposta) {
-                console.log("resposta: ", resposta);
-            })
-            .catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-            });
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
 
-        return false;
-    }
+    return false;
+  }
 
 </script>

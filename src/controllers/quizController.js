@@ -16,7 +16,7 @@ function armazenarTentativas(req, res) {
                         console.log(resultado);
                         res.json({
                             idQuiz: resultado.idQuiz,
-                            tentativas: tentativasQuiz
+                            tentativas: resultado.tentativasQuiz
                         });
                     }
                 }

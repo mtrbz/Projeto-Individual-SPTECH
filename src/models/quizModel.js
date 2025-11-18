@@ -8,7 +8,7 @@ function armazenarTentativas(tentativasQuiz) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO quiz (tentativas) VALUES ('${tentativasQuiz}');
+        INSERT INTO dle (tentativas) VALUES ('${tentativasQuiz}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
