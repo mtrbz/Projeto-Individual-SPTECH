@@ -635,12 +635,20 @@
             var nomeFormatado = personagens[i].nome.toLowerCase();
 
             if (nomeFormatado.startsWith(tentativa)) {
-                msg += `${personagens[i].nome}<br>`;
+                msg += `
+                <div class='sugestao' onclick='completar("${nomeFormatado}")'>
+                ${personagens[i].nome}
+                </div>`;
             }
         }
 
         mensagem.innerHTML = msg;
 
+    }
+
+    function completar(personagem) {
+        input_personagem.value = personagem;
+        mensagem.innerHTML = '';
     }
 
     var resultado = {};
