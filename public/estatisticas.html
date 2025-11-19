@@ -10,6 +10,7 @@
 
     <script src="./js/sessao.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="icon" href="./assets/img/knight.ico" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -34,7 +35,10 @@
                     <div id="qtdPartidasJogadas"></div>
                 </div>
 
-                <div class="box"></div>
+                <div class="box">
+                    <h3>Jogos Ganhos</h3>
+                    <div id="qtdVitorias"></div>
+                </div>
                 <div class="box"></div>
                 <div class="box"></div>
 
@@ -43,6 +47,10 @@
             <div class="boxes">
 
                 <div class="grafico">
+
+                    <div>
+                        <canvas id="graficoTentativasPartida"></canvas>
+                    </div>
 
                 </div>
 
@@ -59,37 +67,118 @@
 
 </html>
 <script>
+    function obterDadosGrafico() {
+        var fkUsuario = sessionStorage.ID_USUARIO;
+
+        fetch(`/partida/obterDadosGrafico/${fkUsuario}`)
+            .then(response => response.json())
+            .then(function (response) {
+                console.log('to dentro do grafico', response)
+
+                console.log(`Dados recebidos: ${JSON.stringify(response)}`);
+
+                plotarGrafico(response);
+
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    obterDadosGrafico();
+
+    function plotarGrafico(resultado) {
+        console.log(resultado)
+        var labels = [];
+        var tentativas = [];
+        for (var i = 0; i < resultado.length; i++) {
+            labels.push(`Partida ${i+1}`)
+            tentativas.push(resultado[i].tentativas)
+        }
+        console.log('tentativas: ', tentativas)
+        console.log(labels)
+
+        var dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Tentativas',
+                data: tentativas,
+                fill: false
+            }]
+        }
+        console.log(dados)
+
+        // Criação do Gráfico
+        const ctx = document.getElementById('graficoTentativasPartida');
+
+        const config = {
+            type: 'bar',
+            data: dados
+        };
+
+        let myChart = new Chart(
+            ctx, config
+        )
+    }
 
     nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     function selecionarPartida() {
-    fetch("/partida/selecionarPartida", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            idUsuarioServer: sessionStorage.ID_USUARIO
-        }),
-    })
-        .then(function (resposta) {
-            if (resposta.ok) {
-                resposta.json().then(function (data) {
-
-                    console.log("DATA RECEBIDA: ", data);
-
-                    qtdPartidasJogadas.innerHTML = data.qtdPartidas;
-                });
-            } else {
-                console.error("Partida inválida");
-            }
+        fetch("/partida/selecionarPartida", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                idUsuarioServer: sessionStorage.ID_USUARIO
+            }),
         })
-        .catch(function (erro) {
-            console.log("#ERROR:", erro);
-        });
-}
+            .then(function (resposta) {
+                if (resposta.ok) {
+                    resposta.json().then(function (data) {
 
-selecionarPartida();
+                        console.log("DATA RECEBIDA: ", data);
 
+                        qtdPartidasJogadas.innerHTML = data.qtdPartidas;
+                    });
+                } else {
+                    console.error("Partida inválida");
+                }
+            })
+            .catch(function (erro) {
+                console.log("#ERROR:", erro);
+            });
+    }
+
+    selecionarPartida();
+
+    function selecionarVitorias() {
+        fetch("/partida/selecionarVitorias", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                idUsuarioServer: sessionStorage.ID_USUARIO
+            }),
+        })
+            .then(function (resposta) {
+                if (resposta.ok) {
+                    resposta.json().then(function (data) {
+
+                        console.log("DATA RECEBIDA: ", data);
+
+                        qtdVitorias.innerHTML = data.qtdVitorias;
+                    });
+                } else {
+                    console.error("Vitória inválida");
+                }
+            })
+            .catch(function (erro) {
+                console.log("#ERROR:", erro);
+            });
+    }
+
+    selecionarVitorias();
 
 </script>
