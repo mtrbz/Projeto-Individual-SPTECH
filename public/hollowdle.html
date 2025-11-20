@@ -620,6 +620,7 @@
     var tentativas = 0;
     var venceu = 0;
     var desistiu = 0;
+    var chances = 0;
     var linhaHistorico = '';
 
     function validar() {
@@ -656,6 +657,17 @@
 
     function tentar() {
         var tentativa = input_personagem.value.toLowerCase();
+
+         chances--;
+
+        if (chances == 0) {
+            alert(`Você perdeu! O personagem era ${personagem.nome}`)
+            desistir();
+        }
+
+         if (chances == 1) {
+            alert('Última chance!')
+        }
 
         for (var i = 0; i < personagens.length; i++) {
 
@@ -775,6 +787,7 @@
         quiz.style.display = 'block';
         botao_quiz.style.display = 'none';
         desistiu = 0;
+        chances = 10;
     }
 
     function desistir() {

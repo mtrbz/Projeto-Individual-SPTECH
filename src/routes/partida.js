@@ -16,8 +16,16 @@ router.post("/selecionarVitorias", function (req, res) {
     partidaController.selecionarVitorias(req, res);
 });
 
+router.post("/selecionarRank/:fkUsuario", function (req, res) {
+    partidaController.selecionarRank(req, res);
+});
+
 router.get("/obterDadosGrafico/:fkUsuario", function (req, res) {
     partidaController.obterDadosGrafico(req, res);
+});
+
+router.get("/obterDadosGraficoPizza/:fkUsuario", function (req, res) {
+    partidaController.obterDadosGraficoPizza(req, res);
 });
 
 module.exports = router;

@@ -65,6 +65,38 @@ function selecionarVitorias(req, res) {
             );
 }
 
+function selecionarRank(req, res) {
+    var idUsuarioRank = req.body.idUsuarioServer;
+
+        partidaModel.selecionarRank(idUsuarioRank)
+            .then(
+                function (resultado) {
+                     // transforma JSON em String
+
+                    if (resultado.length > 0) {
+                        var vitorias = resultado[0].ranque;
+
+                        console.log(resultado);
+                        res.json({
+                            ranque: vitorias
+                        });
+
+                    } else {
+                        res.json ({
+                            ranque: vitorias
+                        });
+                    }
+                    
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um ERRO: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+}
+
 function armazenarPartida(req, res) {
     var idUsuarioPartida = req.body.idUsuarioServer;
     var venceuPartida = req.body.venceuServer;
@@ -127,9 +159,32 @@ function obterDadosGrafico(req, res) {
             );
 }
 
+function obterDadosGraficoPizza(req, res) {
+    var fkUsuario = req.params.fkUsuario;
+    console.log(fkUsuario)
+        partidaModel.obterDadosGraficoPizza(fkUsuario)
+            .then(
+                function (resultado) {
+                    console.log(`\nResultados encontrados do grafico pizza: ${resultado}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+                    
+                    res.json(resultado);
+                    
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um ERRO: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+}
+
 module.exports = {
     armazenarPartida,
     selecionarPartida,
     selecionarVitorias,
-    obterDadosGrafico
+    selecionarRank,
+    obterDadosGrafico,
+    obterDadosGraficoPizza
 }

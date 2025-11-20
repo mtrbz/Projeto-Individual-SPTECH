@@ -17,31 +17,49 @@
 </head>
 
 <body>
+    <!-- Navbar -->
+
+    <div class="header">
+        <nav>
+            <div class="gif">
+                <img src="./assets/img/head-icon.png" alt="" />
+            </div>
+
+            <div>
+                <h1 class="poppins-regular">Estatísticas</h1>
+            </div>
+
+            <div class="nome-usuario">
+                <h2 class="poppins-regular">Olá, <span id="nome_usuario">!</span></h2>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Fim header -->
     <div class="estatisticas">
 
-        <a class="botao-voltar" href="hollowdle.html">
-            <img src="./assets/img/left-arrow.png" alt="">
-        </a>
+        <div class="barra-lateral">
 
-        <h1 class="poppins-regular">Estatísticas</h1>
-        <h2 class="poppins-regular">Olá, <span id="nome_usuario">!</span></h2>
+            <div class="box">
+                <h3 class="poppins-regular">Partidas Jogadas</h3>
+                <div class="kpi" id="qtdPartidasJogadas"></div>
+            </div>
+
+             <div class="box">
+                <h3 class="poppins-regular">Porcentagem de Vitórias</h3>
+                <div class="kpi" id="qtdVitorias"></div>
+            </div>
+
+        </div>
 
         <div class="container">
 
             <div class="boxes">
 
-                <div class="box">
-                    <h3>Partidas Jogadas</h3>
-                    <div id="qtdPartidasJogadas"></div>
-                </div>
-
-                <div class="box">
-                    <h3>Jogos Ganhos</h3>
-                    <div id="qtdVitorias"></div>
-                </div>
-                <div class="box"></div>
-                <div class="box"></div>
-
+                    <div>
+                        <canvas id="graficoPizza"></canvas>
+                    </div>
+               
             </div>
 
             <div class="boxes">
@@ -55,7 +73,7 @@
                 </div>
 
                 <div class="rank">
-
+                    <div id="rank"></div>
                 </div>
 
             </div>
@@ -92,7 +110,7 @@
         var labels = [];
         var tentativas = [];
         for (var i = 0; i < resultado.length; i++) {
-            labels.push(`Partida ${i+1}`)
+            labels.push(`Partida ${labels.length + 1}`)
             tentativas.push(resultado[i].tentativas)
         }
         console.log('tentativas: ', tentativas)
@@ -101,7 +119,7 @@
         var dados = {
             labels: labels,
             datasets: [{
-                label: 'Tentativas',
+                label: 'Tentativas nas últimas 8 partidas',
                 data: tentativas,
                 fill: false
             }]
@@ -168,7 +186,7 @@
 
                         console.log("DATA RECEBIDA: ", data);
 
-                        qtdVitorias.innerHTML = data.qtdVitorias;
+                        qtdVitorias.innerHTML = data.qtdVitorias + '%';
                     });
                 } else {
                     console.error("Vitória inválida");
@@ -180,5 +198,89 @@
     }
 
     selecionarVitorias();
+
+    function obterDadosGraficoPizza() {
+        var fkUsuario = sessionStorage.ID_USUARIO;
+
+        fetch(`/partida/obterDadosGraficoPizza/${fkUsuario}`)
+            .then(resposta => resposta.json())
+            .then(function (resposta) {
+                console.log('to dentro do grafico pizza', resposta)
+
+                console.log(`Dados recebidos pizza: ${JSON.stringify(resposta)}`);
+
+                plotarGraficoPizza(resposta);
+
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico pizza: ${error.message}`);
+            });
+    }
+
+    obterDadosGraficoPizza();
+
+    function plotarGraficoPizza(resultado) {
+        console.log(resultado)
+        var labels = ['Vitórias', 'Derrotas'];
+        var vitorias = resultado[0].Vitórias;
+        var derrotas = resultado[0].Derrotas;
+
+        console.log('Vitorias: ', vitorias)
+        console.log('Derrotas: ', derrotas)
+
+        var dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Vitórias / Derrotas',
+                data: [vitorias, derrotas],
+                backgroundColor: [
+                    'rgb(54, 162, 235)',
+                    'rgb(255, 99, 132)',
+                ],
+            }]
+        }
+        console.log(dados)
+
+        // Criação do Gráfico
+        const ctx = document.getElementById('graficoPizza');
+
+        const config = {
+            type: 'pie',
+            data: dados
+        };
+
+        let myChart = new Chart(
+            ctx, config
+        )
+    }
+
+    function selecionarRank() {
+        fetch("/partida/selecionarRank:fkUsuario", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                idUsuarioServer: sessionStorage.ID_USUARIO
+            }),
+        })
+            .then(function (resposta) {
+                if (resposta.ok) {
+                    resposta.json().then(function (data) {
+
+                        console.log("DATA RECEBIDA: ", data);
+
+                        rank.innerHTML = data.rank;
+                    });
+                } else {
+                    console.error("Rank inválido");
+                }
+            })
+            .catch(function (erro) {
+                console.log("#ERROR:", erro);
+            });
+    }
+
+    selecionarRank();
 
 </script>
