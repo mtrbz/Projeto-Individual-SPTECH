@@ -56,7 +56,16 @@
 
         <div class="dle-logo"><img src="./assets/img/logo.png" alt=""></div>
 
-        <div class="container">
+        <div id="avisoLogin" class="avisoLogin">
+            
+            <div class="box">
+                <h2 class="poppins-regular">Você precisa estar logado para jogar!</h2>
+                <p class="poppins-regular">faça login clicando <a href="login.html">aqui!</a></p>
+            </div>
+
+        </div>
+
+        <div id="container" class="container">
 
             <div id="botao_quiz" class="botao-quiz">
 
@@ -616,6 +625,14 @@
                 "arma_estilo": "Não possuí"
             },
         ];
+
+    if (sessionStorage.ID_USUARIO == undefined) {
+        container.style.display='none';
+        avisoLogin.style.display='flex';
+    } else {
+        container.style.display='flex';
+        avisoLogin.style.display='none'
+    }
 
     var tentativas = 0;
     var venceu = 0;

@@ -612,6 +612,43 @@ footer {
     align-items: center;
 }
 
+.dle .avisoLogin {
+    display: flex;
+    width: 50%;
+    height: 400px;
+    background-color: #262626;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.dle .avisoLogin .box {
+    width: 100%;
+}
+
+.dle .avisoLogin h2 {
+    font-size: 3em;
+}
+.dle .avisoLogin p {
+    font-size: 2em;
+}
+
+.dle .avisoLogin a {
+    text-decoration: none;
+    color: #505050;
+}
+
+.dle .avisoLogin a:hover {
+    text-decoration: none;
+    color: #969696;
+    font-size: 1.1em;
+    transition: 0.4s;
+}
+
+.dle .sugestao {
+    background-color: #9e9e9e;
+}
+
 .dle-logo {
     display: flex;
     position: absolute;

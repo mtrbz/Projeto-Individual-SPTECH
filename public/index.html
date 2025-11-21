@@ -41,7 +41,7 @@
             <li><a href="hollowdle.html">HOLLOWDLE</a></li>
           </ul>
 
-        <div class="botao-login">
+        <div id="botao_login" class="botao-login">
           <a href="login.html"><p>LOGIN</p></a>
         </div>
         
@@ -154,3 +154,9 @@
     </footer>
   </body>
 </html>
+<script>
+  if (sessionStorage.ID_USUARIO != undefined) {
+    botao_login.style.display='none';
+    botao_sair.style.display='flex';
+  }
+</script>
