@@ -53,7 +53,7 @@ function obterDadosGrafico(fkUsuario) {
         SELECT tentativas
         FROM partida
         WHERE fkUsuario = ${fkUsuario}
-        ORDER BY idPartida LIMIT 8;
+        ORDER BY idPartida DESC LIMIT 8;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

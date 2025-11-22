@@ -1,164 +1,284 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="shortcut icon"
-      href="../public/assets/img/knight.ico"
-      type="image/x-icon"
-    />
-    <title>Hollow Knight</title>
 
-    <link rel="stylesheet" href="./css/style.css">
-    <!-- Chamando pastas externas -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../public/assets/img/knight.ico" type="image/x-icon" />
+  <title>Hollow Knight</title>
 
-  </head>
-  <body>
+  <link rel="stylesheet" href="./css/style.css">
+  <!-- Chamando pastas externas -->
 
-    <!-- Navbar -->
+</head>
 
-    <div class="header">
-      <nav>
-        <div class="gif">
-          <img src="./assets/img/hollow-walking.gif" alt="" />
-        </div>
+<body>
 
-        <ul class="menu">
-          <li><a href="./index.html">HOME</a></li>
-          <hr />
-          <div class="aba-selecionada">
-            <img src="./assets/img/left-arrow.png" alt=""><li><a href="">HISTÓRIA</a></li><img src="./assets/img/right-arrow.png" alt="">
-          </div>
-          <hr />
-          <li><a href="personagens.html">PERSONAGENS</a></li>
-          <hr />
-          <li><a href="">MAPA</a></li>
-          <hr />
-          <li><a href="">BOSSES</a></li>
-          <hr />
-          <li><a href="hollowdle.html">HOLLOWDLE</a></li>
-        </ul>
+  <!-- Navbar -->
 
-        <div class="botao-login">
-          <a href="login.html"><p>LOGIN</p></a>
-        </div>
-      </nav>
-    </div>
-
-    <!-- Fim header -->
-
-    <div class="historia-inicio">
-      <div class="historia-intro">
-        <img src="./assets/img/logo.png" alt="" />
-        <br /><br /><br />
-        <p>
-          Misterioso. Desafiador. Encantador.<br />
-          Hollow Knight é um aclamado jogo de ação e aventura em estilo
-          metroidvania, desenvolvido pela Team Cherry. Ambientado nas
-          profundezas de Hallownest, um vasto reino subterrâneo em ruínas, o
-          jogador assume o papel de um pequeno cavaleiro em busca de respostas
-          sobre um mundo esquecido. Com arte desenhada à mão, trilha sonora
-          envolvente e jogabilidade precisa, o jogo convida você a explorar
-          cavernas antigas, enfrentar inimigos formidáveis e desvendar segredos
-          há muito enterrados. Uma jornada sombria e poética que desafia sua
-          habilidade e sua curiosidade a cada passo.
-        </p>
+  <div class="header">
+    <nav>
+      <div class="gif">
+        <img src="./assets/img/hollow-walking.gif" alt="" />
       </div>
 
-      <div class="historia-img">
-        <img src="./assets/img/voidheart.jpg" alt="" />
+      <ul class="menu">
+        <li><a href="./index.html">HOME</a></li>
+        <hr />
+        <div class="aba-selecionada">
+          <img src="./assets/img/left-arrow.png" alt="">
+          <li><a href="">HISTÓRIA</a></li><img src="./assets/img/right-arrow.png" alt="">
+        </div>
+        <hr />
+        <li><a href="personagens.html">PERSONAGENS</a></li>
+        <hr />
+        <li><a href="sobremim.html">SOBRE MIM</a></li>
+        <hr />
+        <li><a href="hollowdle.html">HOLLOWDLE</a></li>
+      </ul>
+
+      <div id="botao_login" class="botao-login">
+        <a href="login.html">
+          <p>LOGIN</p>
+        </a>
       </div>
+
+      <div id="botao_sair" class="botao-sair">
+        <a href="" onclick="deslogar()">SAIR</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Fim header -->
+
+  <div class="historia-inicio">
+    <div class="historia-intro">
+      <img src="./assets/img/logo.png" alt="" />
+      <br /><br /><br />
+      <p>
+        Misterioso. Desafiador. Encantador.<br />
+        Hollow Knight é um aclamado jogo de ação e aventura em estilo
+        metroidvania, desenvolvido pela Team Cherry. Ambientado nas
+        profundezas de Hallownest, um vasto reino subterrâneo em ruínas, o
+        jogador assume o papel de um pequeno cavaleiro em busca de respostas
+        sobre um mundo esquecido. Com arte desenhada à mão, trilha sonora
+        envolvente e jogabilidade precisa, o jogo convida você a explorar
+        cavernas antigas, enfrentar inimigos formidáveis e desvendar segredos
+        há muito enterrados. Uma jornada sombria e poética que desafia sua
+        habilidade e sua curiosidade a cada passo.
+      </p>
     </div>
 
-    <!-- Footer -->
+    <div class="historia-img">
+      <img src="./assets/img/voidheart.jpg" alt="" />
+    </div>
+  </div>
 
-    <!-- Conteudo -->
+  <!-- Footer -->
 
-    <div class="historia">
-      <div class="container">
-        <img class="dialogo" src="./assets/img/dialogo_top.webp" alt="" />
-        <h1>Primórdios, o Vazio e a Luz</h1>
-        <img class="dialogo" src="./assets/img/dialogo_bottom.webp" alt="" />
+  <!-- Conteudo -->
 
-        <p>
-          No princípio, Hallownest era um reino próspero, onde os insetos viviam
-          suas vidas com um certo grau de felicidade, todas as construções eram
-          magníficas e de certa forma, voltadas ao bem estar da Radiância.Tudo
-          estava bem até que um Wyrm surgiu neste mundo, e então morrendo,
-          reencarnou na forma de um inseto autoritário, que logo se proclamou
-          rei de Hallownest, denominado de Rei Pálido. Com isso todos os insetos
-          que antes adoravam a Radiância, passaram a ignorá-la com o tempo, seus
-          monumentos foram esquecidos e sua luz estava se apagando.
-        </p>
-
-        <img src="./assets/img/hallownest.png" alt="" />
-        <p>Mapa de Hallownest</p>
-
-        <p>
-          Tudo estava bem até que um Wyrm surgiu neste mundo e então morrendo,
-          reencarnou na forma de um inseto autoritário que logo se proclamou rei
-          de Halllownest, ou Rei Pálido. Com isso todos os insetos que antes
-          adoravam a Radiância, passaram a ignorá-la com o tempo e seus
-          monumentos foram esquecidos juntamente com sua luz, que estava se
-          apagando.
-        </p>
-
-        <img src="./assets/img/radiance-crystal-peak.png" alt="" />
-        <p>
-          (monumento destinado a cultuar a Radiância, construído pela
-          civilização antiga localizado na Coroa de Hallownest)
-        </p>
-
-        <p>
-          Em um gesto de extremo ódio, ela passou a entrar nos sonhos de seus
-          antigos adoradores e perturbá-los, isso fazia com que eles lentamente
-          perdessem sua vontade própia e se tornassem extremamente agressivos. O
-          Rei Pálido, prezando pelo bem estar de seu povo, tomou as medidas
-          necessárias para ajudá-los, mas a Radiância estava muito frustrada
-          pelo ocorrido, então a única solução viável era selar a Radiância em
-          um local onde seu poder não pudesse mais influenciar os outros.
-        </p>
-
-         <img class="dialogo" src="./assets/img/dialogo_top.webp" alt="" />
-        <h1>O Receptáculo Perfeito</h1>
+  <div class="historia">
+    <div class="container">
+      <img class="dialogo" src="./assets/img/dialogo_top.webp" alt="" />
+      <h1>Primórdios, o Vazio e a Luz</h1>
       <img class="dialogo" src="./assets/img/dialogo_bottom.webp" alt="" />
 
-       <p>
-          Em um gesto de extremo ódio, ela passou a entrar nos sonhos de seus
-          antigos adoradores e perturbá-los, isso fazia com que eles lentamente
-          perdessem sua vontade própia e se tornassem extremamente agressivos. O
-          Rei Pálido, prezando pelo bem estar de seu povo, tomou as medidas
-          necessárias para ajudá-los, mas a Radiância estava muito frustrada
-          pelo ocorrido, então a única solução viável era selar a Radiância em
-          um local onde seu poder não pudesse mais influenciar os outros.
-        </p>
+      <p>
+        Era uma vez um reino onde a ordem reinava absoluta. Hallownest erguia-se majestoso sob o comando do Rei Pálido,
+        um ser de poder incomensurável que não nasceu como rei, mas como Wyrm, uma criatura colossal, antiga como o
+        próprio tempo.
+        <br>
+        Cansado de sua forma imensa, ele se desfez dela, emergindo como uma figura esguia e luminosa, trazendo consigo
+        um dom raro: a consciência. Aos insetos simples que rastejavam nas sombras, ele ofereceu mentes, sonhos e um
+        propósito.
+        <br>
+        Assim nasceu a Cidade das Lágrimas, com suas torres reluzentes e fontes eternas, um símbolo de um futuro que
+        nunca morreria.
+        <br>
+        Mas toda luz projeta uma sombra. Enquanto o Rei Pálido moldava seu paraíso, algo mais antigo despertava. A
+        Radiância, uma entidade de luz dourada e sonhos fervorosos, havia sido a primeira a governar os insetos de
+        Hallownest.
+      </p>
 
-      </div>
+      <img src="./assets/img/hallownest.png" alt="" />
+
+      <p>
+        Ela era seu sol, sua deusa, até que o Rei a destronou, roubando a adoração que a sustentava. Abandonada, ela se
+        recolheu ao Reino dos Sonhos, mas sua ira não descansou.
+        <br>
+        Dela nasceu a Infecção, uma praga alaranjada que rastejava como fogo líquido, queimando as mentes dos habitantes
+        e transformando-os em cascas selvagens. O reino que o Rei Pálido jurou proteger começou a desmoronar, e com ele,
+        sua promessa de eternidade.
+      </p>
+
+      <img class="dialogo" src="./assets/img/dialogo_top.webp" alt="" />
+      <h1>O pequeno cavaleiro e o chamado silencioso</h1>
+      <img class="dialogo" src="./assets/img/dialogo_bottom.webp" alt="" />
+
+      <p>
+        No meio desse caos silencioso, ele apareceu: o Cavaleiro. Pequeno, com um chifre quebrado e um olhar vazio, ele
+        não fala, mas carrega uma presença que ressoa como um tambor nas profundezas.
+        <br>
+        Quem é ele? Um andarilho? Um salvador? Não sabemos ao certo, mas o que o trouxe a Hallownest foi um chamado, um
+        sussurro que ecoava de algum lugar além das ruínas, talvez do próprio Abismo onde ele nasceu.
+        <br>
+        O Cavaleiro é um Vaso, uma das muitas criaturas forjadas pelo Rei Pálido no Vazio, uma substância negra e viva
+        que pulsa como um coração esquecido. Ele não era o único, milhares como ele foram criados, testados e
+        descartados, tudo para encontrar um que fosse completamente vazio, para assim selar a Radiância.
+      </p>
+
+      <img src="./assets/img/hallownest.png" alt="" />
+
+      <img class="dialogo" src="./assets/img/dialogo_top.webp" alt="" />
+      <h1>O Cavaleiro Vazio: o herói condenado</h1>
+      <img class="dialogo" src="./assets/img/dialogo_bottom.webp" alt="" />
+
+      <p>
+        No fundo do reino, preso na Câmara Negra, está o Cavaleiro Vazio. Ele foi o escolhido, o Vaso perfeito que o Rei
+        Pálido moldou com cuidado e esperança. Diferente dos outros, jogados como lixo no Abismo, ele foi levado ao
+        Palácio Branco, treinado para carregar o fardo que nenhum inseto comum poderia suportar.
+        <br>
+        Quando a Infecção se espalhou, o Rei o selou com a Radiância dentro de si, um sacrifício para salvar Hallownest.
+        Três Sonhadoras ergueram suas máscaras, e o Cavaleiro Vazio foi acorrentado, sua pequena forma tremendo enquanto
+        a
+        luz alaranjada lutava para escapar.
+      </p>
+
+      <img src="./assets/img/hallownest.png" alt="" />
+
+      <p>
+        Mas o Rei cometeu um erro. Ele amou o Cavaleiro Vazio como um filho, e esse amor, essa faísca de emoção, tornou
+        o Vaso impuro, porque o Cavaleiro também amou o seu pai. A Radiância, astuta e implacável, encontrou essa
+        brecha. Ela sussurrou em sua mente, corroeu seu
+        vazio, e a Infecção começou a vazar, lenta e inexorável.
+        <br>
+        Quando o Cavaleiro (jogador) o encontra, o Cavaleiro Vazio é uma ruína viva, seu corpo rachado jorrando a praga que ele
+        deveria conter. O embate entre eles é mais do que uma batalha, é um lamento, um grito de dois irmãos presos na
+        mesma tragédia. O Cavaleiro (jogador) ergue seu prego, e o som do metal contra metal ecoa como o último suspiro de uma
+        era.
+      </p>
+
+      <img class="dialogo" src="./assets/img/dialogo_top.webp" alt="" />
+      <h1>A Radiância: a luz que consome</h1>
+      <img class="dialogo" src="./assets/img/dialogo_bottom.webp" alt="" />
+
+      <p>
+        E então, com o Ferrão dos Sonhos em mãos, o Cavaleiro mergulha mais fundo, não no chão, mas nos sonhos. Lá, ele
+        encontra a Radiância em toda sua glória terrível. Ela é um sol furioso, suas asas de mariposa pulsando com luz
+        cegante, seus olhos queimando com a raiva de uma deusa traída.
+        <br>
+        Antes do Rei Pálido, ela era tudo: a fonte dos sonhos, a mãe dos insetos, a luz que guiava suas mentes frágeis.
+        Mas quando eles a esqueceram, escolhendo a ordem fria do Rei em vez de sua chama selvagem, ela se tornou um eco
+        vingativo.
+        <br>
+        A Infecção não é apenas uma doença, é o grito da Radiância, uma tentativa de recuperar tudo o que foi perdido. Ela
+        não quer destruir Hallownest, ela quer que o reino se curve a ela novamente. Na batalha final, o Cavaleiro
+        enfrenta essa força primordial, mas ele não está sozinho.
+      </p>
+
+      <img src="./assets/img/hallownest.png" alt="" />
+
+      <p>
+        O Vazio dentro dele desperta, e a sombra do Cavaleiro Vazio se junta ao combate, uma dança de escuridão contra
+        luz. Quando o golpe final é dado, a Radiância se desfaz em fragmentos dourados, e o silêncio retorna. Mas será
+        que ela realmente se foi?
+      </p>
+
+      <img class="dialogo" src="./assets/img/dialogo_top.webp" alt="" />
+      <h1>Hornet: a guardiã solitária</h1>
+      <img class="dialogo" src="./assets/img/dialogo_bottom.webp" alt="" />
+
+      <p>
+        Entre os escombros, Hornet permanece. Filha do Rei Pálido e de Herrah, a Besta, ela é mais do que uma guerreira,
+        ela é o último fio de esperança em um reino desfeito. Seu olhar é firme, mas seus silêncios carregam o peso de
+        quem viu demais. Ela não serve ao Rei nem à Radiância, ela serve a Hallownest, ou ao que resta dele.
+        <br>
+        Quando o Cavaleiro a encontra, ela o testa, como se quisesse saber se ele é digno de carregar o fardo que seu
+        pai deixou para trás. E no fim, dependendo do caminho que ele escolhe, ela o vê partir ou desaparecer.
+        <br>
+        Os finais são como notas em uma melodia inacabada. Em um, o Cavaleiro toma o lugar do Hollow Knight, selando a
+        Radiância em seu próprio corpo, um eco do sacrifício que veio antes. Em outro, ele destrói a Radiância com o
+        poder do Vazio, libertando Hallownest da Infecção, mas desaparecendo nas sombras, deixando Hornet sozinha.
+        <br>
+        Há ainda sussurros de um destino maior, nas expansões como Godmaster, onde o Cavaleiro ascende entre os deuses,
+        mas essas são histórias para outro dia.
+      </p>
+
+      <img src="./assets/img/hallownest.png" alt="" />
+
+      <img class="dialogo" src="./assets/img/dialogo_top.webp" alt="" />
+      <h1>O Abismo: o coração negro de tudo</h1>
+      <img class="dialogo" src="./assets/img/dialogo_bottom.webp" alt="" />
+
+      <p>
+        E então, há o Abismo. Onde as máscaras quebradas dos Vasos caídos formam montanhas de
+        arrependimento. Aqui, o Rei Pálido criou seus filhos, mergulhando no Vazio para forjar armas contra a Radiância.
+        O Vazio é mais do que uma substância, é uma força viva, um mar de escuridão que sussurra promessas de poder e
+        silêncio.
+        <br>
+        O Cavaleiro, ao abraçar o Coração do Vazio, torna-se seu arauto, uma sombra que desafia tanto a luz do Rei
+        quanto a chama da Radiância.
+        <br>
+        O que é o Vazio, afinal? Um inimigo? Um aliado? Talvez seja a verdadeira essência de Hallownest, um reflexo do
+        que acontece quando os sonhos morrem e os reis falham. No Abismo, o Cavaleiro encontra sua origem — e talvez seu
+        fim.
+      </p>
+
+      <img class="dialogo" src="./assets/img/dialogo_top.webp" alt="" />
+      <h1>O fim de uma canção</h1>
+      <img class="dialogo" src="./assets/img/dialogo_bottom.webp" alt="" />
+
+      <p>
+        Hallownest não é mais o que foi. A Cidade das Lágrimas chora eternamente, os Sonhadores dormem em seus túmulos,
+        e o Rei Pálido desapareceu, seu Palácio Branco perdido nos sonhos. O Cavaleiro, pequeno e silencioso, deixou sua
+        marca, mas o que resta é um vazio que ecoa. Hornet espera, talvez por um novo começo, talvez por um caminho onde
+        sua própria história será contada.
+        <br>
+        Esta é a saga de Hollow Knight, um conto de insetos e deuses, de luz e sombra, de um reino que caiu porque ousou
+        sonhar alto demais. Feche os olhos e ouça: o som de um prego contra a pedra, o sussurro do Vazio, o lamento de
+        uma deusa esquecida. Hallownest vive em nós, um eco que nunca silencia.
+      </p>
+
+    </div>
+  </div>
+
+  <!-- Fim conteudo -->
+
+  <footer>
+    <div class="facecard">
+      <img src="./assets/img/face.png" alt="" />
+      <h1>Matheus Rodrigues Barros</h1>
+      <p>
+        Responsável pelo desenvolvimento frontend e backend do site como
+        projeto individual na disciplina de PI na SPTECH.
+      </p>
     </div>
 
-    <!-- Fim conteudo -->
+    <div class="redes-sociais">
+      <img src="./assets/img/linkedin.png" alt="" />
+      <img src="./assets/img/github.webp" alt="" />
+      <img src="./assets/img/github.webp" alt="" />
+    </div>
 
-    <footer>
-      <div class="facecard">
-        <img src="./assets/img/face.png" alt="" />
-        <h1>Matheus Rodrigues Barros</h1>
-        <p>
-          Responsável pelo desenvolvimento frontend e backend do site como
-          projeto individual na disciplina de PI na SPTECH.
-        </p>
-      </div>
+    <p id="copyright">Hollow Knight is © Copyright 2025 Team Cherry</p>
+  </footer>
 
-      <div class="redes-sociais">
-        <img src="./assets/img/linkedin.png" alt="" />
-        <img src="./assets/img/github.webp" alt="" />
-        <img src="./assets/img/github.webp" alt="" />
-      </div>
+  <!-- Fim footer -->
 
-      <p id="copyright">Hollow Knight is © Copyright 2025 Team Cherry</p>
-    </footer>
+</body>
 
-    <!-- Fim footer -->
-     
-  </body>
 </html>
+<script>
+  if (sessionStorage.ID_USUARIO != undefined) {
+    botao_login.style.display = 'none';
+    botao_sair.style.display = 'flex';
+  } else {
+    botao_login.style.display = 'flex';
+    botao_sair.style.display = 'none';
+  }
+
+  function deslogar() {
+    sessionStorage.clear();
+  }
+</script>

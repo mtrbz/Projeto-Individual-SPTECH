@@ -30,9 +30,7 @@
                 <hr />
                 <li><a href="personagens.html">PERSONAGENS</a></li>
                 <hr />
-                <li><a href="">MAPA</a></li>
-                <hr />
-                <li><a href="">BOSSES</a></li>
+                <li><a href="sobremim.html">SOBRE MIM</a></li>
                 <hr />
                 <div class="aba-selecionada">
                     <img src="./assets/img/left-arrow.png" alt="">
@@ -41,12 +39,15 @@
                 </div>
             </ul>
 
-            <div class="botao-login">
+            <div id="botao_login" class="botao-login">
                 <a href="login.html">
                     <p>LOGIN</p>
                 </a>
             </div>
 
+            <div id="botao_sair" class="botao-sair">
+                <a href="" onclick="deslogar()">SAIR</a>
+            </div>
         </nav>
     </div>
 
@@ -66,12 +67,13 @@
         </div>
 
         <div id="resultado_popup" class="resultado-popup" style="display: none;">
-            
+
             <div class="resultado">
                 <div class="msg-popup">
                     <p id="mensagem_resultado" class="msg-resultado"></p>
                 </div>
                 <div id="img_resultado" class="img-resultado"></div>
+                <div><button onclick="fecharPopup()">Continuar</button></div>
             </div>
 
         </div>
@@ -673,6 +675,18 @@
     var chances = 0;
     var linhaHistorico = '';
 
+    if (sessionStorage.ID_USUARIO != undefined) {
+        botao_login.style.display = 'none';
+        botao_sair.style.display = 'flex';
+    } else {
+        botao_login.style.display = 'flex';
+        botao_sair.style.display = 'none';
+    }
+
+    function deslogar() {
+        sessionStorage.clear();
+    }
+
     function validar() {
         var tentativa = input_personagem.value.toLowerCase();
         var msg = '';
@@ -821,7 +835,7 @@
         historico.innerHTML = linhaHistorico + historico.innerHTML;
 
         if (venceu) {
-            resultado_popup.style.display='flex';
+            resultado_popup.style.display = 'flex';
             mensagem_resultado.innerHTML = `
             Parabéns! você venceu!<br>
             Você adivinhou o personagem ${personagem.nome} em ${tentativas} tentativas!<br>
@@ -850,18 +864,23 @@
     }
 
     function desistir() {
-        desistiu = 1;
-        armazenarPartida();
-        quiz.style.display = 'none';
-        botao_quiz.style.display = 'block';
-        linhaHistorico.innerHTML = '';
-        historico.innerHTML = '';
-        tentativas = 0;
+        resultado_popup.style.display = 'flex';
         mensagem_resultado.innerHTML = `
         Que pena! você perdeu<br>
         O personagem era ${personagem.nome}!
         `;
-        img_resultado.innerHTML = `<img src="${personagem.imagem}" alt="asdasd"`;
+        img_resultado.innerHTML = `<img src="${personagem.imagem}" alt="asdasd">`;
+        desistiu = 1;
+        armazenarPartida();
+        linhaHistorico.innerHTML = '';
+        historico.innerHTML = '';
+        tentativas = 0;
+    }
+
+    function fecharPopup() {
+        quiz.style.display = 'none';
+        botao_quiz.style.display = 'block';
+        resultado_popup.style.display = 'none';
     }
 
     function armazenarPartida() {

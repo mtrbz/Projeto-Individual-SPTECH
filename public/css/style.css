@@ -113,6 +113,14 @@ nav {
     margin-right: 30px;
 }
 
+.header .botao-sair {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-right: 30px;
+}
+
 /* Index */
 
 .logo {
@@ -264,7 +272,7 @@ footer {
 }
 
 .historia-intro p {
-    font-size: 1.2em;
+    font-size: 1.4em;
 }
 
 .historia-intro img {
@@ -302,7 +310,7 @@ footer {
 }
 
 .historia .container p {
-    font-size: 1.2em;
+    font-size: 1.6em;
     padding: 50px 0 50px 0;
 }
 
@@ -640,7 +648,8 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
+    margin-bottom: 400px;
     display: flex;
     width: 100%;
     height: 200%;
@@ -649,7 +658,9 @@ footer {
 
 .dle .resultado {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
     flex-direction: column;
     width: 30%;
     height: 30%;
@@ -668,13 +679,30 @@ footer {
 
 .dle .resultado p {
    font-size: 1.6em;
+   margin: 0;
 }
 
 .dle .img-resultado img {
-    display: flex;
     width: 150px;
-    align-self: center;
+}
+
+.dle .resultado button {
     justify-self: center;
+    align-self: center;
+    text-align: center;
+    background-color: #757575;
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
+    margin-top: 50px;
+    color: #ffff;
+}
+
+.dle .resultado button:hover {
+    transition: 0.4s;
+    background-color: #c9c9c9;
 }
 
 .dle .container {
