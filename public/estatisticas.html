@@ -40,40 +40,43 @@
 
         <div class="barra-lateral">
 
-            <div class="box">
-                <h3 class="poppins-regular">Partidas Jogadas</h3>
-                <div class="kpi" id="qtdPartidasJogadas"></div>
-            </div>
-
-             <div class="box">
-                <h3 class="poppins-regular">Porcentagem de Vitórias</h3>
-                <div class="kpi" id="qtdVitorias"></div>
-            </div>
-
         </div>
 
         <div class="container">
 
-            <div class="boxes">
+            <div class="linha">
+                <div class="box">
+                    <h3 class="poppins-regular">Partidas Jogadas</h3>
+                    <div class="kpi" id="qtdPartidasJogadas"></div>
+                </div>
 
-                    <div>
-                        <canvas id="graficoPizza"></canvas>
-                    </div>
-               
+                <div class="box">
+                    <h3 class="poppins-regular">Porcentagem de Vitórias</h3>
+                    <div class="kpi" id="qtdVitorias"></div>
+                </div>
+                
+                <div class="box">
+                    <h3 class="poppins-regular">Porcentagem de Vitórias</h3>
+                    <div class="kpi"></div>
+                </div>
+
+                <div class="box">
+                    <h3 class="poppins-regular">Porcentagem de Vitórias</h3>
+                    <div class="kpi"></div>
+                </div>
+                
             </div>
 
-            <div class="boxes">
+            <div class="linha">
 
                 <div class="grafico">
-
                     <div>
                         <canvas id="graficoTentativasPartida"></canvas>
                     </div>
-
                 </div>
 
-                <div class="rank">
-                    <div id="rank"></div>
+                <div>
+                    <canvas id="graficoPizza"></canvas>
                 </div>
 
             </div>
@@ -234,8 +237,8 @@
                 label: 'Vitórias / Derrotas',
                 data: [vitorias, derrotas],
                 backgroundColor: [
-                    'rgb(54, 162, 235)',
-                    'rgb(255, 99, 132)',
+                    '#ffff',
+                    '#000000',
                 ],
             }]
         }

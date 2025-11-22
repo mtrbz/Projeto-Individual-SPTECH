@@ -57,10 +57,21 @@
         <div class="dle-logo"><img src="./assets/img/logo.png" alt=""></div>
 
         <div id="avisoLogin" class="avisoLogin">
-            
+
             <div class="box">
                 <h2 class="poppins-regular">Você precisa estar logado para jogar!</h2>
                 <p class="poppins-regular">faça login clicando <a href="login.html">aqui!</a></p>
+            </div>
+
+        </div>
+
+        <div id="resultado_popup" class="resultado-popup" style="display: none;">
+            
+            <div class="resultado">
+                <div class="msg-popup">
+                    <p id="mensagem_resultado" class="msg-resultado"></p>
+                </div>
+                <div id="img_resultado" class="img-resultado"></div>
             </div>
 
         </div>
@@ -81,12 +92,21 @@
 
                 <h2>Adivinhe o personagem!</h2>
 
-                <input oninput="validar()" type="text" id="input_personagem" placeholder="Escreva o nome do personagem">
-                <p id="mensagem"></p>
+                <div>
+                    <p id="cont_chances"></p>
+                    <input oninput="validar()" type="text" id="input_personagem"
+                        placeholder="Escreva o nome do personagem">
+                </div>
+
+                <div class="validar">
+                    <p id="mensagem"></p>
+                </div>
+
                 <button class="poppins-regular" onclick="tentar()">Tentar</button>
                 <button onclick="desistir()">Desistir</button>
 
                 <div class="titulos">
+                    <div class="card-titulo"></div>
                     <div class="card-titulo">Tipo</div>
                     <div class="card-titulo">Espécie</div>
                     <div class="card-titulo">Localização</div>
@@ -97,6 +117,7 @@
 
                 <div id="linha" class="respostas" style="display: none;">
 
+                    <div class="card" id="imagem"></div>
                     <div class="card" id="tipo"></div>
                     <div class="card" id="especie"></div>
                     <div class="card" id="localizacao"></div>
@@ -145,7 +166,8 @@
                 "localizacao": "Hallownest",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Preto, Branco",
-                "arma_estilo": "Ferrão"
+                "arma_estilo": "Ferrão",
+                "imagem": "./assets/img/cavaleiro-dle.png"
             },
             {
                 "nome": "Hornet",
@@ -154,7 +176,8 @@
                 "localizacao": "Caminho Verde, Borda do Reino",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Vermelho",
-                "arma_estilo": "Agulha"
+                "arma_estilo": "Agulha",
+                "imagem": "./assets/img/hornet-dle.png"
             },
             {
                 "nome": "Cavaleiro Vazio",
@@ -163,7 +186,8 @@
                 "localizacao": "Templo do Ovo Negro",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Preto, Branco",
-                "arma_estilo": "Ferrão"
+                "arma_estilo": "Ferrão",
+                "imagem": "./assets/img/cavaleiro-infectado-dle.png"
             },
             {
                 "nome": "Receptaculo Puro",
@@ -172,7 +196,8 @@
                 "localizacao": "Lar dos deuses",
                 "forma_dos_sonhos": "Sim",
                 "cor_principal": "Preto, Branco",
-                "arma_estilo": "Ferrão"
+                "arma_estilo": "Ferrão",
+                "imagem": "./assets/img/receptaculo-puro-dle.png"
             },
             {
                 "nome": "Radiancia",
@@ -181,7 +206,8 @@
                 "localizacao": "Templo do Ovo Negro",
                 "forma_dos_sonhos": "Sim",
                 "cor_principal": "Branco",
-                "arma_estilo": "Magia"
+                "arma_estilo": "Magia",
+                "imagem": "./assets/img/radiancia-dle.png"
             },
             {
                 "nome": "Rei Palido",
@@ -190,7 +216,8 @@
                 "localizacao": "Palácio Branco",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Branco",
-                "arma_estilo": "Magia"
+                "arma_estilo": "Magia",
+                "imagem": "./assets/img/rei-palido-dle.png"
             },
             {
                 "nome": "Dama Branca",
@@ -199,7 +226,8 @@
                 "localizacao": "Jardins da Rainha",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Branco",
-                "arma_estilo": "Magia"
+                "arma_estilo": "Magia",
+                "imagem": "./assets/img/dama-branca-dle.png"
             },
             {
                 "nome": "Receptaculo Quebrado",
@@ -208,7 +236,8 @@
                 "localizacao": "Bacia Antiga",
                 "forma_dos_sonhos": "Sim",
                 "cor_principal": "Laranja",
-                "arma_estilo": "Ferrão, Magia"
+                "arma_estilo": "Ferrão, Magia",
+                "imagem": "./assets/img/receptaculo-quebrado-dle.png"
             },
             {
                 "nome": "Uumuu",
@@ -217,7 +246,8 @@
                 "localizacao": "Cânion da Névoa",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Branco",
-                "arma_estilo": "Magia"
+                "arma_estilo": "Magia",
+                "imagem": "./assets/img/uumuu-dle.png"
             },
             {
                 "nome": "Defensor do Esterco",
@@ -226,7 +256,8 @@
                 "localizacao": "Hidrovia Real",
                 "forma_dos_sonhos": "Sim",
                 "cor_principal": "vermelho",
-                "arma_estilo": "Golpes físicos"
+                "arma_estilo": "Golpes físicos",
+                "imagem": "./assets/img/defensor-do-esterco-dle.png"
             },
             {
                 "nome": "Lorde Traidor",
@@ -235,7 +266,8 @@
                 "localizacao": "Jardins da Rainha",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Verde",
-                "arma_estilo": "Golpes físicos"
+                "arma_estilo": "Golpes físicos",
+                "imagem": "./assets/img/lorde-traidor-dle.png"
             },
             {
                 "nome": "Mestre das Almas",
@@ -244,7 +276,8 @@
                 "localizacao": "Cidade das Lágrimas",
                 "forma_dos_sonhos": "Sim",
                 "cor_principal": "Azul",
-                "arma_estilo": "Magia"
+                "arma_estilo": "Magia",
+                "imagem": "./assets/img/mestre-das-almas-dle.png"
             },
             {
                 "nome": "Nosk",
@@ -627,11 +660,11 @@
         ];
 
     if (sessionStorage.ID_USUARIO == undefined) {
-        container.style.display='none';
-        avisoLogin.style.display='flex';
+        container.style.display = 'none';
+        avisoLogin.style.display = 'flex';
     } else {
-        container.style.display='flex';
-        avisoLogin.style.display='none'
+        container.style.display = 'flex';
+        avisoLogin.style.display = 'none'
     }
 
     var tentativas = 0;
@@ -675,14 +708,14 @@
     function tentar() {
         var tentativa = input_personagem.value.toLowerCase();
 
-         chances--;
+        cont_chances.innerHTML = `Chances: ${--chances}`;
 
         if (chances == 0) {
             alert(`Você perdeu! O personagem era ${personagem.nome}`)
             desistir();
         }
 
-         if (chances == 1) {
+        if (chances == 1) {
             alert('Última chance!')
         }
 
@@ -771,8 +804,11 @@
             arma.style = "background-color: #f36445;"
         }
 
+        imagem.innerHTML = `<img src="${comparar.imagem}" alt="asda"`;
+
         linhaHistorico = `
         <div class="respostas">
+            <div class="card-img" style="${imagem.style.cssText}"><img src='${comparar.imagem}' alt='asdad'></div>
             <div class="card" style="${tipo.style.cssText}">${tipo.innerHTML}</div>
             <div class="card" style="${especie.style.cssText}">${especie.innerHTML}</div>
             <div class="card" style="${localizacao.style.cssText}">${localizacao.innerHTML}</div>
@@ -785,10 +821,15 @@
         historico.innerHTML = linhaHistorico + historico.innerHTML;
 
         if (venceu) {
+            resultado_popup.style.display='flex';
+            mensagem_resultado.innerHTML = `
+            Parabéns! você venceu!<br>
+            Você adivinhou o personagem ${personagem.nome} em ${tentativas} tentativas!<br>
+            `;
+            img_resultado.innerHTML = `<img src="${personagem.imagem}" alt="asdasd">`;
             armazenarPartida();
             venceu = 0;
             historico.innerHTML = ``;
-            alert(`Parabéns! Você adivinhou o personagem ${personagem.nome} em ${tentativas} tentativas!`);
             botao_quiz.style.display = 'flex';
             quiz.style.display = 'none';
             linhaHistorico.innerHTML = '';
@@ -805,6 +846,7 @@
         botao_quiz.style.display = 'none';
         desistiu = 0;
         chances = 10;
+        cont_chances.innerHTML = `Chances: ${chances}`;
     }
 
     function desistir() {
@@ -815,39 +857,44 @@
         linhaHistorico.innerHTML = '';
         historico.innerHTML = '';
         tentativas = 0;
+        mensagem_resultado.innerHTML = `
+        Que pena! você perdeu<br>
+        O personagem era ${personagem.nome}!
+        `;
+        img_resultado.innerHTML = `<img src="${personagem.imagem}" alt="asdasd"`;
     }
 
     function armazenarPartida() {
 
-    var tentativasVar = tentativas;
-    var venceuVar = venceu;
-    var desistiuVar = desistiu;
-    var idUsuarioVar = sessionStorage.ID_USUARIO;
+        var tentativasVar = tentativas;
+        var venceuVar = venceu;
+        var desistiuVar = desistiu;
+        var idUsuarioVar = sessionStorage.ID_USUARIO;
 
-    // Enviando o valor da nova input
-    fetch("/partida/armazenarPartida", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        idUsuarioServer: idUsuarioVar,
-        tentativasServer: tentativasVar,
-        venceuServer: venceuVar,
-        desistiuServer: desistiuVar,
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-      })
+        // Enviando o valor da nova input
+        fetch("/partida/armazenarPartida", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                idUsuarioServer: idUsuarioVar,
+                tentativasServer: tentativasVar,
+                venceuServer: venceuVar,
+                desistiuServer: desistiuVar,
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+            })
 
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
 
-    return false;
-  }
+        return false;
+    }
 
 </script>
