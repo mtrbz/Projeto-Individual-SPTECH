@@ -28,4 +28,8 @@ router.get("/obterDadosGraficoPizza/:fkUsuario", function (req, res) {
     partidaController.obterDadosGraficoPizza(req, res);
 });
 
+router.get("/obterTentativasGerais", function (req, res) {
+    partidaController.obterTentativasGerais(req, res)
+});
+
 module.exports = router;

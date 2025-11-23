@@ -1000,7 +1000,7 @@ footer {
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    background-color: #242424;
+    background-color: #1a1a1a;
 }
 
 .estatisticas .container .linha {
@@ -1021,9 +1021,10 @@ footer {
     display: flex;
     width: 300px;
     height: 180px;
-    border-radius: 20px;
+    border-radius: 6px;
     font-size: 1.2em;
-    background-color: #7e7e7e;
+    background-color: #48484856;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.354);
 }
 
 .estatisticas .kpi {
@@ -1033,29 +1034,52 @@ footer {
 .estatisticas .grafico {
     width: 700px;
     height: 400px;
-    background-color: #ffff;
-    border-radius: 30px;
 }
 
 .estatisticas .rank {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 2em;
-    width: 400px;
-    height: 500px;
-    border-radius: 8px;
-    background-color: #0e293d;
+    width: 350px;
+    background: #252525;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px #000000;
+    font-family: "Poppins", sans-serif;
+}
+
+.estatisticas .rank p {
+    text-align: center;
+    font-size: 1.8em;
 }
 
 .estatisticas .rank-colunas {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
     width: 100%;
-    height: 100%;
-    background-color: #0e0f22;
-    border-top: solid 1px #ffff;
+    gap: 10px;
+}
+
+.estatisticas .rank-linha {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 200px;
+}
+
+.estatisticas .rank-linha div {
+    background: #2a2a2a;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.estatisticas .rank-linha div:hover {
+    background: #343434;
+    transform: translateY(-2px);
+}
+
+.estatisticas .tentativasGerais {
+    width: 800px;
 }
 /* Fim estatísticas */

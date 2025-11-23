@@ -73,11 +73,23 @@ function obterDadosGraficoPizza(fkUsuario) {
     return database.executar(instrucaoSql);
 }
 
+function obterTentativasGerais() {
+    console.log("ACESSEI O TT GERAIS MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar():")
+    var instrucaoSql = `
+    SELECT ROUND(AVG(tentativas)) AS media,
+    nome as nome FROM usuario JOIN partida
+    ON fkUsuario = idUsuario GROUP BY idUsuario;
+    `;
+
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     armazenarPartida,
     selecionarPartida,
     selecionarVitorias,
     selecionarRank,
     obterDadosGrafico,
-    obterDadosGraficoPizza
+    obterDadosGraficoPizza,
+    obterTentativasGerais
 };

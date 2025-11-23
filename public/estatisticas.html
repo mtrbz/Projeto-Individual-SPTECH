@@ -114,39 +114,56 @@
 
     obterDadosGrafico();
 
-    function plotarGrafico(resultado) {
-        console.log(resultado)
-        var labels = [];
-        var tentativas = [];
-        for (var i = 0; i < resultado.length; i++) {
-            labels.push(`Partida ${labels.length + 1}`)
-            tentativas.push(resultado[i].tentativas)
-        }
-        console.log('tentativas: ', tentativas)
-        console.log(labels)
+   function plotarGrafico(resultado) {
+    console.log(resultado)
+    
+    var labels = [];
+    var tentativas = [];
 
-        var dados = {
-            labels: labels,
-            datasets: [{
-                label: 'Tentativas nas últimas 8 partidas',
-                data: tentativas,
-                fill: false
-            }]
-        }
-        console.log(dados)
-
-        // Criação do Gráfico
-        const ctx = document.getElementById('graficoTentativasPartida');
-
-        const config = {
-            type: 'bar',
-            data: dados
-        };
-
-        let myChart = new Chart(
-            ctx, config
-        )
+    for (var i = 0; i < resultado.length; i++) {
+        labels.push(`Partida ${labels.length + 1}`);
+        tentativas.push(resultado[i].tentativas);
     }
+
+    var dados = {
+        labels: labels,
+        datasets: [{
+            label: 'Tentativas nas últimas 8 partidas',
+            data: tentativas,
+            backgroundColor: '#ffff'
+        }]
+    };
+
+    const ctx = document.getElementById('graficoTentativasPartida');
+
+    const config = {
+        type: 'bar',
+        data: dados,
+        options: {
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#ffff'
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: '#ffff'
+                    }
+                },
+                y: {
+                    ticks: {
+                        color: '#ffff'
+                    }
+                }
+            }
+        }
+    };
+
+    let myChart = new Chart(ctx, config);
+}
 
     nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 

@@ -169,11 +169,26 @@ function obterDadosGraficoPizza(req, res) {
             );
 }
 
+function obterTentativasGerais(req, res) {
+    partidaModel.obterTentativasGerais()
+    .then(function (resposta) {
+        console.log(`\n Resultados encontrados tt gerais: ${resposta}`);
+        console.log(`\n Resultados ${JSON.stringify(resposta)}`);
+        
+        res.json(resposta);
+    })
+    .catch(function (erro) {
+        console.log(erro);
+        res.status(500).json(erro.sqlMessage);
+    });
+};
+
 module.exports = {
     armazenarPartida,
     selecionarPartida,
     selecionarVitorias,
     selecionarRank,
     obterDadosGrafico,
-    obterDadosGraficoPizza
+    obterDadosGraficoPizza,
+    obterTentativasGerais
 }
