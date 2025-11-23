@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/sly.css">
   <link rel="shortcut icon" href="../assets/img/knight.ico" type="image/x-icon" />
   <title>Hollow Knight</title>
@@ -30,16 +30,20 @@
           <li><a href="../personagens.html">PERSONAGENS</a></li><img src="../assets/img/right-arrow.png" alt="">
         </div>
         <hr />
-        <li><a href="">MAPA</a></li>
+        <li><a href="../sobremim.html">SOBRE MIM</a></li>
         <hr />
-        <li><a href="">BOSSES</a></li>
-        <hr />
-        <li><a href="">HOLLOWDLE</a></li>
+        <li><a href="../hollowdle.html">HOLLOWDLE</a></li>
       </ul>
 
-      <div class="botao-login">
-        <a href="../login.html"><p>LOGIN</p></a>
+      <div id="botao_login" class="botao-login">
+        <a href="../login.html">
+          <p>LOGIN</p>
+        </a>
       </div>
+
+      <div id="botao_sair" class="botao-sair">
+          <a href="" onclick="deslogar()">SAIR</a>
+        </div>
     </nav>
   </div>
 
@@ -463,11 +467,11 @@
             </div>
 
             <div class="img-box">
-              
-                <p>Localização na Encruzilhada Esquecida</p>
-              
-                <p>Localização em Dirtmouth</p>
-              
+
+              <p>Localização na Encruzilhada Esquecida</p>
+
+              <p>Localização em Dirtmouth</p>
+
             </div>
 
           </div>
@@ -503,3 +507,17 @@
 </body>
 
 </html>
+
+<script>
+  if (sessionStorage.ID_USUARIO != undefined) {
+    botao_login.style.display='none';
+    botao_sair.style.display='flex';
+  } else {
+    botao_login.style.display='flex';
+    botao_sair.style.display='none';
+  }
+
+  function deslogar() {
+    sessionStorage.clear();
+  }
+</script>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Hollow Knight</title>
+
+    <script src="./js/sessao.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" href="./assets/img/knight.ico" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+</head>
+
+<body>
+    <!-- Navbar -->
+
+    <div class="header">
+        <nav>
+
+            <div></div>
+
+            <div>
+                <h1 class="poppins-regular">Estatísticas Gerais</h1>
+            </div>
+
+            <div></div>
+
+        </nav>
+    </div>
+
+    <!-- Fim header -->
+    <div class="estatisticas">
+
+        <div class="barra-lateral">
+            <div class="cima">
+
+                <div>
+                    <p>Olá, <span id="nome_usuario">!</span></p>
+                </div>
+
+                <div>
+                    <a href="estatisticas.html"><button>Individuais</button></a>
+                </div>
+
+                <div>
+                    <button>Gerais</button>
+                </div>
+
+            </div>
+
+            <div class="baixo">
+                <a href="hollowdle.html"><button>Voltar</button></a>
+            </div>
+
+        </div>
+
+        <div class="container">
+
+
+            <div class="linha">
+
+                <div>
+
+                    <div class="rank">
+
+                        <p>Top 5 Melhores Jogadores</p>
+                        
+                        <div class="rank-colunas">
+                            <div style="color: rgb(198, 244, 255);" class="rank-linha" id="colocacao"></div>
+                            <div class="rank-linha" id="rankNome"></div>
+                            <div style="color: rgb(163, 255, 181);" class="rank-linha" id="rankPontos"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
+<script>
+    // function obterDadosGrafico() {
+    //     var fkUsuario = sessionStorage.ID_USUARIO;
+
+    //     fetch(`/partida/obterDadosGrafico/${fkUsuario}`)
+    //         .then(response => response.json())
+    //         .then(function (response) {
+    //             console.log('to dentro do grafico', response)
+
+    //             console.log(`Dados recebidos: ${JSON.stringify(response)}`);
+
+    //             plotarGrafico(response);
+
+    //         })
+    //         .catch(function (error) {
+    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    //         });
+    // }
+
+    // obterDadosGrafico();
+
+    // function plotarGrafico(resultado) {
+    //     console.log(resultado)
+    //     var labels = [];
+    //     var tentativas = [];
+    //     for (var i = 0; i < resultado.length; i++) {
+    //         labels.push(`Partida ${labels.length + 1}`)
+    //         tentativas.push(resultado[i].tentativas)
+    //     }
+    //     console.log('tentativas: ', tentativas)
+    //     console.log(labels)
+
+    //     var dados = {
+    //         labels: labels,
+    //         datasets: [{
+    //             label: 'Tentativas nas últimas 8 partidas',
+    //             data: tentativas,
+    //             fill: false
+    //         }]
+    //     }
+    //     console.log(dados)
+
+    //     // Criação do Gráfico
+    //     const ctx = document.getElementById('graficoTentativasPartida');
+
+    //     const config = {
+    //         type: 'bar',
+    //         data: dados
+    //     };
+
+    //     let myChart = new Chart(
+    //         ctx, config
+    //     )
+    // }
+
+    nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    // function selecionarPartida() {
+    //     fetch("/partida/selecionarPartida", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify({
+    //             idUsuarioServer: sessionStorage.ID_USUARIO
+    //         }),
+    //     })
+    //         .then(function (resposta) {
+    //             if (resposta.ok) {
+    //                 resposta.json().then(function (data) {
+
+    //                     console.log("DATA RECEBIDA: ", data);
+
+    //                     qtdPartidasJogadas.innerHTML = data.qtdPartidas;
+    //                 });
+    //             } else {
+    //                 console.error("Partida inválida");
+    //             }
+    //         })
+    //         .catch(function (erro) {
+    //             console.log("#ERROR:", erro);
+    //         });
+    // }
+
+    // selecionarPartida();
+
+    // function selecionarVitorias() {
+    //     fetch("/partida/selecionarVitorias", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify({
+    //             idUsuarioServer: sessionStorage.ID_USUARIO
+    //         }),
+    //     })
+    //         .then(function (resposta) {
+    //             if (resposta.ok) {
+    //                 resposta.json().then(function (data) {
+
+    //                     console.log("DATA RECEBIDA: ", data);
+
+    //                     qtdVitorias.innerHTML = data.qtdVitorias + '%';
+    //                 });
+    //             } else {
+    //                 console.error("Vitória inválida");
+    //             }
+    //         })
+    //         .catch(function (erro) {
+    //             console.log("#ERROR:", erro);
+    //         });
+    // }
+
+    // selecionarVitorias();
+
+    // function obterDadosGraficoPizza() {
+    //     var fkUsuario = sessionStorage.ID_USUARIO;
+
+    //     fetch(`/partida/obterDadosGraficoPizza/${fkUsuario}`)
+    //         .then(resposta => resposta.json())
+    //         .then(function (resposta) {
+    //             console.log('to dentro do grafico pizza', resposta)
+
+    //             console.log(`Dados recebidos pizza: ${JSON.stringify(resposta)}`);
+
+    //             plotarGraficoPizza(resposta);
+
+    //         })
+    //         .catch(function (error) {
+    //             console.error(`Erro na obtenção dos dados p/ gráfico pizza: ${error.message}`);
+    //         });
+    // }
+
+    // obterDadosGraficoPizza();
+
+    // function plotarGraficoPizza(resultado) {
+    //     console.log(resultado)
+    //     var labels = ['Vitórias', 'Derrotas'];
+    //     var vitorias = resultado[0].Vitórias;
+    //     var derrotas = resultado[0].Derrotas;
+
+    //     console.log('Vitorias: ', vitorias)
+    //     console.log('Derrotas: ', derrotas)
+
+    //     var dados = {
+    //         labels: labels,
+    //         datasets: [{
+    //             label: 'Vitórias / Derrotas',
+    //             data: [vitorias, derrotas],
+    //             backgroundColor: [
+    //                 '#ffff',
+    //                 '#000000',
+    //             ],
+    //         }]
+    //     }
+    //     console.log(dados)
+
+    //     // Criação do Gráfico
+    //     const ctx = document.getElementById('graficoPizza');
+
+    //     const config = {
+    //         type: 'pie',
+    //         data: dados
+    //     };
+
+    //     let myChart = new Chart(
+    //         ctx, config
+    //     )
+    // }
+
+    function selecionarRank() {
+        fetch("/partida/selecionarRank", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                idUsuarioServer: sessionStorage.ID_USUARIO,
+                nomeServer: sessionStorage.NOME_USUARIO
+            }),
+        })
+            .then(function (resposta) {
+                if (resposta.ok) {
+                    resposta.json().then(function (data) {
+
+                        rankNome.innerHTML = '';
+                        rankPontos.innerHTML = '';
+
+                        console.log("RANK RECEBIDO: ", data);
+
+                        for (var i = 0; i < data.length; i++) {
+                            colocacao.innerHTML += `<div class='colocacao'>${i + 1}º </div><br>`;
+                            rankNome.innerHTML += `<div class='rank-nome'>${data[i].nome}</div><br>`;
+                            rankPontos.innerHTML += `<div class='rank-pontos'>${data[i].total}</div><br>`;
+                        }
+
+                    });
+                } else {
+                    console.error("Rank inválido");
+                }
+            })
+            .catch(function (erro) {
+                console.log("#ERROR:", erro);
+            });
+    }
+
+    selecionarRank();
+
+</script>

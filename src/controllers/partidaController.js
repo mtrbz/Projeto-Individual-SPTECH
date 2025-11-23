@@ -67,26 +67,15 @@ function selecionarVitorias(req, res) {
 
 function selecionarRank(req, res) {
     var idUsuarioRank = req.body.idUsuarioServer;
+    var usuarioNome = req.body.nomeServer;
 
-        partidaModel.selecionarRank(idUsuarioRank)
+        partidaModel.selecionarRank(idUsuarioRank, usuarioNome)
             .then(
                 function (resultado) {
                      // transforma JSON em String
 
-                    if (resultado.length > 0) {
-                        var vitorias = resultado[0].ranque;
-
                         console.log(resultado);
-                        res.json({
-                            ranque: vitorias
-                        });
-
-                    } else {
-                        res.json ({
-                            ranque: vitorias
-                        });
-                    }
-                    
+                        res.json(resultado);
                 }
             ).catch(
                 function (erro) {

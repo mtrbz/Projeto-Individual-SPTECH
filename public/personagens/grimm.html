@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/style.css"/>
+    <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/grimm.css">
     <link rel="shortcut icon" href="../assets/img/knight.ico" type="image/x-icon" />
     <title>Hollow Knight</title>
@@ -31,15 +31,19 @@
                         alt="">
                 </div>
                 <hr />
-                <li><a href="">MAPA</a></li>
+                <li><a href="../sobremim.html">SOBRE MIM</a></li>
                 <hr />
-                <li><a href="">BOSSES</a></li>
-                <hr />
-                <li><a href="">HOLLOWDLE</a></li>
+                <li><a href="../hollowdle.html">HOLLOWDLE</a></li>
             </ul>
 
-            <div class="botao-login">
-                <a href="../login.html"><p>LOGIN</p></a>
+            <div id="botao_login" class="botao-login">
+                <a href="../login.html">
+                    <p>LOGIN</p>
+                </a>
+            </div>
+
+            <div id="botao_sair" class="botao-sair">
+                <a href="" onclick="deslogar()">SAIR</a>
             </div>
         </nav>
     </div>
@@ -142,9 +146,9 @@
                         </div>
 
                         <div class="img-box">
-                            
+
                             <p>Localização em Dirtmouth</p>
-                           
+
                         </div>
 
                     </div>
@@ -153,7 +157,7 @@
 
                 <div class="titulo">
                     <img src="../assets/img/dialogo_top.webp" alt="" />
-                        <h1>Imagens</h1>
+                    <h1>Imagens</h1>
                     <img src="../assets/img/dialogo_bottom.webp" alt="" />
                 </div>
 
@@ -167,7 +171,7 @@
                         <img src="../assets/img/carrossel-grimm1.webp" alt="">
                     </div>
 
-                     <div class="botao-direita">
+                    <div class="botao-direita">
                         <img src="../assets/img/right-arrow.png" alt="">
                     </div>
 
@@ -201,3 +205,17 @@
 </body>
 
 </html>
+
+<script>
+    if (sessionStorage.ID_USUARIO != undefined) {
+        botao_login.style.display = 'none';
+        botao_sair.style.display = 'flex';
+    } else {
+        botao_login.style.display = 'flex';
+        botao_sair.style.display = 'none';
+    }
+
+    function deslogar() {
+        sessionStorage.clear();
+    }
+</script>

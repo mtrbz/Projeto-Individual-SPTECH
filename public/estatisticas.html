@@ -21,17 +21,14 @@
 
     <div class="header">
         <nav>
-            <div class="gif">
-                <img src="./assets/img/head-icon.png" alt="" />
-            </div>
+            <div></div>
 
             <div>
-                <h1 class="poppins-regular">Estatísticas</h1>
+                <h1 class="poppins-regular">Suas Estatísticas</h1>
             </div>
 
-            <div class="nome-usuario">
-                <h2 class="poppins-regular">Olá, <span id="nome_usuario">!</span></h2>
-            </div>
+            <div></div>
+
         </nav>
     </div>
 
@@ -39,6 +36,25 @@
     <div class="estatisticas">
 
         <div class="barra-lateral">
+            <div class="cima">
+
+                <div>
+                    <p>Olá, <span id="nome_usuario">!</span></p>
+                </div>
+
+                <div>
+                    <button>Individuais</button>
+                </div>
+
+                <div>
+                    <a href="gerais.html"><button>Gerais</button></a>
+                </div>
+
+            </div>
+
+            <div class="baixo">
+                <a href="hollowdle.html"><button>Voltar</button></a>
+            </div>
 
         </div>
 
@@ -54,17 +70,7 @@
                     <h3 class="poppins-regular">Porcentagem de Vitórias</h3>
                     <div class="kpi" id="qtdVitorias"></div>
                 </div>
-                
-                <div class="box">
-                    <h3 class="poppins-regular">Porcentagem de Vitórias</h3>
-                    <div class="kpi"></div>
-                </div>
 
-                <div class="box">
-                    <h3 class="poppins-regular">Porcentagem de Vitórias</h3>
-                    <div class="kpi"></div>
-                </div>
-                
             </div>
 
             <div class="linha">
@@ -256,34 +262,5 @@
             ctx, config
         )
     }
-
-    function selecionarRank() {
-        fetch("/partida/selecionarRank:fkUsuario", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                idUsuarioServer: sessionStorage.ID_USUARIO
-            }),
-        })
-            .then(function (resposta) {
-                if (resposta.ok) {
-                    resposta.json().then(function (data) {
-
-                        console.log("DATA RECEBIDA: ", data);
-
-                        rank.innerHTML = data.rank;
-                    });
-                } else {
-                    console.error("Rank inválido");
-                }
-            })
-            .catch(function (erro) {
-                console.log("#ERROR:", erro);
-            });
-    }
-
-    selecionarRank();
 
 </script>
