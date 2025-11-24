@@ -158,34 +158,14 @@
     nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
     function selecionarRank() {
-        fetch("/partida/selecionarRank", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                idUsuarioServer: sessionStorage.ID_USUARIO,
-                nomeServer: sessionStorage.NOME_USUARIO
-            }),
-        })
-            .then(function (resposta) {
-                if (resposta.ok) {
-                    resposta.json().then(function (data) {
-
-                        rankNome.innerHTML = '';
-                        rankPontos.innerHTML = '';
-
-                        console.log("RANK RECEBIDO: ", data);
-
-                        for (var i = 0; i < data.length; i++) {
-                            colocacao.innerHTML += `<div class='colocacao'>${i + 1}º </div><br>`;
-                            rankNome.innerHTML += `<div class='rank-nome'>${data[i].nome}</div><br>`;
-                            rankPontos.innerHTML += `<div class='rank-pontos'>${data[i].pontos}</div><br>`;
-                        }
-
-                    });
-                } else {
-                    console.error("Rank inválido");
+        fetch("/partida/selecionarRank")
+            .then(resposta => resposta.json())
+            .then (resposta => {
+                
+                for (var i = 0; i < resposta.length; i++) {
+                    colocacao.innerHTML += `<div class='colocacao'>${i + 1}º </div><br>`;
+                    rankNome.innerHTML += `<div class='rank-nome'>${resposta[i].nome}</div><br>`;
+                    rankPontos.innerHTML += `<div class='rank-pontos'>${resposta[i].pontos}</div><br>`;
                 }
             })
             .catch(function (erro) {

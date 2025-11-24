@@ -258,8 +258,7 @@ footer {
 
 /* Historia */
 
-.historia-inicio {
-    position: relative; 
+.historia-inicio { 
     width: 100%;
     height: 640px;
     display: flex;
@@ -695,10 +694,10 @@ footer {
     justify-self: center;
     align-self: center;
     text-align: center;
-    background-color: #757575;
+    background-color: #363636;
     width: 120px;
     height: 40px;
-    border-radius: 10px;
+    border-radius: 4px;
     border: none;
     margin-bottom: 10px;
     margin-top: 50px;
@@ -707,7 +706,7 @@ footer {
 
 .dle .resultado button:hover {
     transition: 0.4s;
-    background-color: #c9c9c9;
+    background-color: #494949;
 }
 
 .dle .container {
@@ -734,20 +733,23 @@ footer {
     align-items: center;
     flex-direction: column;
     text-align: center;
+    width: 40%;
+    height: 300px;
+    background-color: #000000b7;
 }
 
 .dle .botao-quiz button {
     justify-content: center;
     align-items: center;
-    width: 180px;
-    height: 80px;
-    border-radius: 15px;
-    font-size: 1.8em;
+    width: 200px;
+    height: 90px;
+    border-radius: 3px;
+    font-size: 1.6em;
     border: none;
     text-align: center;
     cursor: pointer;
     color: #FFFF;
-    background-color: #525252;
+    background-color: #2e404e;
 }
 
 .dle .botoes {
@@ -766,8 +768,8 @@ footer {
 
 .dle .botao-quiz button:hover {
     display: flex;
+    background-color: #3f5f78;
     transition: 0.4s;
-    background-color: #c9c9c9;
 }
 
 .dle .quiz {
@@ -775,10 +777,10 @@ footer {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #343434c8;
+    background-color: #000000b7;
     width: 60%;
     height: 100%;
-    border-radius: 20px;
+    border-radius: 6px;
     margin-top: 400px;
 }
 
@@ -790,7 +792,7 @@ footer {
 .dle .quiz input {
     width: 260px;
     height: 40px;
-    border-radius: 12px;
+    border-radius: 4px;
     border: none;
     text-align: center;
 }
@@ -798,16 +800,17 @@ footer {
 .dle .quiz button {
     width: 100px;
     height: 40px;
-    border-radius: 15px;
+    border-radius: 4px;
     border: none;
     text-align: center;
     cursor: pointer;
-    background-color: #ffffff;
+    color: #ffff;
+    background-color: #2e404e;
 }
 
 .dle .quiz button:hover {
     transition: 0.3s;
-    background-color: #c9c9c9;
+    background-color: #3f5f78;
 }
 
 .dle .titulos {

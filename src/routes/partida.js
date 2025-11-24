@@ -16,7 +16,7 @@ router.post("/selecionarVitorias", function (req, res) {
     partidaController.selecionarVitorias(req, res);
 });
 
-router.post("/selecionarRank", function (req, res) {
+router.get("/selecionarRank", function (req, res) {
     partidaController.selecionarRank(req, res);
 });
 

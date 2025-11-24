@@ -66,10 +66,8 @@ function selecionarVitorias(req, res) {
 }
 
 function selecionarRank(req, res) {
-    var idUsuarioRank = req.body.idUsuarioServer;
-    var usuarioNome = req.body.nomeServer;
 
-        partidaModel.selecionarRank(idUsuarioRank, usuarioNome)
+        partidaModel.selecionarRank()
             .then(
                 function (resultado) {
                      // transforma JSON em String
