@@ -842,25 +842,25 @@ footer {
 .dle .respostas .card {
     display: flex;
     width: 120px;
-    color: #000000;
-    height: 120px;
-    border-radius: 10px;
+    text-shadow: 0 0 4px #bdbdbd;
+    height: 90px;
+    border-radius: 4px;
     justify-content: center;
     align-items: center;
-    border: 3px solid #000000;
+    box-shadow: 0 0 4px #000000;
 }
 
 .dle .card-img {
     display: flex;
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
 }
 
 .dle .card-img img {
-    width: 150px;
+    width: 120px;
 }
 
 .dle .validar {
@@ -879,6 +879,7 @@ footer {
     align-items: center;
     margin: 5px;
     border-radius: 5px;
+    font-size: 0.9em;
 }
 
 .dle .sugestao:hover {

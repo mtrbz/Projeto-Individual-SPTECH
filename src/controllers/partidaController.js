@@ -68,20 +68,15 @@ function selecionarVitorias(req, res) {
 function selecionarRank(req, res) {
 
         partidaModel.selecionarRank()
-            .then(
-                function (resultado) {
-                     // transforma JSON em String
+            .then(function (resultado) {
+                    console.log(resultado);
+                    res.json(resultado);
 
-                        console.log(resultado);
-                        res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
+                }).catch(function (erro) {
                     console.log(erro);
                     console.log("\nHouve um ERRO: ", erro.sqlMessage);
                     res.status(500).json(erro.sqlMessage);
-                }
-            );
+                });
 }
 
 function armazenarPartida(req, res) {
