@@ -670,6 +670,7 @@
     }
 
     var tentativas = 0;
+    var pontos = 0;
     var venceu = 0;
     var desistiu = 0;
     var chances = 0;
@@ -749,6 +750,14 @@
 
         if (comparar == personagem) {
             venceu = 1;
+
+            if (chances >= 7) {
+                pontos = 5;
+            } else if (chances >= 4) {
+                pontos = 3;
+            } else {
+                pontos = 1;
+            }
         }
 
         // Validações de comparação entre a tentativa e o personagem secreto
@@ -860,6 +869,7 @@
         botao_quiz.style.display = 'none';
         desistiu = 0;
         chances = 10;
+        pontos = 0;
         cont_chances.innerHTML = `Chances: ${chances}`;
     }
 
@@ -888,6 +898,7 @@
         var tentativasVar = tentativas;
         var venceuVar = venceu;
         var desistiuVar = desistiu;
+        var pontosVar = pontos;
         var idUsuarioVar = sessionStorage.ID_USUARIO;
 
         // Enviando o valor da nova input
@@ -903,6 +914,7 @@
                 tentativasServer: tentativasVar,
                 venceuServer: venceuVar,
                 desistiuServer: desistiuVar,
+                pontosServer: pontosVar
             }),
         })
             .then(function (resposta) {

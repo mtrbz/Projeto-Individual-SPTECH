@@ -91,12 +91,13 @@ function armazenarPartida(req, res) {
     var venceuPartida = req.body.venceuServer;
     var desistiuPartida = req.body.desistiuServer;
     var tentativasPartida = req.body.tentativasServer;
+    var pontosPartida = req.body.pontosServer;
 
     if (tentativasPartida == 0) {
         res.status(400).send("Nem tentou");
     } else {
 
-        partidaModel.armazenarPartida(idUsuarioPartida, venceuPartida, desistiuPartida, tentativasPartida)
+        partidaModel.armazenarPartida(idUsuarioPartida, venceuPartida, desistiuPartida, tentativasPartida, pontosPartida)
             .then(
                 function (resultado) {
                      // transforma JSON em String
@@ -112,7 +113,8 @@ function armazenarPartida(req, res) {
                             fkUsuario: resultado.idUsuarioPartida,
                             venceu: resultado.venceuPartida,
                             desistiu: resultado.desistiuPartida,
-                            tentativas: resultado.tentativasPartida
+                            tentativas: resultado.tentativasPartida,
+                            pontos: resultado.pontosPartida
                         });
                     }
                 }
@@ -174,7 +176,7 @@ function obterTentativasGerais(req, res) {
     .then(function (resposta) {
         console.log(`\n Resultados encontrados tt gerais: ${resposta}`);
         console.log(`\n Resultados ${JSON.stringify(resposta)}`);
-        
+
         res.json(resposta);
     })
     .catch(function (erro) {

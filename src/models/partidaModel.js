@@ -26,24 +26,24 @@ function selecionarVitorias(fkUsuario) {
 function selecionarRank(fkUsuario, usuarioNome) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", fkUsuario, usuarioNome)
     var instrucaoSql = `
-        SELECT nome AS nome, SUM(venceu) AS total 
+        SELECT nome AS nome, SUM(pontos) AS pontos
         FROM partida JOIN usuario
         on fkUsuario = idUsuario
         GROUP BY fkUsuario 
-        ORDER BY sum(venceu) DESC LIMIT 5;
+        ORDER BY sum(pontos) DESC LIMIT 5;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
-function armazenarPartida(fkUsuario, venceu, desistiu, tentativas) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", venceu, desistiu, tentativas);
+function armazenarPartida(fkUsuario, venceu, desistiu, tentativas, pontos) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", venceu, desistiu, tentativas, pontos);
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-        INSERT INTO partida (fkUsuario, venceu, desistiu, tentativas) VALUES (${fkUsuario}, ${venceu}, ${desistiu}, ${tentativas});
+        INSERT INTO partida (fkUsuario, venceu, desistiu, tentativas, pontos) VALUES (${fkUsuario}, ${venceu}, ${desistiu}, ${tentativas}, ${pontos});
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
