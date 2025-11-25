@@ -17,57 +17,38 @@
 
 <body>
 
-    <div class="cadastro">
+  <div class="cadastro">
 
-        <div class="container">
+    <div class="container">
 
-            <div class="img-cadastro">
+      <div class="formulario">
+        <h1>Cadastrar sua conta</h1>
 
-                <div class="itens">
-                    <h1>Bem-vindo de volta!</h1> 
-                </div>
-
-                <img src="./assets/img/kgniht-and-quirrel-bench.png" alt="">
-
-                <p>Caso já tenha um cadastro, clique aqui para realizar seu login</p>
-                <a href="login.html"><button>Login</button></a>
-
-            </div>
-
-        <div class="formulario">
-            <h1>Cadastrar sua conta</h1>
-
-            <div>
-                <p>Nome:</p>
-                <input type="text" id="input_nome" placeholder="Nome">
-            </div>
-            
-            <div>
-                <p>Email:</p>
-                <input type="text" id="input_email" placeholder="Email">
-            </div>
-            
-
-            <div>
-                <p>Senha:</p>
-                <input type="password" id="input_senha" placeholder="Senha">
-            </div>
-           
-
-            <div>
-                <p>Confirmar senha:</p>
-                <input type="password" id="input_confirmar_senha" placeholder="Confirmar senha">
-            </div>
-
-            <button onclick="cadastrar()">Cadastrar</button>
-
+        <div>
+          <input type="text" id="input_nome" placeholder="Nome">
         </div>
 
+        <div>
+          <input type="text" id="input_email" placeholder="Email">
         </div>
+
+        <div>
+          <input type="password" id="input_senha" placeholder="Senha">
+        </div>
+
+        <div>
+          <input type="password" id="input_confirmar_senha" placeholder="Confirmar senha">
+        </div>
+
+        <button onclick="cadastrar()">CADASTRAR</button>
+
+      </div>
 
     </div>
 
-  </body>
+  </div>
+
+</body>
 
 </html>
 
@@ -90,7 +71,7 @@
       confirmacaoSenhaVar == "" ||
       confirmacaoSenhaVar != senhaVar
     ) {
-        alert('Mensagem de erro para todos os campos em branco');
+      alert('Mensagem de erro para todos os campos em branco');
 
     } else {
       alert('Dados salvos')
@@ -114,10 +95,10 @@
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
+          // cardErro.style.display = "block";
 
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+          // mensagem_erro.innerHTML =
+          //   "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
           setTimeout(() => {
             window.location = "login.html";

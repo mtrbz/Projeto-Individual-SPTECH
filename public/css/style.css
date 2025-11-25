@@ -388,21 +388,22 @@ footer {
 .cadastro {
     display: flex;
     width: 100%;
-    height: 900px;
+    height: 940px;
     justify-content: center;
     align-items: center;
-    background-image: url('../assets/img/background.png');
+    background-image: url('../assets/img/knight-arriving.png');
     background-size: cover;
 }
 
 .cadastro .container {
     display: flex;
     align-items: center;
-    background-color: #ffff;
-    border-radius: 20px;
+    background-color: #262626;
+    border-radius: 6px;
     color: #000000;
-    width: 70%;
+    width: 35%;
     height: 80%;
+    box-shadow: 0 0 14px #000000;
 }
 
 .cadastro .img-cadastro {
@@ -412,8 +413,8 @@ footer {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    background-color: #6c6c6c;
-    border-radius: 20px 0 0 20px;
+    background-color: #403f3f;
+    border-radius: 0 6px 6px 0;
 }
 
 .cadastro .img-cadastro h1 {
@@ -435,26 +436,6 @@ footer {
     align-items: center;
 }
 
-.cadastro .img-cadastro button {
-    width: 120px;
-    height: 40px;
-    border-radius: 20px;
-    border: none;
-    background-color: #FFFF;
-    color: #6c6c6c;
-    text-align: center;
-    margin-top: 20px;
-}
-
-.cadastro .img-cadastro button:hover {
-    width: 160px;
-    height: 50px;
-    background-color: #bcbcbc;
-    transition: 0.3s;
-    color: #ffff;
-    cursor: pointer;
-}
-
 .cadastro .img-cadastro img {
     height: 300px;
 }
@@ -463,13 +444,13 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
+    width: 100%;
     height: 90%;
     justify-content: space-between;
 }
 
 .cadastro .formulario h1 {
-    color: #6c6c6c;
+    color: #ffffff;
     font-size: 2.5em;
     font-weight: bold;
     font-family: 'trajan-pro';
@@ -485,29 +466,29 @@ footer {
 .cadastro input {
     width: 260px;
     height: 40px;
-    border-radius: 6px;
+    border-radius: 4px;
     border: none;
-    background-color: #d6d6d6;
     padding-left: 10px;
+    box-shadow: 0 0 12px #000000;
 }
 
-.cadastro .formulario button {
-    width: 120px;
-    height: 40px;
-    border-radius: 20px;
+.cadastro button {
+    width: 160px;
+    height: 50px;
+    border-radius: 4px;
     border: none;
-    background-color: #6c6c6c;
+    background-color: #4f4f4f;
     color: #FFFF;
     text-align: center;
     margin-top: 20px;
+    transition: 0.3s;
 }
 
-.cadastro .formulario button:hover {
-    width: 160px;
-    height: 50px;
-    background-color: #444444;
+.cadastro button:hover {
+    background-color: #8b8b8b;
     transition: 0.3s;
     cursor: pointer;
+    transform: scale(1.05);
 }
 
 /* Fim do cadastro */
@@ -520,7 +501,7 @@ footer {
     height: 900px;
     justify-content: center;
     align-items: center;
-    background-image: url('../assets/img/lifeblood.png');
+    background-image: url('../assets/img/void.png');
     background-size: cover;
 }
 
@@ -528,10 +509,11 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #ffffff;
-    border-radius: 20px;
-    color: #000000;
-    width: 35%;
+    text-align: center;
+    background-color: #262626;;
+    border-radius: 6px;
+    box-shadow: 0 0 14px #000000;
+    width: 60%;
     height: 80%;
 }
 
@@ -545,32 +527,64 @@ footer {
 }
 
 .login .formulario h1 {
-    color: #6c6c6c;
+    color: #ffff;
     font-size: 3.5em;
     font-weight: bold;
     font-family: 'trajan-pro';
 }
 
-.login .formulario p {
-    color: #000000;
-    font-size: 1.1em;
+.login .img-cadastro {
+    display: flex;
+    height: 100%;
+    width: 50%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #403f3f;
+    border-radius: 6px 0 0 6px;
+}
+
+.login .img-cadastro h1 {
+    color: #ffffff;
+    font-size: 2.5em;
     font-weight: bold;
+    font-family: 'trajan-pro';
+}
+
+.login .img-cadastro p {
+    color: #ffff;
+    font-size: 1.1em;
     font-family: 'perpetua';
+}
+
+.login .img-cadastro .itens {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login .img-cadastro img {
+    height: 300px;
+}
+
+.login .formulario p {
+    color: #ffff;
+    font-size: 1.1em;
 }
 
 .login input {
     width: 260px;
     height: 40px;
-    border-radius: 6px;
+    border-radius: 4px;
     border: none;
-    background-color: #d6d6d6;
     padding-left: 10px;
+    box-shadow: 0 0 12px #000000;
 }
 
-.login .formulario button {
-    width: 120px;
-    height: 40px;
-    border-radius: 20px;
+.login button {
+    width: 160px;
+    height: 50px;
+    border-radius: 8px;
     border: none;
     background-color: #6c6c6c;
     color: #FFFF;
@@ -578,9 +592,7 @@ footer {
     margin-top: 20px;
 }
 
-.login .formulario button:hover {
-    width: 160px;
-    height: 50px;
+.login button:hover {
     background-color: #444444;
     transition: 0.3s;
     cursor: pointer;
@@ -588,11 +600,10 @@ footer {
 
 .login a {
     text-decoration: none;
-    color: #000000;
+    font-weight: bold;
 }
 
 .login a:hover {
-    transition: 0.3s;
     text-decoration: none;
     color: #9e9e9e;
 }
