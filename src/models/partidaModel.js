@@ -23,6 +23,16 @@ function selecionarVitorias(fkUsuario) {
     return database.executar(instrucaoSql);
 }
 
+function selecionarPontos(fkUsuario) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", fkUsuario)
+    var instrucaoSql = `
+        SELECT SUM(pontos) AS pontos FROM partida 
+        WHERE fkUsuario = ${fkUsuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 function selecionarRank() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ")
     var instrucaoSql = `
@@ -76,7 +86,7 @@ function obterDadosGraficoPizza(fkUsuario) {
 function obterTentativasGerais() {
     console.log("ACESSEI O TT GERAIS MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar():")
     var instrucaoSql = `
-    SELECT ROUND(AVG(tentativas)) AS media,
+    SELECT SUM(venceu) AS media,
     nome as nome FROM usuario JOIN partida
     ON fkUsuario = idUsuario GROUP BY idUsuario;
     `;
@@ -91,5 +101,6 @@ module.exports = {
     selecionarRank,
     obterDadosGrafico,
     obterDadosGraficoPizza,
-    obterTentativasGerais
+    obterTentativasGerais,
+    selecionarPontos
 };

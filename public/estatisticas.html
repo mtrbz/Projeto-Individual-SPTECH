@@ -71,6 +71,11 @@
                     <div class="kpi" id="qtdVitorias"></div>
                 </div>
 
+                <div class="box">
+                    <h3 class="poppins-regular">Total de Pontos</h3>
+                    <div class="kpi" id="totalPontos"></div>
+                </div>
+
             </div>
 
             <div class="linha">
@@ -224,6 +229,26 @@
     }
 
     selecionarVitorias();
+
+    function selecionarPontos() {
+        var fkUsuario = sessionStorage.ID_USUARIO;
+
+        fetch(`/partida/selecionarPontos/${fkUsuario}`)
+            .then(resposta => resposta.json())
+            .then(function (data) {
+                console.log('to dentro dos pontos', data)
+
+                console.log(`Dados recebidos dos pontos: ${JSON.stringify(data)}`);
+
+                totalPontos.innerHTML = data[0].pontos;
+
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos pontos: ${error.message}`);
+            });
+    }
+
+    selecionarPontos();
 
     function obterDadosGraficoPizza() {
         var fkUsuario = sessionStorage.ID_USUARIO;

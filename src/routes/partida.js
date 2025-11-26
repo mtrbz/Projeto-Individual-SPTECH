@@ -16,6 +16,10 @@ router.post("/selecionarVitorias", function (req, res) {
     partidaController.selecionarVitorias(req, res);
 });
 
+router.get("/selecionarPontos/:fkUsuario", function (req, res) {
+    partidaController.selecionarPontos(req, res);
+});
+
 router.get("/selecionarRank", function (req, res) {
     partidaController.selecionarRank(req, res);
 });

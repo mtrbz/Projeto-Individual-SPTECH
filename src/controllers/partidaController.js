@@ -65,6 +65,27 @@ function selecionarVitorias(req, res) {
             );
 }
 
+function selecionarPontos(req, res) {
+    var fkUsuario = req.params.fkUsuario;
+    console.log(fkUsuario)
+        partidaModel.selecionarPontos(fkUsuario)
+            .then(
+                function (resposta) {
+                    console.log(`\nResultados encontrados dos pontos: ${resposta}`);
+                    console.log(`Resultados: ${JSON.stringify(resposta)}`); // transforma JSON em String
+                    
+                    res.json(resposta);
+                    
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um ERRO: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+}
+
 function selecionarRank(req, res) {
 
         partidaModel.selecionarRank()
@@ -185,5 +206,6 @@ module.exports = {
     selecionarRank,
     obterDadosGrafico,
     obterDadosGraficoPizza,
-    obterTentativasGerais
+    obterTentativasGerais,
+    selecionarPontos
 }
