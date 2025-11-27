@@ -20,6 +20,10 @@ router.get("/selecionarPontos/:fkUsuario", function (req, res) {
     partidaController.selecionarPontos(req, res);
 });
 
+router.get("/selecionarFavorito/:fkUsuario", function (req, res) {
+    partidaController.selecionarFavorito(req, res);
+});
+
 router.get("/selecionarRank", function (req, res) {
     partidaController.selecionarRank(req, res);
 });

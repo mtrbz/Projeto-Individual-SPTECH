@@ -33,6 +33,16 @@ function selecionarPontos(fkUsuario) {
     return database.executar(instrucaoSql);
 }
 
+function selecionarFavorito(fkUsuario) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", fkUsuario)
+    var instrucaoSql = `
+        SELECT favorito AS foto FROM usuario 
+        WHERE idUsuario = ${fkUsuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 function selecionarRank() {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ")
     var instrucaoSql = `
@@ -102,5 +112,6 @@ module.exports = {
     obterDadosGrafico,
     obterDadosGraficoPizza,
     obterTentativasGerais,
-    selecionarPontos
+    selecionarPontos,
+    selecionarFavorito
 };

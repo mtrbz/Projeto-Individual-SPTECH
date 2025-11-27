@@ -38,8 +38,12 @@
         <div class="barra-lateral">
             <div class="cima">
 
-                <div>
-                    <p>Olá, <span id="nome_usuario">!</span></p>
+                <div class="fotoPerfil">
+                    <p class="nome-usuario">
+                        Olá, <span id="nome_usuario"></span>!
+                    </p>
+
+                    <div class="favorito" id="favorito"></div>
                 </div>
 
                 <div>
@@ -53,7 +57,7 @@
             </div>
 
             <div class="baixo">
-                <a href="hollowdle.html"><button>Voltar</button></a>
+                <a href="hollowdle.html" class="botao">Voltar</a>
             </div>
 
         </div>
@@ -99,6 +103,7 @@
 
 </html>
 <script>
+
     function obterDadosGrafico() {
         var fkUsuario = sessionStorage.ID_USUARIO;
 
@@ -119,56 +124,56 @@
 
     obterDadosGrafico();
 
-   function plotarGrafico(resultado) {
-    console.log(resultado)
-    
-    var labels = [];
-    var tentativas = [];
+    function plotarGrafico(resultado) {
+        console.log(resultado)
 
-    for (var i = 0; i < resultado.length; i++) {
-        labels.push(`Partida ${labels.length + 1}`);
-        tentativas.push(resultado[i].tentativas);
-    }
+        var labels = [];
+        var tentativas = [];
 
-    var dados = {
-        labels: labels,
-        datasets: [{
-            label: 'Tentativas nas últimas 8 partidas',
-            data: tentativas,
-            backgroundColor: '#ffff'
-        }]
-    };
+        for (var i = 0; i < resultado.length; i++) {
+            labels.push(`Partida ${labels.length + 1}`);
+            tentativas.push(resultado[i].tentativas);
+        }
 
-    const ctx = document.getElementById('graficoTentativasPartida');
+        var dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Tentativas nas últimas 8 partidas',
+                data: tentativas,
+                backgroundColor: '#ffff'
+            }]
+        };
 
-    const config = {
-        type: 'bar',
-        data: dados,
-        options: {
-            plugins: {
-                legend: {
-                    labels: {
-                        color: '#ffff'
-                    }
-                }
-            },
-            scales: {
-                x: {
-                    ticks: {
-                        color: '#ffff'
+        const ctx = document.getElementById('graficoTentativasPartida');
+
+        const config = {
+            type: 'bar',
+            data: dados,
+            options: {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: '#ffff'
+                        }
                     }
                 },
-                y: {
-                    ticks: {
-                        color: '#ffff'
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#ffff'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#ffff'
+                        }
                     }
                 }
             }
-        }
-    };
+        };
 
-    let myChart = new Chart(ctx, config);
-}
+        let myChart = new Chart(ctx, config);
+    }
 
     nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
@@ -249,6 +254,28 @@
     }
 
     selecionarPontos();
+
+    function selecionarFavorito() {
+        var fkUsuario = sessionStorage.ID_USUARIO;
+
+        fetch(`/partida/selecionarFavorito/${fkUsuario}`)
+            .then(resposta => resposta.json())
+            .then(function (data) {
+                console.log('to dentro do favorito', data)
+
+                console.log(`Dados recebidos do favorito: ${JSON.stringify(data)}`);
+
+                var img = `<img src=/assets/img/${data[0].foto}>`;
+
+                favorito.innerHTML = img;
+
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos pontos: ${error.message}`);
+            });
+    }
+
+    selecionarFavorito();
 
     function obterDadosGraficoPizza() {
         var fkUsuario = sessionStorage.ID_USUARIO;

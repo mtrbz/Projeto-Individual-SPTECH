@@ -31,13 +31,28 @@
         <div>
           <input type="text" id="input_email" placeholder="Email">
         </div>
-
+        
         <div>
           <input type="password" id="input_senha" placeholder="Senha">
         </div>
-
+        
         <div>
           <input type="password" id="input_confirmar_senha" placeholder="Confirmar senha">
+        </div>
+        
+        <div>
+          <p>Selecione seu personagem favorito!</p>
+          <select id="select_favorito">
+            <option value="#" selected disabled>Escolha um personagem:</option>
+            <option value="cavaleiro-dle.png">Cavaleiro</option>
+            <option value="hornet-dle.png">Hornet</option>
+            <option value="receptaculo-puro-dle.png">Receptaculo Puro</option>
+            <option value="grimm-dle.png">Grimm</option>
+            <option value="quirrel.png">Quirrel</option>
+            <option value="zote.png">Zote</option>
+            <option value="sly-dle.png">Sly</option>
+            <option value="radiancia-dle.png">Radiancia</option>
+          </select>
         </div>
 
         <button onclick="cadastrar()">CADASTRAR</button>
@@ -62,6 +77,7 @@
     var emailVar = input_email.value;
     var senhaVar = input_senha.value;
     var confirmacaoSenhaVar = input_confirmar_senha.value;
+    var favoritoVar = select_favorito.value;
 
     // Verificando se há algum campo em branco
     if (
@@ -69,7 +85,8 @@
       emailVar == "" ||
       senhaVar == "" ||
       confirmacaoSenhaVar == "" ||
-      confirmacaoSenhaVar != senhaVar
+      confirmacaoSenhaVar != senhaVar ||
+      favoritoVar == '#'
     ) {
       alert('Mensagem de erro para todos os campos em branco');
 
@@ -89,6 +106,7 @@
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
+        favoritoServer: favoritoVar
       }),
     })
       .then(function (resposta) {

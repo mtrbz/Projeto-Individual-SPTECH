@@ -39,8 +39,12 @@
         <div class="barra-lateral">
             <div class="cima">
 
-                <div>
-                    <p>Olá, <span id="nome_usuario">!</span></p>
+                <div class="fotoPerfil">
+                    <p class="nome-usuario">
+                        Olá, <span id="nome_usuario"></span>!
+                    </p>
+
+                    <div class="favorito" id="favorito"></div>
                 </div>
 
                 <div>
@@ -54,18 +58,12 @@
             </div>
 
             <div class="baixo">
-                <a href="hollowdle.html"><button>Voltar</button></a>
+                <a href="hollowdle.html" class="botao">Voltar</a>
             </div>
 
         </div>
 
         <div class="container">
-
-            <div class="linha">
-
-                
-
-            </div>
 
             <div class="linha">
 
@@ -191,5 +189,27 @@
     }
 
     selecionarRank();
+
+    function selecionarFavorito() {
+        var fkUsuario = sessionStorage.ID_USUARIO;
+
+        fetch(`/partida/selecionarFavorito/${fkUsuario}`)
+            .then(resposta => resposta.json())
+            .then(function (data) {
+                console.log('to dentro do favorito', data)
+
+                console.log(`Dados recebidos do favorito: ${JSON.stringify(data)}`);
+
+                var img = `<img src=/assets/img/${data[0].foto}>`;
+
+                favorito.innerHTML = img;
+
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos pontos: ${error.message}`);
+            });
+    }
+
+    selecionarFavorito();
 
 </script>
