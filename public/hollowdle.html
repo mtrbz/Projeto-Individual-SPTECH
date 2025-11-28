@@ -565,7 +565,7 @@
                 "nome": "Pequeno tolo",
                 "tipo": "Comerciante",
                 "especie": "Tolo",
-                "localizacao": "Coliseu dos tolos",
+                "localizacao": "Coliseu dos Tolos",
                 "forma_dos_sonhos": "Não",
                 "cor_principal": "Cinza",
                 "arma_estilo": "Não possuí",
@@ -603,7 +603,7 @@
             },
             {
                 "nome": "Ultimo Besouro",
-                "tipo": "NPC, Comerciante",
+                "tipo": "Comerciante, NPC",
                 "especie": "Besouro",
                 "localizacao": "Várias regiões de Hallownest",
                 "forma_dos_sonhos": "Não",
@@ -815,6 +815,7 @@
             if (nomeFormatado.startsWith(tentativa)) {
                 msg += `
                 <div class='sugestao' onclick='completar("${nomeFormatado}")'>
+                <img style="width: 30px" src="${personagens[i].imagem}">
                 ${personagens[i].nome}
                 </div>`;
             }
@@ -877,7 +878,7 @@
         if (comparar.tipo == personagem.tipo) {
             tipo.innerHTML = comparar.tipo;
             tipo.style = "background-color: #45f395;"
-        } else if (comparar.tipo.includes(personagem.tipo)) {
+        } else if (comparar.tipo.includes(personagem.tipo) || (personagem.tipo).includes(comparar.tipo)) {
             tipo.innerHTML = comparar.tipo;
             tipo.style = "background-color: #f3db45;"
         } else {

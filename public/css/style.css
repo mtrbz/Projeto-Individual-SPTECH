@@ -890,24 +890,24 @@ footer {
 
 .dle .sugestao {
     display: flex;
-    background-color: #001C30;
-    width: 100px;
+    width: 100%;
     height: 40px;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     margin: 5px;
-    border-radius: 5px;
-    font-size: 0.9em;
+    border-radius: 2px;
+    font-size: 1em;
 }
 
 .dle .sugestao:hover {
     display: flex;
-    background-color: #006cb9;
-    width: 100px;
-    height: 40px;
-    justify-content: center;
-    align-items: center;
+    background-color: #9191928d;
     transition: 0.3s;
+}
+
+.dle .sugestao img {
+    align-self: center;
+    margin-right: 20px;
 }
 
 .dle .historico {
