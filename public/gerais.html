@@ -68,8 +68,13 @@
             <div class="linha">
 
                 <div class="box">
-                    <h3 class="poppins-regular">Partidas Jogadas</h3>
-                    <div class="kpi" id="maiorSequencia"></div>
+                    <h3 class="poppins-regular">Média de Acerto Geral</h3>
+                    <div class="kpi" id="acertoGeral"></div>
+                </div>
+
+                <div class="box">
+                    <h3 class="poppins-regular">Total de Partidas</h3>
+                    <div class="kpi" id="divTotalPartidas"></div>
                 </div>
 
             </div>
@@ -211,5 +216,45 @@
     }
 
     selecionarFavorito();
+
+    function porcentagemAcertoGeral() {
+        var fkUsuario = sessionStorage.ID_USUARIO;
+
+        fetch(`/partida/porcentagemAcertoGeral`)
+            .then(resposta => resposta.json())
+            .then(function (data) {
+                console.log('to dentro do favorito', data)
+
+                console.log(`Dados recebidos do favorito: ${JSON.stringify(data)}`);
+
+                acertoGeral.innerHTML = `${data[0].media}%`;
+
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos pontos: ${error.message}`);
+            });
+    }
+
+    porcentagemAcertoGeral();
+
+    function totalPartidas() {
+        var fkUsuario = sessionStorage.ID_USUARIO;
+
+        fetch(`/partida/totalPartidas`)
+            .then(resposta => resposta.json())
+            .then(function (data) {
+                console.log('to dentro do favorito', data)
+
+                console.log(`Dados recebidos do favorito: ${JSON.stringify(data)}`);
+
+                divTotalPartidas.innerHTML = data[0].total;
+
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos pontos: ${error.message}`);
+            });
+    }
+
+    totalPartidas();
 
 </script>

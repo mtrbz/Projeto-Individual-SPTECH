@@ -220,6 +220,34 @@ function obterTentativasGerais(req, res) {
     });
 };
 
+function porcentagemAcertoGeral(req, res) {
+    partidaModel.porcentagemAcertoGeral()
+    .then(function (resposta) {
+        console.log(`\n Resultados encontrados tt gerais: ${resposta}`);
+        console.log(`\n Resultados ${JSON.stringify(resposta)}`);
+
+        res.json(resposta);
+    })
+    .catch(function (erro) {
+        console.log(erro);
+        res.status(500).json(erro.sqlMessage);
+    });
+};
+
+function totalPartidas(req, res) {
+    partidaModel.totalPartidas()
+    .then(function (resposta) {
+        console.log(`\n Resultados encontrados tt gerais: ${resposta}`);
+        console.log(`\n Resultados ${JSON.stringify(resposta)}`);
+
+        res.json(resposta);
+    })
+    .catch(function (erro) {
+        console.log(erro);
+        res.status(500).json(erro.sqlMessage);
+    });
+};
+
 module.exports = {
     armazenarPartida,
     selecionarPartida,
@@ -229,5 +257,7 @@ module.exports = {
     obterDadosGraficoPizza,
     obterTentativasGerais,
     selecionarPontos,
-    selecionarFavorito
+    selecionarFavorito,
+    porcentagemAcertoGeral,
+    totalPartidas
 }

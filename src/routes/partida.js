@@ -40,4 +40,12 @@ router.get("/obterTentativasGerais", function (req, res) {
     partidaController.obterTentativasGerais(req, res)
 });
 
+router.get("/porcentagemAcertoGeral", function (req, res) {
+    partidaController.porcentagemAcertoGeral(req, res)
+});
+
+router.get("/totalPartidas", function (req, res) {
+    partidaController.totalPartidas(req, res)
+});
+
 module.exports = router;

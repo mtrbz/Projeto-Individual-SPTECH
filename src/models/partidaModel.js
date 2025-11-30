@@ -98,7 +98,26 @@ function obterTentativasGerais() {
     var instrucaoSql = `
     SELECT SUM(venceu) AS media,
     nome as nome FROM usuario JOIN partida
-    ON fkUsuario = idUsuario GROUP BY idUsuario;
+    ON fkUsuario = idUsuario GROUP BY idUsuario
+    ORDER BY media DESC LIMIT 5;
+    `;
+
+    return database.executar(instrucaoSql);
+}
+
+function porcentagemAcertoGeral() {
+    console.log("ACESSEI O TT GERAIS MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar():")
+    var instrucaoSql = `
+    SELECT ROUND(AVG(venceu) * 100) AS media FROM partida;
+    `;
+
+    return database.executar(instrucaoSql);
+}
+
+function totalPartidas() {
+    console.log("ACESSEI O TT GERAIS MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar():")
+    var instrucaoSql = `
+    SELECT COUNT(idPartida) AS total FROM partida;
     `;
 
     return database.executar(instrucaoSql);
@@ -113,5 +132,7 @@ module.exports = {
     obterDadosGraficoPizza,
     obterTentativasGerais,
     selecionarPontos,
-    selecionarFavorito
+    selecionarFavorito,
+    porcentagemAcertoGeral,
+    totalPartidas
 };
