@@ -1,3 +1,7 @@
+* {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #000000;
     color: #FFFF;
@@ -89,7 +93,8 @@ nav {
 }
 
 .aba-selecionada img{
-    width: 80px;
+    width: 20px;
+    margin: 0 10px 0 10px;
 }
 
 .header li {
@@ -212,6 +217,19 @@ nav {
 
 footer {
     background-color: #3A3A3A;
+}
+
+footer a {
+   display: flex; 
+   justify-self: center;
+   margin-top: 2em;
+   font-size: 1.2em;
+   transition: 0.3s;
+}
+
+footer a:hover {
+   color: #c6c6c6;
+   transition: 0.3s;
 }
 
 .facecard {
@@ -379,6 +397,22 @@ footer {
     font-family: 'trajan-pro';
     font-weight: normal;
     font-size: 0.9rem;
+}
+
+.galeria {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.galeria .botao-esquerda {
+    cursor: pointer;
+}
+
+.galeria .botao-direita {
+    cursor: pointer;
 }
 
 /* Fim personagens */

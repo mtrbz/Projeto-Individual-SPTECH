@@ -14,7 +14,7 @@
 
     <!-- Navbar -->
 
-    <div class="header">
+    <div id="header" class="header">
         <nav>
             <div class="gif">
                 <img src="../assets/img/hollow-walking.gif" alt="" />
@@ -179,6 +179,52 @@
 
             </div>
 
+            <div class="titulo">
+                    <img src="../assets/img/dialogo_top.webp" alt="" />
+                    <h1>Imagens</h1>
+                    <img src="../assets/img/dialogo_bottom.webp" alt="" />
+                </div>
+
+                <div class="galeria">
+
+                    <div onclick="voltar()" class="botao-esquerda">
+                        <img src="../assets/img/left-arrow.png" alt="">
+                    </div>
+
+                    <div id="carrossel1" class="foto">
+                        <img src="../assets/img/carrossel-hornet1.webp" alt="">
+                    </div>
+
+                    <div style="display: none;" id="carrossel2" class="foto">
+                        <img src="../assets/img/carrossel-hornet2.webp" alt="">
+                    </div>
+
+                    <div style="display: none;" id="carrossel3" class="foto">
+                        <img src="../assets/img/carrossel-hornet3.webp" alt="">
+                    </div>
+
+                    <div style="display: none;" id="carrossel4" class="foto">
+                        <img src="../assets/img/carrossel-hornet4.webp" alt="">
+                    </div>
+
+                    <div style="display: none;" id="carrossel5" class="foto">
+                        <img src="../assets/img/carrossel-hornet5.webp" alt="">
+                    </div>
+
+                    <div style="display: none;" id="carrossel6" class="foto">
+                        <img src="../assets/img/carrossel-hornet6.webp" alt="">
+                    </div>
+
+                    <div style="display: none;" id="carrossel7" class="foto">
+                        <img src="../assets/img/carrossel-hornet7.webp" alt="">
+                    </div>
+
+                    <div onclick="avancar()" class="botao-direita">
+                        <img src="../assets/img/right-arrow.png" alt="">
+                    </div>
+
+                </div>
+
         </div>
 
     </div>
@@ -200,6 +246,8 @@
             <img src="../assets/img/github.webp" alt="">
         </div>
 
+        <a href="#header">voltar ao topo</a>
+
         <p id="copyright">Hollow Knight is © Copyright 2025 Team Cherry</p>
     </footer>
     <!-- Fim footer -->
@@ -220,4 +268,38 @@
   function deslogar() {
     sessionStorage.clear();
   }
+
+   var carrossel = 1;
+    var carrosselTotal = 7;
+
+    function deslogar() {
+        sessionStorage.clear();
+    }
+
+    function mostrarImagem() {
+        for (var i = 1; i <= carrosselTotal; i++) {
+
+            document.getElementById(`carrossel${i}`).style.display = 'none';
+        }
+
+        document.getElementById(`carrossel${carrossel}`).style.display = 'block';
+    }
+
+    function avancar() {
+        if (carrossel < carrosselTotal) {
+            carrossel++;
+        } else {
+            carrossel = 1;
+        }
+        mostrarImagem();
+    }
+
+    function voltar() {
+        if (carrossel == 1) {
+            carrossel = carrosselTotal;
+        } else {
+            carrossel--;
+        }
+        mostrarImagem()
+    }
 </script>

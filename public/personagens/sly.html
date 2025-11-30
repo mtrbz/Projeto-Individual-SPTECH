@@ -14,7 +14,7 @@
 
   <!-- Navbar -->
 
-  <div class="header">
+  <div id="header" class="header">
     <nav>
       <div class="gif">
         <img src="../assets/img/hollow-walking.gif" alt="" />
@@ -42,8 +42,8 @@
       </div>
 
       <div id="botao_sair" class="botao-sair">
-          <a href="" onclick="deslogar()">SAIR</a>
-        </div>
+        <a href="" onclick="deslogar()">SAIR</a>
+      </div>
     </nav>
   </div>
 
@@ -448,34 +448,43 @@
 
         <div class="titulo">
           <img src="../assets/img/dialogo_top.webp" alt="" />
-          <h1>Localização</h1>
+          <h1>Imagens</h1>
           <img src="../assets/img/dialogo_bottom.webp" alt="" />
         </div>
 
-        <div class="localizacao">
+        <div class="galeria">
 
-          <p>Sly aparece pela primeira vez em um casebre abandonado na região
-            sudeste da Encruzilhada Esquecida. Depois de o escutar, ele poderá
-            ser encontrado em Dirtmouth.</p>
-
-          <div class="loc-img">
-
-            <div class="img-box">
-              <img src="../assets/img/sly-loc1.png" alt="">
-              <img src="../assets/img/sly-loc2.webp" height="100px" alt="">
-
-            </div>
-
-            <div class="img-box">
-
-              <p>Localização na Encruzilhada Esquecida</p>
-
-              <p>Localização em Dirtmouth</p>
-
-            </div>
-
+          <div onclick="voltar()" class="botao-esquerda">
+            <img src="../assets/img/left-arrow.png" alt="">
           </div>
 
+          <div id="carrossel1" class="foto">
+            <img src="../assets/img/carrossel-sly1.webp" alt="">
+          </div>
+
+          <div style="display: none;" id="carrossel2" class="foto">
+            <img src="../assets/img/carrossel-sly2.webp" alt="">
+          </div>
+
+          <div style="display: none;" id="carrossel3" class="foto">
+            <img src="../assets/img/carrossel-sly3.webp" alt="">
+          </div>
+
+          <div style="display: none;" id="carrossel4" class="foto">
+            <img src="../assets/img/carrossel-sly4.webp" alt="">
+          </div>
+
+          <div style="display: none;" id="carrossel5" class="foto">
+            <img src="../assets/img/carrossel-sly5.webp" alt="">
+          </div>
+
+          <div style="display: none;" id="carrossel6" class="foto">
+            <img src="../assets/img/carrossel-sly6.webp" alt="">
+          </div>
+
+          <div onclick="avancar()" class="botao-direita">
+            <img src="../assets/img/right-arrow.png" alt="">
+          </div>
 
         </div>
 
@@ -500,6 +509,8 @@
         <img src="../assets/img/github.webp" alt="">
       </div>
 
+      <a href="#header">voltar ao topo</a>
+
       <p id="copyright">Hollow Knight is © Copyright 2025 Team Cherry</p>
     </footer>
     <!-- Fim footer -->
@@ -510,14 +521,48 @@
 
 <script>
   if (sessionStorage.ID_USUARIO != undefined) {
-    botao_login.style.display='none';
-    botao_sair.style.display='flex';
+    botao_login.style.display = 'none';
+    botao_sair.style.display = 'flex';
   } else {
-    botao_login.style.display='flex';
-    botao_sair.style.display='none';
+    botao_login.style.display = 'flex';
+    botao_sair.style.display = 'none';
   }
 
   function deslogar() {
     sessionStorage.clear();
   }
+
+  var carrossel = 1;
+    var carrosselTotal = 6;
+
+    function deslogar() {
+        sessionStorage.clear();
+    }
+
+    function mostrarImagem() {
+        for (var i = 1; i <= carrosselTotal; i++) {
+
+            document.getElementById(`carrossel${i}`).style.display = 'none';
+        }
+
+        document.getElementById(`carrossel${carrossel}`).style.display = 'block';
+    }
+
+    function avancar() {
+        if (carrossel < carrosselTotal) {
+            carrossel++;
+        } else {
+            carrossel = 1;
+        }
+        mostrarImagem();
+    }
+
+    function voltar() {
+        if (carrossel == 1) {
+            carrossel = carrosselTotal;
+        } else {
+            carrossel--;
+        }
+        mostrarImagem()
+    }
 </script>
