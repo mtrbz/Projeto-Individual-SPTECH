@@ -129,9 +129,10 @@
 
         var labels = [];
         var tentativas = [];
+        var limite = 8;
 
         for (var i = 0; i < resultado.length; i++) {
-            labels.push(`Partida ${labels.length + 1}`);
+            labels.push(`Partida ${limite--}`);
             tentativas.push(resultado[i].tentativas);
         }
 

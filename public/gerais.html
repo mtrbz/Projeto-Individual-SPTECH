@@ -77,6 +77,10 @@
                     <div class="kpi" id="divTotalPartidas"></div>
                 </div>
 
+                <div style="width: 15%;">
+                    <canvas id="desempenhoGeral"></canvas>
+                </div>
+
             </div>
 
             <div class="linha">
@@ -256,5 +260,59 @@
     }
 
     totalPartidas();
+
+    function obterDesempenhoGeral() {
+
+        fetch(`/partida/obterDesempenhoGeral`)
+            .then(resultado => resultado.json())
+            .then(function (resposta) {
+                console.log('to dentro do desempenho geral', resposta)
+
+                console.log(`Dados recebidos pizza: ${JSON.stringify(resposta)}`);
+
+                plotarDesempenhoGeral(resposta);
+
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção do desempenho geral: ${error.message}`);
+            });
+    }
+
+    obterDesempenhoGeral();
+
+    function plotarDesempenhoGeral(resposta) {
+        console.log(resposta)
+        var labels = ['Vitórias', 'Derrotas'];
+        var vitorias = resposta[0].Vitórias;
+        var derrotas = resposta[0].Derrotas;
+
+        console.log('Vitorias: ', vitorias)
+        console.log('Derrotas: ', derrotas)
+
+        var dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Vitórias / Derrotas',
+                data: [vitorias, derrotas],
+                backgroundColor: [
+                    '#ffff',
+                    '#000000',
+                ],
+            }]
+        }
+        console.log(dados)
+
+        // Criação do Gráfico
+        const ctx = document.getElementById('desempenhoGeral');
+
+        const config = {
+            type: 'pie',
+            data: dados
+        };
+
+        let myChart = new Chart(
+            ctx, config
+        )
+    }
 
 </script>

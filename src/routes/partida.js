@@ -48,4 +48,8 @@ router.get("/totalPartidas", function (req, res) {
     partidaController.totalPartidas(req, res)
 });
 
+router.get("/obterDesempenhoGeral", function (req, res) {
+    partidaController.obterDesempenhoGeral(req, res)
+});
+
 module.exports = router;

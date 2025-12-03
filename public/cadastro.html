@@ -57,6 +57,13 @@
 
         <button onclick="cadastrar()">CADASTRAR</button>
 
+        <p style="color: red;" id="mensagem"></p>
+  
+        <div id="loading" style="display: none;">
+          <img src="./assets/hollow-loading.gif" width="80px" alt=""><br>
+          <span style="color: white;">Carregando...</span>
+        </div>
+
       </div>
 
     </div>
@@ -80,20 +87,20 @@
     var favoritoVar = select_favorito.value;
 
     // Verificando se há algum campo em branco
-    if (
-      nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      confirmacaoSenhaVar != senhaVar ||
-      favoritoVar == '#'
-    ) {
-      alert('Mensagem de erro para todos os campos em branco');
-
+    if (nomeVar == "") {
+      mensagem.innerHTML = `Preencha o nome para continuar!`;
+    } else if (emailVar == "") {
+      mensagem.innerHTML = `Preencha o email para continuar!`;
+    } else if (senhaVar == "") {
+      mensagem.innerHTML = `Digite sua senha!`;
+    } else if (confirmacaoSenhaVar == "") {
+      mensagem.innerHTML = `Digite sua senha novamente!`;
+    } else if ( confirmacaoSenhaVar != senhaVar) {
+      mensagem.innerHTML = `As senhas estão diferentes!`;
+    } else if (favoritoVar == '#') {
+       mensagem.innerHTML = `Escolha um personagem favorito!`;
     } else {
-      alert('Dados salvos')
-    }
-
+      mensagem.innerHTML = '';
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -117,10 +124,10 @@
 
           // mensagem_erro.innerHTML =
           //   "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
+          loading.style.display = 'block';
           setTimeout(() => {
             window.location = "login.html";
-          }, "2000");
+          }, "2500");
 
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
@@ -129,7 +136,6 @@
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
       });
-
-    return false;
+    }
   }
 </script>

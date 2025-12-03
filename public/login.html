@@ -46,6 +46,13 @@
 
                 <button onclick="entrar()">ENTRAR</button>
 
+                 <p style="color: red;" id="mensagem"></p>
+
+                <div id="loading" style="display: none;">
+                    <img src="./assets/hollow-loading.gif" width="80px" alt=""><br>
+                    <span style="color: white;">Entrando...</span>
+                </div>
+
                 <p class="poppins-regular">Ainda não tem uma conta? <a class="poppins-regular" href="cadastro.html">Clique aqui</a> para se cadastrar!</p>
 
             </div>
@@ -67,12 +74,11 @@
         var senhaVar = input_senha.value;
 
         if (emailVar == "" || senhaVar == "") {
-            alert('Mensagem de erro para todos os campos em branco');
+            mensagem.innerHTML = `Preencha os campos vazios`;
             return false;
         }
         else {
-            alert('Logando...')
-        }
+            mensagem.innerHTML = '';
 
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
@@ -99,6 +105,7 @@
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.idUsuario;
 
+                    loading.style.display = 'block';
                     setTimeout(function () {
                         window.location = "index.html";
                     }, 1000);
@@ -107,7 +114,7 @@
 
             } else {
 
-                alert('Erro ao fazer login')
+                mensagem.innerHTML = `Email ou senha inválidos.`;
                 console.log("Houve um erro ao tentar realizar o login!");
 
                 resposta.text().then(texto => {
@@ -119,7 +126,7 @@
             console.log(erro);
         })
 
-        return false;
+        }
     }
 
 </script>

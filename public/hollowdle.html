@@ -837,7 +837,7 @@
     function tentar() {
         var tentativa = input_personagem.value.toLowerCase();
 
-        cont_chances.innerHTML = `Chances: ${--chances}`;
+        cont_chances.innerHTML = `Chances: ${chances}`;
 
         if (chances == 0) {
             alert(`Você perdeu! O personagem era ${personagem.nome}`)
@@ -853,6 +853,7 @@
             if (personagens[i].nome.toLowerCase() == tentativa) {
                 var comparar = personagens[i];
                 tentativas++;
+                cont_chances.innerHTML = `Chances: ${--chances}`;;
                 break;
             }
         }
