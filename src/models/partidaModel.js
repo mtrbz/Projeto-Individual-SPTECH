@@ -117,7 +117,7 @@ function porcentagemAcertoGeral() {
 function totalPartidas() {
     console.log("ACESSEI O TT GERAIS MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar():")
     var instrucaoSql = `
-    SELECT COUNT(idPartida) AS total FROM partida;
+    SELECT COUNT(idUsuario) AS total FROM usuario;
     `;
 
     return database.executar(instrucaoSql);

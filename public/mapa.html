@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../public/assets/img/knight.ico" type="image/x-icon" />
+  <title>Hollow Knight</title>
+
+  <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body>
+
+  <div class="header">
+    <nav>
+      <div class="gif">
+        <img src="./assets/img/hollow-walking.gif" alt="" />
+      </div>
+
+      <ul class="menu">
+        <div class="aba-selecionada">
+          <li><a href="index.html">HOME</a></li>
+        </div>
+        <hr />
+        <li><a href="./historia.html">HISTÓRIA</a></li>
+        <hr />
+        <li><a href="personagens.html">PERSONAGENS</a></li>
+        <hr />
+        <div class="aba-selecionada">
+          <img src="./assets/img/left-arrow.png" alt="">
+          <li><a href="">MAPA</a></li><img src="./assets/img/right-arrow.png" alt="">
+        </div>
+        <hr />
+        <li><a href="hollowdle.html">HOLLOWDLE</a></li>
+      </ul>
+
+      <div id="botao_login" class="botao-login">
+        <a href="login.html">
+          <p>LOGIN</p>
+        </a>
+      </div>
+
+      <div id="botao_sair" class="botao-sair">
+        <a href="" onclick="deslogar()">SAIR</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="img-inicio">
+    <img class="logo" src="./assets/img/logo.png" alt="" />
+  </div>
+
+  <div class="conteudo">
+
+    <div id="popMapa" class="popup">
+      <div class="popup-mapa">
+        <h2 id="tituloPop"></h2>
+        <p id="descricaoPop"></p>
+        <p>Boss mais difícil da região:</p>
+        <img width="80px" id="imgBoss" src="" alt="">
+        <button class="fechar" onclick="fecharPop()">fechar</button>
+      </div>
+    </div>
+
+    <center>
+      <div class="mapa">
+        <img src="./assets/img/mapa.png" alt="">
+
+        <div onclick="penhascos()" class="penhascos"></div>
+
+        <div onclick="caminhoVerde()" class="caminho-verde"></div>
+
+        <div onclick="dirtmouth()" class="dirtmouth"></div>
+
+        <div onclick="picoCristal()" class="picoCristal"></div>
+
+        <div onclick="encruzilhada()" class="encruzilhada"></div>
+
+        <div onclick="terraDescanso()" class="terraDescanso"></div>
+
+        <div onclick="canion()" class="canion"></div>
+
+        <div onclick="jardinsRainha()" class="jardinsRainha"></div>
+
+        <div onclick="ermosFungicos()" class="ermosFungicos"></div>
+
+        <div onclick="cidadeLagrimas()" class="cidadeLagrimas"></div>
+
+        <div onclick="bordaReino()" class="bordaReino"></div>
+
+        <div onclick="colmeia()" class="colmeia"></div>
+
+        <div onclick="hidroviaReal()" class="hidroviaReal"></div>
+
+        <div onclick="ninhoProfundo()" class="ninhoProfundo"></div>
+
+        <div onclick="bacia()" class="bacia"></div>
+
+      </div>
+    </center>
+
+  </div>
+
+  <footer>
+    <div class="facecard">
+      <img src="./assets/img/face.png" alt="" />
+      <h1>Matheus Rodrigues Barros</h1>
+      <p>
+        Responsável pelo desenvolvimento frontend e backend do site como projeto
+        individual na disciplina de PI na SPTECH.
+      </p>
+    </div>
+
+    <div class="redes-sociais">
+      <a href="https://www.linkedin.com/in/matheus-rodrigues-b071123a0/"><img src="./assets/img/linkedin.png"
+          alt=""></a>
+      <a href="https://github.com/mtrbz"><img src="./assets/img/github.webp" alt=""></a>
+      <a href="https://www.instagram.com/mxtheurodrigues/"><img src="./assets/img/instagram.png" alt=""></a>
+    </div>
+
+    <p id="copyright">Hollow Knight is © Copyright 2025 Team Cherry</p>
+  </footer>
+</body>
+
+</html>
+<script>
+  if (sessionStorage.ID_USUARIO != undefined) {
+    botao_login.style.display = 'none';
+    botao_sair.style.display = 'flex';
+  } else {
+    botao_login.style.display = 'flex';
+    botao_sair.style.display = 'none';
+  }
+
+  function deslogar() {
+    sessionStorage.clear();
+  }
+
+  function penhascos() {
+    popMapa.style.display = 'block';
+    popupMapa(
+      "Penhascos Uivantes",
+      "Uma região ventosa e isolada, marcada pelo eco constante de criaturas que habitam seus penhascos perigosos.",
+      "./assets/img/gorb.png"
+    );
+  }
+
+  function caminhoVerde() {
+    popupMapa(
+      "Caminho Verde",
+      "Uma floresta viva tomada por musgos, plantas agressivas e guardiões naturais que protegem seus segredos.",
+       "./assets/img/hornet-dle.png"
+    );
+  }
+
+  function dirtmouth() {
+    popupMapa(
+      "Dirtmouth",
+      "Uma montanha repleta de cristais brilhantes e máquinas antigas, lar de insetos cristalizados e perigos constantes.",
+       "./assets/img/grimm-dle.png"
+    );
+  }
+
+  function picoCristal() {
+    popupMapa(
+      "Pico de Cristal",
+      "A tranquila vila no topo de Hallownest. Um abrigo seguro para viajantes cansados.",
+       "./assets/img/guardiao-cristalizado.png"
+    );
+  }
+
+  function encruzilhada() {
+    popupMapa(
+      "Encruzilhada Esquecida",
+      "Túneis abandonados marcados pela decadência do reino. O primeiro passo rumo ao coração de Hallownest.",
+       "./assets/img/falso-cavaleiro.png"
+    );
+  }
+
+  function terraDescanso() {
+    popupMapa(
+      "Terra do Descanso",
+      "Um local silencioso onde espíritos vagam em paz. Ecos do passado repousam entre as pedras antigas.",
+       ""
+    );
+  }
+
+  function canion() {
+    popupMapa(
+      "Cânion da Névoa",
+      "Um vale misterioso envolto em névoa espessa e habitado por criaturas etéreas e imprevisíveis.",
+       "./assets/img/uumuu-dle.png"
+    );
+  }
+
+  function jardinsRainha() {
+    popupMapa(
+      "Jardins da Rainha",
+      "Um santuário natural criado pela Rainha, agora tomado por flora selvagem e perigos escondidos.",
+       "./assets/img/lorde-traidor-dle.png"
+    );
+  }
+
+  function ermosFungicos() {
+    popupMapa(
+      "Ermos Fúngicos",
+      "Uma vasta região dominada por esporos e colônias de fungos inteligentes e agressivos.",
+       "./assets/img/lordes-louva-a-deus.png"
+    );
+  }
+
+  function cidadeLagrimas() {
+    popupMapa(
+      "Cidade das Lágrimas",
+      "A grande capital de Hallownest, sempre coberta por chuva eterna e repleta de vestígios de sua antiga glória.",
+       "./assets/img/mestre-das-almas-dle.png"
+    );
+  }
+
+  function bordaReino() {
+    popupMapa(
+      "Borda do Reino",
+      "Uma área remota e desolada, onde poucos ousam chegar. Ventos fortes e criaturas exiladas habitam o limite do reino.",
+       "./assets/img/markoth.png"
+    );
+  }
+
+  function colmeia() {
+    popupMapa(
+      "Colmeia",
+      "A fortaleza dourada das abelhas, repleta de cera, túneis apertados e guardiãs ferozes.",
+       "./assets/img/cavaleiro-da-colmeia.png"
+    );
+  }
+
+  function hidroviaReal() {
+    popupMapa(
+      "Hidrovia Real",
+      "Um antigo sistema de esgoto e transporte, cheio de água suja, criaturas mutantes e caminhos secretos.",
+       "./assets/img/defensor-do-esterco-dle.png"
+    );
+  }
+
+  function ninhoProfundo() {
+    popupMapa(
+      "Ninho Profundo",
+      "Um labirinto escuro e claustrofóbico, lar de criaturas rastejantes e perigos escondidos na escuridão.",
+       "./assets/img/nosk.png"
+    );
+  }
+
+  function bacia() {
+    popupMapa(
+      "Bacia Antiga",
+      "O ponto mais profundo de Hallownest, silencioso e desolado, onde ecos de um passado esquecido repousam no vazio.",
+       "./assets/img/receptaculo-quebrado-dle.png"
+    );
+  }
+
+  function popupMapa(titulo, descricao, boss) {
+    popMapa.style.display = "flex";
+    tituloPop.innerText = titulo;
+    descricaoPop.innerText = descricao;
+    imgBoss.src = boss;
+
+  }
+
+  function fecharPop() {
+    popMapa.style.display = 'none';
+  }
+
+</script>

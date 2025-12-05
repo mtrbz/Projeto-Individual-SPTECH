@@ -12,7 +12,7 @@
 
 <body>
   <!-- Navbar -->
-  <div class="header">
+  <div id="header" class="header">
     <nav>
       <div class="gif">
         <img src="./assets/img/hollow-walking.gif" alt="" />
@@ -28,7 +28,7 @@
           <li><a href="">PERSONAGENS</a></li><img src="./assets/img/right-arrow.png" alt="">
         </div>
         <hr />
-        <li><a href="sobremim.html">SOBRE MIM</a></li>
+        <li><a href="mapa.html">MAPA</a></li>
         <hr />
         <li><a href="hollowdle.html">HOLLOWDLE</a></li>
       </ul>
@@ -144,7 +144,6 @@
 
 </html>
 
-<!-- Footer -->
 <footer>
   <div class="facecard">
     <img src="./assets/img/face.png" alt="" />
@@ -156,14 +155,16 @@
   </div>
 
   <div class="redes-sociais">
-    <img src="./assets/img/linkedin.png" alt="">
-    <img src="./assets/img/github.webp" alt="">
-    <img src="./assets/img/github.webp" alt="">
+    <a href="https://www.linkedin.com/in/matheus-rodrigues-b071123a0/"><img src="./assets/img/linkedin.png" alt=""></a>
+    <a href="https://github.com/mtrbz"><img src="./assets/img/github.webp" alt=""></a>
+    <a href="https://www.instagram.com/mxtheurodrigues/"><img src="./assets/img/instagram.png" alt=""></a>
   </div>
+
+  <a href="#header">voltar ao topo</a>
 
   <p id="copyright">Hollow Knight is © Copyright 2025 Team Cherry</p>
 </footer>
-<!-- Fim footer -->
+
 <script>
   if (sessionStorage.ID_USUARIO != undefined) {
     botao_login.style.display = 'none';

@@ -12,8 +12,6 @@
 
 <body>
 
-    <!-- Navbar -->
-
     <div id="header" class="header">
         <nav>
             <div class="gif">
@@ -31,7 +29,7 @@
                         alt="">
                 </div>
                 <hr />
-                <li><a href="../sobremim.html">SOBRE MIM</a></li>
+                <li><a href="../mapa.html">MAPA</a></li>
                 <hr />
                 <li><a href="../hollowdle.html">HOLLOWDLE</a></li>
             </ul>
@@ -47,8 +45,6 @@
             </div>
         </nav>
     </div>
-
-    <!-- Fim navbar -->
 
     <div class="tela-personagem">
 
@@ -200,64 +196,63 @@
             </div>
 
             <div class="titulo">
-                    <img src="../assets/img/dialogo_top.webp" alt="" />
-                    <h1>Imagens</h1>
-                    <img src="../assets/img/dialogo_bottom.webp" alt="" />
+                <img src="../assets/img/dialogo_top.webp" alt="" />
+                <h1>Imagens</h1>
+                <img src="../assets/img/dialogo_bottom.webp" alt="" />
+            </div>
+
+            <div class="galeria">
+
+                <div onclick="voltar()" class="botao-esquerda">
+                    <img src="../assets/img/left-arrow.png" alt="">
                 </div>
 
-                <div class="galeria">
-
-                    <div onclick="voltar()" class="botao-esquerda">
-                        <img src="../assets/img/left-arrow.png" alt="">
-                    </div>
-
-                    <div id="carrossel1" class="foto">
-                        <img src="../assets/img/carrossel-quirrel1.webp" alt="">
-                    </div>
-
-                    <div style="display: none;" id="carrossel2" class="foto">
-                        <img src="../assets/img/carrossel-quirrel2.webp" alt="">
-                    </div>
-
-                    <div style="display: none;" id="carrossel3" class="foto">
-                        <img src="../assets/img/carrossel-quirrel3.webp" alt="">
-                    </div>
-
-                    <div style="display: none;" id="carrossel4" class="foto">
-                        <img src="../assets/img/carrossel-quirrel4.webp" alt="">
-                    </div>
-
-                    <div style="display: none;" id="carrossel5" class="foto">
-                        <img src="../assets/img/carrossel-quirrel5.webp" alt="">
-                    </div>
-
-                    <div style="display: none;" id="carrossel6" class="foto">
-                        <img src="../assets/img/carrossel-quirrel6.webp" alt="">
-                    </div>
-
-                    <div style="display: none;" id="carrossel7" class="foto">
-                        <img src="../assets/img/carrossel-quirrel7.webp" alt="">
-                    </div>
-
-                    <div style="display: none;" id="carrossel8" class="foto">
-                        <img src="../assets/img/carrossel-quirrel8.webp" alt="">
-                    </div>
-
-                    <div style="display: none;" id="carrossel9" class="foto">
-                        <img src="../assets/img/carrossel-quirrel9.webp" alt="">
-                    </div>
-
-                    <div onclick="avancar()" class="botao-direita">
-                        <img src="../assets/img/right-arrow.png" alt="">
-                    </div>
-
+                <div id="carrossel1" class="foto">
+                    <img src="../assets/img/carrossel-quirrel1.webp" alt="">
                 </div>
+
+                <div style="display: none;" id="carrossel2" class="foto">
+                    <img src="../assets/img/carrossel-quirrel2.webp" alt="">
+                </div>
+
+                <div style="display: none;" id="carrossel3" class="foto">
+                    <img src="../assets/img/carrossel-quirrel3.webp" alt="">
+                </div>
+
+                <div style="display: none;" id="carrossel4" class="foto">
+                    <img src="../assets/img/carrossel-quirrel4.webp" alt="">
+                </div>
+
+                <div style="display: none;" id="carrossel5" class="foto">
+                    <img src="../assets/img/carrossel-quirrel5.webp" alt="">
+                </div>
+
+                <div style="display: none;" id="carrossel6" class="foto">
+                    <img src="../assets/img/carrossel-quirrel6.webp" alt="">
+                </div>
+
+                <div style="display: none;" id="carrossel7" class="foto">
+                    <img src="../assets/img/carrossel-quirrel7.webp" alt="">
+                </div>
+
+                <div style="display: none;" id="carrossel8" class="foto">
+                    <img src="../assets/img/carrossel-quirrel8.webp" alt="">
+                </div>
+
+                <div style="display: none;" id="carrossel9" class="foto">
+                    <img src="../assets/img/carrossel-quirrel9.webp" alt="">
+                </div>
+
+                <div onclick="avancar()" class="botao-direita">
+                    <img src="../assets/img/right-arrow.png" alt="">
+                </div>
+
+            </div>
 
         </div>
 
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="facecard">
             <img src="../assets/img/face.png" alt="" />
@@ -269,16 +264,16 @@
         </div>
 
         <div class="redes-sociais">
-            <img src="../assets/img/linkedin.png" alt="">
-            <img src="../assets/img/github.webp" alt="">
-            <img src="../assets/img/github.webp" alt="">
+            <a href="https://www.linkedin.com/in/matheus-rodrigues-b071123a0/"><img src="../assets/img/linkedin.png"
+                    alt=""></a>
+            <a href="https://github.com/mtrbz"><img src="../assets/img/github.webp" alt=""></a>
+            <a href="https://www.instagram.com/mxtheurodrigues/"><img src="../assets/img/instagram.png" alt=""></a>
         </div>
 
-         <a class="voltar" href="#header">voltar ao topo</a>
+        <a href="#header">voltar ao topo</a>
 
         <p id="copyright">Hollow Knight is © Copyright 2025 Team Cherry</p>
     </footer>
-    <!-- Fim footer -->
 
 </body>
 
@@ -297,7 +292,7 @@
         sessionStorage.clear();
     }
 
-     var carrossel = 1;
+    var carrossel = 1;
     var carrosselTotal = 9;
 
     function deslogar() {

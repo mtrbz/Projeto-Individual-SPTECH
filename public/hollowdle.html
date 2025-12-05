@@ -17,7 +17,7 @@
 
     <!-- Navbar -->
 
-    <div class="header">
+    <div id="header" class="header">
         <nav>
             <div class="gif">
                 <img src="./assets/img/hollow-walking.gif" alt="" />
@@ -30,7 +30,7 @@
                 <hr />
                 <li><a href="personagens.html">PERSONAGENS</a></li>
                 <hr />
-                <li><a href="sobremim.html">SOBRE MIM</a></li>
+                <li><a href="mapa.html">MAPA</a></li>
                 <hr />
                 <div class="aba-selecionada">
                     <img src="./assets/img/left-arrow.png" alt="">
@@ -138,23 +138,27 @@
     </div>
 
     <footer>
-        <div class="facecard">
-            <img src="./assets/img/face.png" alt="" />
-            <h1>Matheus Rodrigues Barros</h1>
-            <p>
-                Responsável pelo desenvolvimento frontend e backend do site como projeto
-                individual na disciplina de PI na SPTECH.
-            </p>
-        </div>
+        <footer>
+            <div class="facecard">
+                <img src="./assets/img/face.png" alt="" />
+                <h1>Matheus Rodrigues Barros</h1>
+                <p>
+                    Responsável pelo desenvolvimento frontend e backend do site como projeto
+                    individual na disciplina de PI na SPTECH.
+                </p>
+            </div>
 
-        <div class="redes-sociais">
-            <img src="./assets/img/linkedin.png" alt="">
-            <img src="./assets/img/github.webp" alt="">
-            <img src="./assets/img/github.webp" alt="">
-        </div>
+            <div class="redes-sociais">
+                <a href="https://www.linkedin.com/in/matheus-rodrigues-b071123a0/"><img src="./assets/img/linkedin.png"
+                        alt=""></a>
+                <a href="https://github.com/mtrbz"><img src="./assets/img/github.webp" alt=""></a>
+                <a href="https://www.instagram.com/mxtheurodrigues/"><img src="./assets/img/instagram.png" alt=""></a>
+            </div>
 
-        <p id="copyright">Hollow Knight is © Copyright 2025 Team Cherry</p>
-    </footer>
+            <a href="#header">voltar ao topo</a>
+
+            <p id="copyright">Hollow Knight is © Copyright 2025 Team Cherry</p>
+        </footer>
 </body>
 
 </html>
@@ -944,7 +948,7 @@
 
         imagem.innerHTML = `<img src="${comparar.imagem}" alt="asda"`;
 
-       var linha = `
+        var linha = `
         <div class="respostas">
             <div class="card-img"><img src="${comparar.imagem}"></div>
             <div class="card" style="background:${tipo.style.backgroundColor}">${comparar.tipo}</div>
@@ -956,7 +960,7 @@
         </div>
     `;
 
-historico.innerHTML = linha + historico.innerHTML;
+        historico.innerHTML = linha + historico.innerHTML;
         if (venceu) {
             resultado_popup.style.display = 'flex';
             mensagem_resultado.innerHTML = `

@@ -30,7 +30,7 @@
           <li><a href="../personagens.html">PERSONAGENS</a></li><img src="../assets/img/right-arrow.png" alt="">
         </div>
         <hr />
-        <li><a href="../sobremim.html">SOBRE MIM</a></li>
+        <li><a href="../mapa.html">MAPA</a></li>
         <hr />
         <li><a href="../hollowdle.html">HOLLOWDLE</a></li>
       </ul>
@@ -492,7 +492,6 @@
 
     </div>
 
-    <!-- Footer -->
     <footer>
       <div class="facecard">
         <img src="../assets/img/face.png" alt="" />
@@ -504,16 +503,16 @@
       </div>
 
       <div class="redes-sociais">
-        <img src="../assets/img/linkedin.png" alt="">
-        <img src="../assets/img/github.webp" alt="">
-        <img src="../assets/img/github.webp" alt="">
+        <a href="https://www.linkedin.com/in/matheus-rodrigues-b071123a0/"><img src="../assets/img/linkedin.png"
+            alt=""></a>
+        <a href="https://github.com/mtrbz"><img src="../assets/img/github.webp" alt=""></a>
+        <a href="https://www.instagram.com/mxtheurodrigues/"><img src="../assets/img/instagram.png" alt=""></a>
       </div>
 
       <a href="#header">voltar ao topo</a>
 
       <p id="copyright">Hollow Knight is © Copyright 2025 Team Cherry</p>
     </footer>
-    <!-- Fim footer -->
 
 </body>
 
@@ -533,36 +532,36 @@
   }
 
   var carrossel = 1;
-    var carrosselTotal = 6;
+  var carrosselTotal = 6;
 
-    function deslogar() {
-        sessionStorage.clear();
+  function deslogar() {
+    sessionStorage.clear();
+  }
+
+  function mostrarImagem() {
+    for (var i = 1; i <= carrosselTotal; i++) {
+
+      document.getElementById(`carrossel${i}`).style.display = 'none';
     }
 
-    function mostrarImagem() {
-        for (var i = 1; i <= carrosselTotal; i++) {
+    document.getElementById(`carrossel${carrossel}`).style.display = 'block';
+  }
 
-            document.getElementById(`carrossel${i}`).style.display = 'none';
-        }
-
-        document.getElementById(`carrossel${carrossel}`).style.display = 'block';
+  function avancar() {
+    if (carrossel < carrosselTotal) {
+      carrossel++;
+    } else {
+      carrossel = 1;
     }
+    mostrarImagem();
+  }
 
-    function avancar() {
-        if (carrossel < carrosselTotal) {
-            carrossel++;
-        } else {
-            carrossel = 1;
-        }
-        mostrarImagem();
+  function voltar() {
+    if (carrossel == 1) {
+      carrossel = carrosselTotal;
+    } else {
+      carrossel--;
     }
-
-    function voltar() {
-        if (carrossel == 1) {
-            carrossel = carrosselTotal;
-        } else {
-            carrossel--;
-        }
-        mostrarImagem()
-    }
+    mostrarImagem()
+  }
 </script>
